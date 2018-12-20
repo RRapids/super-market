@@ -11,7 +11,7 @@ public class LoginApp extends Application {
         //加载布局文件
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
         Parent root = fxmlLoader.load();
-        //给舞台设置标题1
+        //给舞台设置标题
         primaryStage.setTitle("后台收银系统登录");
         //创建场景
         Scene scene = new Scene(root,500,400);
