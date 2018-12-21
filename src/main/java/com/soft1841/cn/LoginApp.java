@@ -14,7 +14,7 @@ public class LoginApp extends Application {
         //给舞台设置标题
         primaryStage.setTitle("后台收银系统登录");
         //创建场景
-        Scene scene = new Scene(root,500,400);
+        Scene scene = new Scene(root,608,446);
         //读入样式文件
         scene.getStylesheets().add("/css/loginStyle.css");
         //场景加入舞台
