@@ -1,73 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<<<<<<< HEAD
-<AnchorPane prefHeight="397.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.supermakert.controller.Controller">
-    <children>
-        <ImageView fitHeight="394.0" fitWidth="573.0" layoutX="3.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/a (2).jpg" />
-            </image>
-        </ImageView>
-        <TextField layoutX="271.0" layoutY="170.0" text="      |请输入账户" />
-        <PasswordField layoutX="271.0" layoutY="242.0" />
-        <Label layoutX="161.0" layoutY="172.0" text="账户" textFill="WHITE">
-            <font>
-                <Font size="19.0" />
-            </font>
-        </Label>
-        <Label layoutX="161.0" layoutY="242.0" text="密码" textFill="WHITE">
-            <font>
-                <Font size="19.0" />
-            </font>
-        </Label>
-        <Button layoutX="252.0" layoutY="311.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" styleClass="bule-theme" stylesheets="@../../../../../bookkmanage/src/resources/css/style.css" text="登录">
-            <font>
-                <Font size="16.0" />
-            </font>
-        </Button>
-        <ImageView fitHeight="106.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/shoppingcar.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-        <Label layoutX="161.0" layoutY="43.0" prefHeight="44.0" prefWidth="289.0" text="苍蓝星超市欢迎你" textFill="#5cc4d7">
-            <font>
-                <Font size="34.0" />
-            </font>
-        </Label>
-        <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="269.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/suo.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="272.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/see user o (2).png" />
-            </image>
-        </ImageView>
-        <Label layoutX="300.0" layoutY="247.0" prefHeight="20.0" prefWidth="85.0" text="|请输入密码" />
-        <RadioButton layoutX="152.0" layoutY="106.0" mnemonicParsing="false" text="收银员" textFill="WHITE">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </RadioButton>
-        <RadioButton layoutX="337.0" layoutY="106.0" mnemonicParsing="false" text="管理员" textFill="WHITE">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </RadioButton>
-    </children>
-</AnchorPane>
-=======
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
@@ -105,4 +35,4 @@
             <Button layoutX="394.0" layoutY="310.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="103.0" style="-fx-background-color: #BC5A44;" text="退出" textFill="#f5ebeb" />
         </children>
     </AnchorPane>
->>>>>>> origin/master
+
