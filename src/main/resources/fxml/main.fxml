@@ -38,7 +38,7 @@
             </image>
         </ImageView>
         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-        <Label layoutX="161.0" layoutY="43.0" prefHeight="44.0" prefWidth="289.0" text="苍蓝星超市欢迎你" textFill="#5cc4d7">
+        <Label layoutX="161.0" layoutY="43.0" prefHeight="44.0" prefWidth="289.0" text="欢迎来到苍蓝星超市" textFill="#5cc4d7">
             <font>
                 <Font size="34.0" />
             </font>
