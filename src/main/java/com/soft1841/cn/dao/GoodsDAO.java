@@ -18,14 +18,14 @@ public interface GoodsDAO {
      *
      * @param goods
      */
-    void insertGoods(Goods goods) throws SQLException;
+    int insertGoods(Goods goods) throws SQLException;
 
     /**
      * 根据id删除商品
      *
      * @param id
      */
-    void deleteGoodsByID(int id) throws SQLException;
+    int deleteGoodsByID(int id) throws SQLException;
 
     /**
      * 根据id查询商品
