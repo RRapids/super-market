@@ -2,7 +2,7 @@ package com.soft1841.cn.dao;
 
 import com.soft1841.cn.entity.Type;
 
-import javax.swing.text.html.parser.Entity;
+import cn.hutool.db.Entity;
 import java.sql.SQLException;
 import java.util.List;
 

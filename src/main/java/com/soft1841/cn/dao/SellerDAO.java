@@ -3,7 +3,7 @@ package com.soft1841.cn.dao;
 import com.soft1841.cn.entity.Seller;
 
 import java.sql.SQLException;
-import java.util.List;
+
 
 public interface SellerDAO {
 
