@@ -187,10 +187,11 @@
 }
 
 /*风琴标题面板背景色*/
-.titled-pane > .title {
-    -fx-background-color:#288472;
-    -fx-padding: 30 10 10 10;
-}
+/*.titled-pane > .title {*/
+    /*-fx-background-color:#288472;*/
+    /*-fx-padding: 30 10 10 10;*/
+/*}*/
+
 .role-name{
     -fx-font-size: 16px;
     -fx-font-weight: bold;

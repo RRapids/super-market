@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -18,8 +19,17 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox alignment="BOTTOM_LEFT" prefHeight="73.0" prefWidth="1026.0" style="-fx-background-color: #43A7BC;;" BorderPane.alignment="CENTER">
+      <HBox alignment="BOTTOM_LEFT" prefHeight="73.0" prefWidth="1026.0" style="-fx-background-color: #43A7BC;" styleClass="new1-theme" BorderPane.alignment="CENTER">
          <children>
+            <ImageView fitHeight="89.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/shoppingcar.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="75.0" prefWidth="182.0" text="苍蓝星超市收银" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
             <Button alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="前台销售" textFill="#060101">
                <opaqueInsets>
                   <Insets right="10.0" />
@@ -36,23 +46,22 @@
                <opaqueInsets>
                   <Insets right="10.0" />
                </opaqueInsets></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="统计">
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="78.0" styleClass="btn-basic" stylesheets="@../css/style.css" text="统计">
                <opaqueInsets>
                   <Insets right="10.0" />
                </opaqueInsets></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="系统设置">
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="97.0" styleClass="btn-basic" stylesheets="@../css/style.css" text="系统设置">
                <opaqueInsets>
                   <Insets right="10.0" />
                </opaqueInsets></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="挂机">
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="85.0" styleClass="btn-basic" stylesheets="@../css/style.css" text="挂机">
                <opaqueInsets>
                   <Insets right="10.0" />
                </opaqueInsets></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="退出">
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="86.0" styleClass="btn-basic" stylesheets="@../css/style.css" text="退出">
                <opaqueInsets>
                   <Insets right="10.0" />
                </opaqueInsets></Button>
-            <Label prefHeight="75.0" prefWidth="195.0" text="苍蓝星超市收银" />
          </children>
       </HBox>
    </top>
@@ -65,13 +74,13 @@
                      <children>
                         <TableView layoutX="-1.0" prefHeight="600.0" prefWidth="1000.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="id" />
-                            <TableColumn prefWidth="75.0" text="商品条码" />
-                              <TableColumn prefWidth="75.0" text="商品名称" />
-                              <TableColumn prefWidth="75.0" text="规格" />
-                              <TableColumn prefWidth="75.0" text="单价" />
-                              <TableColumn prefWidth="75.0" text="数量" />
-                              <TableColumn prefWidth="75.0" text="日期" />
+                            <TableColumn prefWidth="98.0" text="id" />
+                            <TableColumn prefWidth="157.0" text="商品条码" />
+                              <TableColumn prefWidth="167.0" text="商品名称" />
+                              <TableColumn prefWidth="159.0" text="规格" />
+                              <TableColumn prefWidth="151.0" text="单价" />
+                              <TableColumn prefWidth="119.0" text="数量" />
+                              <TableColumn prefWidth="147.0" text="日期" />
                           </columns>
                         </TableView>
                      </children>
@@ -83,7 +92,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextField layoutX="36.0" layoutY="31.0" prefHeight="37.0" prefWidth="253.0" />
-                        <Button layoutX="343.0" layoutY="28.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #43A7BC;;" text="确定" textFill="#6b4949" />
+                        <Button layoutX="343.0" layoutY="28.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" styleClass="btn-basic,new1-theme"  stylesheets="@../css/style.css" text="确定" textFill="#6b4949" />
                         <Label layoutX="36.0" layoutY="87.0" prefHeight="20.0" prefWidth="357.0" text="快捷键：F5 删除商品        F6 修改数量" />
                      </children>
                   </AnchorPane>
@@ -93,10 +102,14 @@
                <children>
                   <TextField layoutX="320.0" layoutY="38.0" />
                   <TextField layoutX="320.0" layoutY="84.0" />
-                  <Button layoutX="838.0" layoutY="83.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="136.0" style="-fx-background-color: #43A7BC;;" text="结 账" textAlignment="CENTER" textFill="#bf1f1f">
+                  <Button layoutX="840.0" layoutY="74.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="136.0" styleClass="new1-theme" stylesheets="@../css/style.css" text="结 账" textAlignment="CENTER" textFill="#bf1f1f">
                      <font>
                         <Font size="25.0" />
-                     </font></Button>
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn-radius-large" />
+                        <String fx:value="btn-basic" />
+                     </styleClass></Button>
                   <Label layoutX="54.0" layoutY="43.0" text="数量：" />
                   <Label layoutX="49.0" layoutY="89.0" text="总价：¥" />
                   <Label layoutX="219.0" layoutY="43.0" text="实际收款：¥" />
@@ -116,4 +129,3 @@
       </HBox>
    </bottom>
 </BorderPane>
-
