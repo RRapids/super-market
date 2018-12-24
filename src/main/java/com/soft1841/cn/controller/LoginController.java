@@ -32,7 +32,7 @@ public class LoginController {
         if(flag){
             alert.setContentText("登录成功!");
             alert.showAndWait();
-        }else {
+        }else{
             alert.setContentText("账号或密码错误，登录失败!");
             alert.showAndWait();
         }

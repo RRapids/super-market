@@ -41,7 +41,8 @@
                 <Font size="19.0" />
             </font>
         </Label>
-        <Button defaultButton="true" layoutX="244.0" layoutY="317.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="73.0" styleClass="bule-theme" stylesheets="/css/style.css" text="登录">
+        <Button defaultButton="true" layoutX="244.0" layoutY="317.0" mnemonicParsing="false"
+                onAction="#login" prefHeight="34.0" prefWidth="73.0" styleClass="bule-theme" stylesheets="/css/style.css" text="登录">
             <font>
                 <Font size="16.0" />
             </font>
