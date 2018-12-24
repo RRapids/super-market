@@ -1,4 +1,8 @@
-# super-market
+####1 技术栈
+- java
+- javafx
+- sql
+####2 
 - 超市
 - 管理
 - 超市收银管理系统
