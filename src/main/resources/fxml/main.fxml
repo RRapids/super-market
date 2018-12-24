@@ -1,9 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.soft1841.cn.controller.MainController">
-
-</BorderPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="112.0" prefWidth="1130.0" styleClass="new1-theme" stylesheets="@../css/style.css">
+         <children>
+            <ImageView fitHeight="112.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/shoppingcar.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="127.0" prefWidth="334.0" text="苍蓝星超市管理" textFill="#f5e8e8">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <SplitPane layoutY="113.0" prefHeight="675.0" prefWidth="217.0">
+         <items>
+            <VBox prefHeight="675.0" prefWidth="230.0" styleClass="new1-theme" stylesheets="@../css/style.css">
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <Accordion />
+                  <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="230.0" text="系统导航" textFill="#cc7339">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Accordion>
+                    <panes>
+                      <TitledPane animated="false" prefHeight="539.0" prefWidth="214.0" text="库存管理">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="722.0" prefWidth="213.0">
+                                 <children>
+                                    <VBox layoutX="-1.0" layoutY="3.0" prefHeight="318.0" prefWidth="215.0" spacing="20.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="210.0" text="商品管理" textAlignment="CENTER" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="209.0" text="商品类别管理" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" prefHeight="616.0" prefWidth="215.0" text="销售管理">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox layoutX="-5.0" prefHeight="328.0" prefWidth="223.0" spacing="20.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="214.0" text="销售数据" textAlignment="CENTER" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="215.0" text="商品销售信息" textAlignment="CENTER" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="218.0" text="总计" textAlignment="CENTER" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="会员管理">
+                           <content>
+                              <VBox prefHeight="508.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="219.0" text="会员信息" textAlignment="CENTER" />
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="219.0" text="数据统计" textAlignment="CENTER" />
+                                 </children>
+                              </VBox>
+                           </content>
+                      </TitledPane>
+                        <TitledPane animated="false" prefHeight="766.0" prefWidth="215.0" text="数据管理">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="201.0" text="库存数据统计" textAlignment="CENTER" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" prefHeight="766.0" prefWidth="215.0" text="系统维护">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="201.0" text="注销" textAlignment="CENTER" />
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="201.0" text="重启" textAlignment="CENTER" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                    </panes>
+                  </Accordion>
+               </children>
+            </VBox>
+         </items>
+      </SplitPane>
+      <Label layoutX="724.0" layoutY="757.0" prefHeight="30.0" prefWidth="112.0" text="日期 ：">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="872.0" layoutY="762.0" prefHeight="24.0" prefWidth="112.0" text="时间 ：">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="141.0" fitWidth="149.0" layoutX="367.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/微信图片_20181224203259.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="159.0" fitWidth="167.0" layoutX="825.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/微信图片_20181224203306.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="242.0" layoutX="523.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/微信图片_20181224204027.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
