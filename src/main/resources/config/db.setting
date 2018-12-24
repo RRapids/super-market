@@ -1,6 +1,6 @@
 ## db.settingÎÄ¼þ
 
-url = jdbc:mysql://localhost:3306/db_book?useUnicode=true&characterEncoding=utf-8
+url = jdbc:mysql://localhost:3306/super_market?useUnicode=true&characterEncoding=utf-8
 user = root
 pass = root
 

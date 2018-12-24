@@ -5,14 +5,17 @@ public class Seller {
     private String number;
     private String name;
     private String password;
-    private String headImage;
+    private String avatar;
 
-    public Seller(Long id, String number, String name, String password, String headImage) {
+    public Seller() {
+    }
+
+    public Seller(Long id, String number, String name, String password, String avatar) {
         this.id = id;
         this.number = number;
         this.name = name;
         this.password = password;
-        this.headImage = headImage;
+        this.avatar = avatar;
     }
 
     public Long getId() {
@@ -47,11 +50,22 @@ public class Seller {
         this.password = password;
     }
 
-    public String getHeadImage() {
-        return headImage;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setHeadImage(String headImage) {
-        this.headImage = headImage;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
     }
 }
