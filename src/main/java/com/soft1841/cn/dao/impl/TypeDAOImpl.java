@@ -13,7 +13,7 @@ public class TypeDAOImpl implements TypeDAO {
     public Long insertType(Type type) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 cn.hutool.db.Entity.create("t_type")
-                        .set("type_name", type.getTypeName())
+                        .set("name", type.getTypeName())
         );
     }
 

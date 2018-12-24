@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 
-import static org.junit.Assert.*;
 
 public class TypeDAOTest {
     private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
