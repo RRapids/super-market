@@ -1,5 +1,7 @@
 package com.soft1841.cn.controller;
 
+import com.soft1841.cn.service.SellerService;
+import com.soft1841.cn.utils.ServiceFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,48 +20,21 @@ public class LoginController {
     @FXML
     private ToggleGroup user;
 
+    private SellerService sellerService = ServiceFactory.getSellerServiceInstance();
+
     public void login() throws Exception {
         String account = accountField.getText().trim();
         String password = passwordField.getText().trim();
-        if (user.getSelectedToggle().getUserData() == null) {
-            if ("2233".equals(account) && "123".equals(password)) {
-                //读入主布局文件
-                Stage mainStage = new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/cashier.fxml"));
-                BorderPane root = fxmlLoader.load();
-                Scene scene = new Scene(root);
-                scene.getStylesheets().add("/css/style.css");
-                mainStage.setTitle("收银系统");
-                mainStage.setMaximized(true);
-                mainStage.setScene(scene);
-                mainStage.show();
-                Stage loginStage = (Stage) accountField.getScene().getWindow();
-                loginStage.close();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("提示");
-                alert.setContentText("账号或密码错误，登录失败!");
-                alert.showAndWait();
-            }
-        } else {
-            if ("7987".equals(account) && "123".equals(password)) {
-                Stage mainStage = new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
-                BorderPane root = fxmlLoader.load();
-                Scene scene = new Scene(root);
-                scene.getStylesheets().add("/css/style.css");
-                mainStage.setTitle("收银管理系统");
-                mainStage.setMaximized(true);
-                mainStage.setScene(scene);
-                mainStage.show();
-                Stage loginStage = (Stage) accountField.getScene().getWindow();
-                loginStage.close();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("提示");
-                alert.setContentText("账号或密码错误，登录失败!");
-                alert.showAndWait();
-            }
+        //调用service的登录 功能
+        boolean flag = sellerService.login(account,password);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("提示");
+        if(flag){
+            alert.setContentText("登录成功!");
+            alert.showAndWait();
+        }else {
+            alert.setContentText("账号或密码错误，登录失败!");
+            alert.showAndWait();
         }
     }
 }
