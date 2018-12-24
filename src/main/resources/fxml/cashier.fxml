@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <HBox prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -64,7 +63,7 @@
                <children>
                   <TextField layoutX="320.0" layoutY="29.0" />
                   <TextField layoutX="320.0" layoutY="67.0" />
-                  <Button layoutX="520.0" layoutY="48.0" mnemonicParsing="false" text="结账" />
+                  <Button layoutX="503.0" layoutY="48.0" mnemonicParsing="false" text="结账" />
                   <Label layoutX="53.0" layoutY="33.0" text="数量：" />
                   <Label layoutX="53.0" layoutY="64.0" text="总价：¥" />
                   <Label layoutX="227.0" layoutY="33.0" text="实际收款：¥" />
