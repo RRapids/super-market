@@ -9,7 +9,7 @@ import com.soft1841.cn.utils.DAOFactory;
 import java.sql.SQLException;
 
 public class AdminServiceImpl implements AdminService {
-    private AdminDAO adminDAO = (AdminDAO) DAOFactory.getAdminDAOInstance();
+    private AdminDAO adminDAO =DAOFactory.getAdminDAOInstance();
 
     @Override
     public boolean login(String number, String password) {

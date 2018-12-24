@@ -1,5 +1,6 @@
 package com.soft1841.cn.controller;
 
+import com.soft1841.cn.service.AdminService;
 import com.soft1841.cn.service.SellerService;
 import com.soft1841.cn.utils.ServiceFactory;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ public class LoginController {
     private ToggleGroup user;
 
     private SellerService sellerService = ServiceFactory.getSellerServiceInstance();
+    private AdminService adminService = ServiceFactory.getAdminServiceInstance();
 
     public void login() throws Exception {
         String account = accountField.getText().trim();
