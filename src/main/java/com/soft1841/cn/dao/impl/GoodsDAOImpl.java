@@ -43,7 +43,14 @@ public class GoodsDAOImpl implements GoodsDAO {
 
     @Override
     public int updateGoods(Goods goods) throws SQLException {
-        return 0;
+        return Db.use().update(
+                Entity.create().set("price",goods.getPrice())
+                .set("avatar",goods.getAvatar())
+                .set("quantity",goods.getQuantity())
+                .set("description",goods.getDescription())
+                .set("barCode",goods.getBarCode()),
+                Entity.create("t_goods").set("id",goods.getId())
+        );
 
     }
 }
