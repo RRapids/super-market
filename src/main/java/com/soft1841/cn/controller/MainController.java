@@ -13,6 +13,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 public class MainController{
     @FXML
@@ -43,7 +46,7 @@ public class MainController{
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
-
+    //封装一个切换视图的方法：用来根据fxml文件切换视图内容
     private void switchView(String fileName) throws Exception {
         //清除主面板之前内容
         ObservableList<Node> list = mainContainer.getChildren();

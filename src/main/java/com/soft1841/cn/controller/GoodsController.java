@@ -2,7 +2,6 @@ package com.soft1841.cn.controller;
 
 import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.GoodsDAO;
-import com.soft1841.cn.entity.Goods;
 import com.soft1841.cn.utils.DAOFactory;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -33,7 +32,8 @@ public class GoodsController implements Initializable {
     private FlowPane goodsPane;
 
     private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
-    List<Entity> goodsList = new ArrayList<>();
+
+    private List<Entity> goodsList = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -118,5 +118,6 @@ public class GoodsController implements Initializable {
             goodsPane.getChildren().add(hBox);
         }
     }
+
 }
 
