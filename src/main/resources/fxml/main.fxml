@@ -12,7 +12,8 @@
             fx:controller="com.soft1841.cn.controller.MainController">
     <!--顶部的logo-->
     <top>
-        <AnchorPane>
+        <AnchorPane styleClass="new1-theme"
+                    stylesheets="@../css/style.css">
             <HBox prefHeight="126.0" prefWidth="1096.0" styleClass="new1-theme"
                   stylesheets="/css/style.css" BorderPane.alignment="CENTER"
                   onMouseClicked="#listDefault"
