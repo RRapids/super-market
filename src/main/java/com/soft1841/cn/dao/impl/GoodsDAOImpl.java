@@ -19,31 +19,41 @@ public class GoodsDAOImpl implements GoodsDAO {
     public Long insertGoods(Goods goods) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 cn.hutool.db.Entity.create("t_goods")
-                .set("name",goods.getName())
-                .set("typeID",goods.getTypeID())
-                .set("barCode",goods.getBarCode())
-                .set("price",goods.getPrice())
-                .set("avatar",goods.getAvatar())
-                .set("quantity",goods.getQuantity())
-                .set("description",goods.getDescription())
+                        .set("name", goods.getName())
+                        .set("typeID", goods.getTypeID())
+                        .set("barCode", goods.getBarCode())
+                        .set("price", goods.getPrice())
+                        .set("avatar", goods.getAvatar())
+                        .set("quantity", goods.getQuantity())
+                        .set("description", goods.getDescription())
         );
     }
 
     @Override
     public int deleteGoodsByID(int id) throws SQLException {
         return Db.use().del(
-                cn.hutool.db.Entity.create("t_goods").set("id",id)
+                cn.hutool.db.Entity.create("t_goods").set("id", id)
         );
     }
 
     @Override
     public Entity getGoodsById(int id) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_goods WHERE id = ?",id);
+        return Db.use().queryOne("SELECT * FROM t_goods WHERE id = ?", id);
     }
 
     @Override
     public int updateGoods(Goods goods) throws SQLException {
-        return 0;
+        return Db.use().update(
+                Entity.create().set("name", goods.getName())
+                        .set("typeID", goods.getTypeID())
+                        .set("barCode", goods.getBarCode())
+                        .set("price", goods.getPrice())
+                        .set("picture", goods.getAvatar())
+                        .set("quantity", goods.getQuantity())
+                        .set("description", goods.getDescription()),
+                Entity.create("t_goods").set("id", goods.getId())
+
+        );
 
     }
 }
