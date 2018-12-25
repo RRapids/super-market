@@ -44,4 +44,14 @@ public class Detail {
     public void setNumber(String number) {
         this.number = number;
     }
+
+    @Override
+    public String toString() {
+        return "Detail{" +
+                "id=" + id +
+                ", ticketID=" + ticketID +
+                ", barCode='" + barCode + '\'' +
+                ", number='" + number + '\'' +
+                '}';
+    }
 }

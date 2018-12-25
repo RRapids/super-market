@@ -28,7 +28,7 @@ public class LoginController {
         String account = accountField.getText().trim();
         String password = passwordField.getText().trim();
         if (user.getSelectedToggle().getUserData() == null) {
-            //调用service的登录 功能
+            //调用service的登录功能
             boolean flag = sellerService.login(account, password);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("提示");

@@ -4,7 +4,9 @@ import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.SellerDAO;
 import com.soft1841.cn.entity.Seller;
-
+/**
+ * 收银员
+ */
 import java.sql.SQLException;
 import java.util.List;
 
