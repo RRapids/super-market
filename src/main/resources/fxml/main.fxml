@@ -13,7 +13,7 @@
       <HBox prefHeight="126.0" prefWidth="1096.0" styleClass="new1-theme" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
                   <ImageView fitHeight="126.0" fitWidth="129.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/shoppingcar.png" />
+                        <Image url="@../img/shoppingCar.png" />
                      </image>
                   </ImageView>
                   <Label contentDisplay="CENTER" prefHeight="135.0" prefWidth="356.0" text="苍蓝星超市管理" textAlignment="CENTER" textFill="#e4d7d7">
