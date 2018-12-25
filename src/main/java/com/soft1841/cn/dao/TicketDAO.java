@@ -11,7 +11,7 @@ public interface TicketDAO {
      * 查所有
      * @return
      */
-    List<Detail> getAllTicket() throws SQLException;
+    List<Entity> getAllTicket() throws SQLException;
 
     /**
      * 根据id查询类别信息

@@ -1,5 +1,6 @@
 package com.soft1841.cn.dao;
 
+import cn.hutool.db.Entity;
 import com.soft1841.cn.entity.Goods;
 
 import java.sql.SQLException;
@@ -11,14 +12,14 @@ public interface GoodsDAO {
      *
      * @return
      */
-    List<Goods> getAllGoods() throws SQLException;
+    List<Entity> getAllGoods() throws SQLException;
 
     /**
      * 新增商品
      *
      * @param goods
      */
-    int insertGoods(Goods goods) throws SQLException;
+    Long insertGoods(Goods goods) throws SQLException;
 
     /**
      * 根据id删除商品
@@ -32,7 +33,7 @@ public interface GoodsDAO {
      * @param id
      * @return
      */
-    Goods getGoodsById(int id) throws SQLException;
+    Entity getGoodsById(int id) throws SQLException;
 
     /**
      * 修改商品信息

@@ -9,6 +9,7 @@ public class ServiceFactory {
     public static SellerService getSellerServiceInstance() {
         return new SellerServiceImpl();
     }
-    public static AdminService getAdminServiceInstance(){return new AdminServiceImpl();}
+    public static AdminService getAdminServiceInstance(){
+        return new AdminServiceImpl();}
     }
 

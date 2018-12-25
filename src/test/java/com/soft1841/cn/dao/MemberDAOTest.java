@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.sql.SQLException;
 
 public class MemberDAOTest {
-    private MemberDAO memberDAO = DAOFactory.getMamberDAOInstance();
+    private MemberDAO memberDAO = DAOFactory.getMemberDAOInstance();
 
     @Test
     public void insertMember() throws SQLException{

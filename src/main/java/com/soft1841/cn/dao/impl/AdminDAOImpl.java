@@ -1,4 +1,7 @@
 package com.soft1841.cn.dao.impl;
+/**
+ * 管理员
+ */
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
