@@ -13,6 +13,7 @@ import java.sql.SQLException;
  */
 public class AdminDAOTest {
     private AdminDAO adminDAO = (AdminDAO) DAOFactory.getAdminDAOInstance();
+
     @Test
     public void getAdminByNumber() throws SQLException {
         Admin admin = adminDAO.getAdminByNumber("2649794");
