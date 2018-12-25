@@ -30,8 +30,8 @@ public interface TypeDAO {
 
     /**
      * 根据id查询类别信息
-     * @param id
+     * @param name
      * @return
      */
-    Entity getTypeById(int id) throws SQLException;
+    Entity getTypeByName(String name) throws SQLException;
 }

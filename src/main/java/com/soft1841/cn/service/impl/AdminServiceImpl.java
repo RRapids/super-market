@@ -18,6 +18,8 @@ public class AdminServiceImpl implements AdminService {
             admin = adminDAO.getAdminByNumber(number);
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (NullPointerException e){
+
         }
         //根据工号查找成功
         if (admin != null) {

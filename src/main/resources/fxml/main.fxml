@@ -153,22 +153,14 @@
       <Insets top="-10.0" />
    </padding>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="94.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/微信图片_20181224203259.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="132.0" fitWidth="258.0" layoutX="224.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/微信图片_20181224204027.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="111.0" fitWidth="106.0" layoutX="553.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/微信图片_20181224203306.jpg" />
-               </image>
-            </ImageView>
-      </AnchorPane>
+       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="default-theme">
+           <StackPane fx:id="mainContainer" minWidth="1060">
+               <fx:include source="type.fxml"/>
+               <padding>
+                   <Insets top="10" left="30" bottom="5" right="10"/>
+               </padding>
+           </StackPane>
+       </ScrollPane>
+
    </center>
 </BorderPane>

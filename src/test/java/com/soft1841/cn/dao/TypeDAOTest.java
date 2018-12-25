@@ -33,7 +33,7 @@ public class TypeDAOTest {
 
     @Test
     public void getTypeById() throws SQLException {
-        Entity entity = typeDAO.getTypeById(1);
+        Entity entity = typeDAO.getTypeByName("食品类");
         System.out.println(entity);
     }
 }

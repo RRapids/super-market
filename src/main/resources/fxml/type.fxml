@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -11,7 +8,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.soft1841.cn.controller.TypeController">
     <HBox AnchorPane.topAnchor="10" AnchorPane.leftAnchor="20" spacing="20">
-        <Button text="添加图书类别" styleClass="green-theme" onAction="#addType"/>
+        <Button text="添加商品类别" styleClass="green-theme" onAction="#addType"/>
     </HBox>
     <!--表格试图，用来显示数据库中查询到的图书类别-->
     <TableView fx:id="typeTable" prefWidth="700"
@@ -22,6 +19,12 @@
                 <!--绑定实体类中的id属性-->
                 <cellValueFactory>
                     <PropertyValueFactory property="id"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="图片">
+                <!--绑定实体类中的id属性-->
+                <cellValueFactory>
+                    <PropertyValueFactory property="picture"/>
                 </cellValueFactory>
             </TableColumn>
             <!--类别名称列-->
