@@ -17,7 +17,7 @@ public class DAOFactory {
 
     public static AdminDAO getAdminDAOInstance() { return new AdminDAOImpl(); }
 
-    public static MemberDAO getMemberDAOInstance() { return new MemberDAOImpl(); }
+    public static MemberDAO getMamberDAOInstance() { return new MemberDAOImpl(); }
 
     public static DetailDAO getDetailDAOInstance(){return new DetailDAOImpl();}
 }

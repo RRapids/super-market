@@ -6,7 +6,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="801.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="801.0" prefWidth="1096.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <!--顶部的logo-->
     <top>
       <HBox prefHeight="126.0" prefWidth="1096.0" styleClass="new1-theme" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
@@ -30,20 +31,25 @@
                <content>
                   <Accordion styleClass="new1-theme">
                     <panes>
-                      <TitledPane animated="false" text="商品类别管理" prefHeight="200" prefWidth="400">
+                      <TitledPane animated="false" text="商品管理" prefHeight="300" prefWidth="400">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <VBox  prefHeight="200" prefWidth="400" spacing="20.0">
-                                          <Button mnemonicParsing="false" prefHeight="50" prefWidth="350" text="商品查询">
+                                    <VBox  prefHeight="300" prefWidth="400" spacing="20.0">
+                                          <Button mnemonicParsing="false" prefHeight="50" prefWidth="350" text="商品类别">
                                              <VBox.margin>
                                                 <Insets left="20.0" top="10.0" />
                                              </VBox.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="50" prefWidth="350" text="商品信息更改">
+                                          <Button mnemonicParsing="false" prefHeight="50" prefWidth="350" text="商品查询">
                                              <VBox.margin>
                                                 <Insets left="20.0" />
                                              </VBox.margin>
                                           </Button>
+                                        <Button mnemonicParsing="false" prefHeight="50" prefWidth="350" text="商品信息更改">
+                                            <VBox.margin>
+                                                <Insets left="20.0"  />
+                                            </VBox.margin>
+                                        </Button>
                                     </VBox>
                               </AnchorPane>
                         </content>
