@@ -15,10 +15,20 @@ public class DAOFactory {
         return new TypeDAOImpl();
     }
 
-    public static AdminDAO getAdminDAOInstance() { return new AdminDAOImpl(); }
+    public static AdminDAO getAdminDAOInstance() {
+        return new AdminDAOImpl();
+    }
 
-    public static MemberDAO getMamberDAOInstance() { return new MemberDAOImpl(); }
+    public static MemberDAO getMemberDAOInstance() {
+        return new MemberDAOImpl();
+    }
 
-    public static DetailDAO getDetailDAOInstance(){return new DetailDAOImpl();}
+    public static DetailDAO getDetailDAOInstance() {
+        return new DetailDAOImpl();
+    }
+
+    public static GoodsDAO getGoodsDAOInstance() {
+        return new GoodsDAOImpl();
+    }
 }
 
