@@ -32,6 +32,9 @@ public class MainController implements Initializable {
     public void listType() throws Exception {
         switchView("type.fxml");
     }
+    public void listGoods() throws Exception{
+        switchView("goods.fxml");
+    }
 
 
 }

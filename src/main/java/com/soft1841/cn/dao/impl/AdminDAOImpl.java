@@ -10,6 +10,10 @@ import com.soft1841.cn.entity.Admin;
 
 import java.sql.SQLException;
 
+/**
+ * 管理员DAO
+ * @author 袁腾飞
+ */
 public class AdminDAOImpl implements AdminDAO {
 
     @Override

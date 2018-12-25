@@ -6,6 +6,11 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 
+/**
+ * 会员DAO测试类
+ * @author 汤越
+ * 2018.12.25
+ */
 public class MemberDAOTest {
     private MemberDAO memberDAO = DAOFactory.getMemberDAOInstance();
 

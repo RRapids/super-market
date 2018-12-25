@@ -7,7 +7,10 @@ import com.soft1841.cn.entity.Detail;
 
 import java.sql.SQLException;
 import java.util.List;
-
+/**
+ * 小票明细DAO
+ * @author 汤越
+ */
 public class DetailDAOImpl implements DetailDAO {
     @Override
     public List<Entity> getAllDetails() throws SQLException {

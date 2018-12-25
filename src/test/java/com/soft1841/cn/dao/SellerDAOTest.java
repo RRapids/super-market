@@ -11,6 +11,11 @@ import static org.junit.Assert.*;
 public class SellerDAOTest {
     private SellerDAO sellerDAO = DAOFactory.getSellerDAOInstance();
 
+    /**
+     * 收银员测试类
+     * @throws SQLException
+     * 2018.12.25
+     */
     @Test
     public void getSellerByNumber()throws SQLException {
         Seller seller = sellerDAO.getSellerByNumber("184128");

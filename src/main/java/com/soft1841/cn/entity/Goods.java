@@ -1,8 +1,8 @@
 package com.soft1841.cn.entity;
 
 public class Goods {
-    private Long id;
-    private Long typeID;
+    private long id;
+    private long typeID;
     private String barCode;
     private String name;
     private String price;
@@ -11,7 +11,7 @@ public class Goods {
     private String description;
 
 
-    public Goods(Long id, Long typeID, String barCode, String name, String price, String avatar, String quantity, String description) {
+    public Goods(long id, long typeID, String barCode, String name, String price, String avatar, String quantity, String description) {
         this.id = id;
         this.typeID = typeID;
         this.barCode = barCode;
@@ -22,19 +22,19 @@ public class Goods {
         this.description = description;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getTypeID() {
+    public long getTypeID() {
         return typeID;
     }
 
-    public void setTypeID(Long typeID) {
+    public void setTypeID(long typeID) {
         this.typeID = typeID;
     }
 

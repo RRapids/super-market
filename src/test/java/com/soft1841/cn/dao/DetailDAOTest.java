@@ -6,7 +6,11 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 
-
+/**
+ * 小票明细测试
+ * @author 汤越
+ * 2018.12.25
+ */
 public class DetailDAOTest {
     private DetailDAO detailDAO = DAOFactory.getDetailDAOInstance();
 

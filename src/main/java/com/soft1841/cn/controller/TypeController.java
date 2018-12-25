@@ -98,7 +98,6 @@ public class TypeController implements Initializable {
         dialog.setHeaderText("新增商品类别");
         dialog.setContentText("请输入商品类别名称:");
         Optional<String> result1 = dialog.showAndWait();
-//        result.ifPresent(name -> System.out.println("你的输入： " + name));
         //确认输入了内容
         if (result1.isPresent()) {
             //获得输入的内容

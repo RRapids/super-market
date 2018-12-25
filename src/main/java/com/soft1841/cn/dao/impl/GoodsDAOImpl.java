@@ -7,7 +7,10 @@ import com.soft1841.cn.entity.Goods;
 
 import java.sql.SQLException;
 import java.util.List;
-
+/**
+ * 商品DAO
+ * @author 袁腾飞
+ */
 public class GoodsDAOImpl implements GoodsDAO {
 
     @Override
@@ -29,8 +32,9 @@ public class GoodsDAOImpl implements GoodsDAO {
         );
     }
 
+
     @Override
-    public int deleteGoodsByID(int id) throws SQLException {
+    public int deleteGoodsByID(long id) throws SQLException {
         return Db.use().del(
                 cn.hutool.db.Entity.create("t_goods").set("id",id)
         );

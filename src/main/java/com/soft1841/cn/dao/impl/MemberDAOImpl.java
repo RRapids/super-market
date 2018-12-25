@@ -10,7 +10,10 @@ import com.soft1841.cn.entity.Member;
 
 import java.sql.SQLException;
 import java.util.List;
-
+/**
+ * 会员DAO
+ * @author 汤越
+ */
 public class MemberDAOImpl implements MemberDAO {
     @Override
     public Long insertMember(Member member) throws SQLException {

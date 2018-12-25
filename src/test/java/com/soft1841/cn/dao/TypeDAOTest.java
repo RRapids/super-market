@@ -8,7 +8,11 @@ import org.junit.Test;
 import java.sql.SQLException;
 import java.util.List;
 
-
+/**
+ * 类型测试类
+ * @author 袁腾飞
+ * 2018.12.25
+ */
 public class TypeDAOTest {
     private TypeDAO typeDAO = DAOFactory.getTypeDAOInstance();
 

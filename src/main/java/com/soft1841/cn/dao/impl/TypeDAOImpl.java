@@ -10,7 +10,10 @@ import cn.hutool.db.Entity;
 
 import java.sql.SQLException;
 import java.util.List;
-
+/**
+ * 类型DAO
+ * @author 袁腾飞
+ */
 public class TypeDAOImpl implements TypeDAO {
     @Override
     public Long insertType(Type type) throws SQLException {

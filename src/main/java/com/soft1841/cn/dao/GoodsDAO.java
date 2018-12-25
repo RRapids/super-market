@@ -26,7 +26,7 @@ public interface GoodsDAO {
      *
      * @param id
      */
-    int deleteGoodsByID(int id) throws SQLException;
+    int deleteGoodsByID(long id) throws SQLException;
 
     /**
      * 根据id查询商品

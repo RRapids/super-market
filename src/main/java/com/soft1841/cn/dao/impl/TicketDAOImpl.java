@@ -1,8 +1,4 @@
 package com.soft1841.cn.dao.impl;
-/**
- * 小票
- */
-
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.TicketDAO;
@@ -10,7 +6,10 @@ import com.soft1841.cn.entity.Detail;
 
 import java.sql.SQLException;
 import java.util.List;
-
+/**
+ * 小票DAO
+ * @author 汤越
+ */
 public class TicketDAOImpl implements TicketDAO {
 
     @Override

@@ -6,6 +6,11 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 
+/**
+ * 管理员测试类
+ * @author 袁腾飞
+ * 2018.12.25
+ */
 public class AdminDAOTest {
     private AdminDAO adminDAO = (AdminDAO) DAOFactory.getAdminDAOInstance();
     @Test
