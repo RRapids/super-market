@@ -13,6 +13,9 @@ public class Detail {
         this.number = number;
     }
 
+    public Detail() {
+    }
+
     public Long getId() {
         return id;
     }

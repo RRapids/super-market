@@ -1,13 +1,7 @@
 package com.soft1841.cn.utils;
 
-import com.soft1841.cn.dao.AdminDAO;
-import com.soft1841.cn.dao.MemberDAO;
-import com.soft1841.cn.dao.SellerDAO;
-import com.soft1841.cn.dao.TypeDAO;
-import com.soft1841.cn.dao.impl.AdminDAOImpl;
-import com.soft1841.cn.dao.impl.MemberDAOImpl;
-import com.soft1841.cn.dao.impl.SellerDAOImpl;
-import com.soft1841.cn.dao.impl.TypeDAOImpl;
+import com.soft1841.cn.dao.*;
+import com.soft1841.cn.dao.impl.*;
 
 /**
  * DAO工厂类
@@ -24,5 +18,7 @@ public class DAOFactory {
     public static AdminDAO getAdminDAOInstance() { return new AdminDAOImpl(); }
 
     public static MemberDAO getMamberDAOInstance() { return new MemberDAOImpl(); }
+
+    public static DetailDAO getDetailDAOInstance(){return new DetailDAOImpl();}
 }
 
