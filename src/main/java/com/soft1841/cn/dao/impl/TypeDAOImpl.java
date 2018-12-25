@@ -1,4 +1,7 @@
 package com.soft1841.cn.dao.impl;
+/**
+ * 类型
+ */
 
 import cn.hutool.db.Db;
 import com.soft1841.cn.dao.TypeDAO;
