@@ -84,7 +84,6 @@ public class TypeController implements Initializable {
             Type type = new Type();
             type.setId(entity.getInt("id"));
             type.setTypeName(entity.getStr("name"));
-//            type.setPicture(entity.getStr("picture"));
             //加入ObservableList模型数据集合
             typeData.add(type);
         }

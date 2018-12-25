@@ -21,12 +21,6 @@
                     <PropertyValueFactory property="id"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="图片">
-                <!--绑定实体类中的id属性-->
-                <cellValueFactory>
-                    <PropertyValueFactory property="picture"/>
-                </cellValueFactory>
-            </TableColumn>
             <!--类别名称列-->
             <TableColumn text="类别名称">
                 <!--绑定实体类中的typeName属性-->
