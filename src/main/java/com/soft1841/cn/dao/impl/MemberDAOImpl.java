@@ -15,23 +15,27 @@ public class MemberDAOImpl implements MemberDAO {
     @Override
     public Long insertMember(Member member) throws SQLException {
         return Db.use().insertForGeneratedKey(
-                Entity.create("t_type")
+                Entity.create("t_member")
                         .set("name", member.getName())
+                        .set("address", member.getAddress())
+                        .set("phnoe_number", member.getPhone())
         );
     }
 
     @Override
     public int deleteMemberById(long id) throws SQLException {
-        return 0;
+        return Db.use().del(
+                cn.hutool.db.Entity.create("t_member").set("id", id)
+        );
     }
 
     @Override
     public List<Entity> selectAllMember() throws SQLException {
-        return null;
+        return Db.use().query("SELECT * FROM t_member ");
     }
 
     @Override
     public Entity getMemberById(int id) throws SQLException {
-        return null;
+        return Db.use().queryOne("SELECT * FROM t_member WHERE id = ? ", id);
     }
 }
