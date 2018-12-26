@@ -3,13 +3,13 @@ package com.soft1841.cn.entity;
 import java.util.Date;
 
 public class Ticket {
-    private Long id;
-    private String sellerID;
-    private String memberID;
+    private long id;
+    private long sellerID;
+    private long memberID;
     private Date collectDate;
     private String total;
 
-    public Ticket(Long id, String sellerID, String memberID, Date collectDate, String total) {
+    public Ticket(long id, long sellerID, long memberID, Date collectDate, String total) {
         this.id = id;
         this.sellerID = sellerID;
         this.memberID = memberID;
@@ -21,27 +21,27 @@ public class Ticket {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getSellerID() {
+    public long getSellerID() {
         return sellerID;
     }
 
-    public void setSellerID(String sellerID) {
+    public void setSellerID(long sellerID) {
         this.sellerID = sellerID;
     }
 
-    public String getMemberID() {
+    public long getMemberID() {
         return memberID;
     }
 
-    public void setMemberID(String memberID) {
+    public void setMemberID(long memberID) {
         this.memberID = memberID;
     }
 

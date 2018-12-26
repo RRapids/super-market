@@ -29,7 +29,7 @@ public class TypeDAOImpl implements TypeDAO {
     @Override
     public int deleteTypeById(long id) throws SQLException {
         return Db.use().del(
-                Entity.create("t_type").set("id", id)
+                Entity.create("t_type").set("type_id", id)
         );
     }
 
@@ -51,7 +51,7 @@ public class TypeDAOImpl implements TypeDAO {
     @Override
     public Type getTypeById(long id) throws SQLException {
         //采用自定义带参查询语句，返回单个实体
-        Entity entity = Db.use().queryOne("SELECT * FROM t_type WHERE id = ? ", id);
+        Entity entity = Db.use().queryOne("SELECT * FROM t_type WHERE type_id = ? ", id);
         //将Entity转换为Type类型返回
         return convertType(entity);
     }
@@ -65,7 +65,7 @@ public class TypeDAOImpl implements TypeDAO {
      */
     private Type convertType(Entity entity) {
         Type type = new Type();
-        type.setId(entity.getLong("id"));
+        type.setId(entity.getLong("type_id"));
         type.setTypeName(entity.getStr("name"));
         return type;
     }

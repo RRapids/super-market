@@ -18,7 +18,7 @@ public interface TicketDAO {
      * @param id
      * @return
      */
-    Entity getTicketById(int id) throws SQLException;
+    Entity getTicketById(long id) throws SQLException;
 
     /**
      * 新增类别, 返回自增主键(Long)

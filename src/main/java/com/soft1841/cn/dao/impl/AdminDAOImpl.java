@@ -22,7 +22,7 @@ public class AdminDAOImpl implements AdminDAO {
         return convertAdmin(entity);
     }
     private Admin convertAdmin(Entity entity){
-        Admin admin = new Admin(entity.getLong("id"),entity.getStr("name"),entity.getStr("avatar"),entity.getStr("password"),entity.getStr("number"));
+        Admin admin = new Admin(entity.getLong("admin_id"),entity.getStr("name"),entity.getStr("avatar"),entity.getStr("password"),entity.getStr("number"));
         return admin;
     }
 }

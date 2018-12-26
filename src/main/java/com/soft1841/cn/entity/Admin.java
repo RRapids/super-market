@@ -10,7 +10,7 @@ public class Admin {
     public Admin(){
     }
 
-    public Admin(Long id, String name, String avatar, String password, String number) {
+    public Admin(long id, String name, String avatar, String password, String number) {
         this.id = id;
         this.name = name;
         this.avatar = avatar;
@@ -18,15 +18,15 @@ public class Admin {
         this.number = number;
     }
 
-    public Admin(Long id, String number) {
+    public Admin(long id, String number) {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -1,12 +1,12 @@
 package com.soft1841.cn.entity;
 
 public class Detail {
-    private Long id;
-    private Long ticketID;
+    private long id;
+    private long ticketID;
     private String barCode;
     private String number;
 
-    public Detail(Long id, Long ticketID, String barCode, String number) {
+    public Detail(long id, long ticketID, String barCode, String number) {
         this.id = id;
         this.ticketID = ticketID;
         this.barCode = barCode;
@@ -16,19 +16,19 @@ public class Detail {
     public Detail() {
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getTicketID() {
+    public long getTicketID() {
         return ticketID;
     }
 
-    public void setTicketID(Long ticketID) {
+    public void setTicketID(long ticketID) {
         this.ticketID = ticketID;
     }
 

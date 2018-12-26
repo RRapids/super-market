@@ -18,9 +18,9 @@ public class DetailDAOImpl implements DetailDAO {
     }
 
     @Override
-    public int getDetailById(int id) throws SQLException {
+    public int getDetailById(long id) throws SQLException {
         return Db.use().del(
-                Entity.create("t_details").set("id", id)
+                Entity.create("t_details").set("detail_id", id)
         );
     }
 
@@ -28,7 +28,7 @@ public class DetailDAOImpl implements DetailDAO {
     public Long insertDetail(Detail detail) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_details")
-                        .set("ticketID", detail.getTicketID())
+                        .set("detail_id", detail.getTicketID())
                         .set("barCode", detail.getBarCode())
                         .set("number", detail.getNumber())
         );

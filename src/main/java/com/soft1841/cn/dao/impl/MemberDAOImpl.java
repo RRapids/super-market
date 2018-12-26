@@ -28,7 +28,7 @@ public class MemberDAOImpl implements MemberDAO {
     @Override
     public int deleteMemberById(long id) throws SQLException {
         return Db.use().del(
-                cn.hutool.db.Entity.create("t_member").set("id", id)
+                cn.hutool.db.Entity.create("t_member").set("memberID", id)
         );
     }
 
@@ -43,8 +43,8 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public Member getMemberById(int id) throws SQLException {
-        Entity entity = Db.use().queryOne("SELECT * FROM t_member WHERE id = ? ", id);
+    public Member getMemberById(long id) throws SQLException {
+        Entity entity = Db.use().queryOne("SELECT * FROM t_member WHERE memberID = ? ", id);
         return convertMember(entity);
     }
 
@@ -56,7 +56,7 @@ public class MemberDAOImpl implements MemberDAO {
      */
     private Member convertMember(Entity entity) {
         Member member = new Member();
-        member.setId(entity.getLong("id"));
+        member.setId(entity.getLong("memberID"));
         member.setName(entity.getStr("name"));
         member.setAddress(entity.getStr("address"));
         member.setPhone(entity.getStr("phone"));

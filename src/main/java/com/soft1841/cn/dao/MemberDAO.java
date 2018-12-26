@@ -32,5 +32,5 @@ public interface MemberDAO {
      * @param id
      * @return
      */
-    Member getMemberById(int id) throws SQLException;
+    Member getMemberById(long id) throws SQLException;
 }

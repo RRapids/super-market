@@ -18,7 +18,7 @@ public interface DetailDAO {
      * @param id
      * @return
      */
-    int getDetailById(int id) throws SQLException;
+    int getDetailById(long id) throws SQLException;
 
     /**
      * 新增类别, 返回自增主键(Long)

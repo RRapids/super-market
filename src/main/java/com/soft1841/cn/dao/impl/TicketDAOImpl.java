@@ -18,8 +18,8 @@ public class TicketDAOImpl implements TicketDAO {
     }
 
     @Override
-    public Entity getTicketById(int id) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_ticket WHERE id = ? ", id);
+    public Entity getTicketById(long id) throws SQLException {
+        return Db.use().queryOne("SELECT * FROM t_ticket WHERE ticket_id = ? ", id);
     }
 
 

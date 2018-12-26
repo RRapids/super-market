@@ -1,7 +1,7 @@
 package com.soft1841.cn.entity;
 
 public class Member {
-    private Long id;
+    private long id;
     private String name;
     private String address;
     private String phone;
@@ -10,7 +10,7 @@ public class Member {
     public Member() {
     }
 
-    public Member(Long id, String name, String address, String phone, String integral) {
+    public Member(long id, String name, String address, String phone, String integral) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -18,11 +18,11 @@ public class Member {
         this.integral = integral;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
