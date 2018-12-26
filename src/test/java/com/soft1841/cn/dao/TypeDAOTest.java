@@ -1,6 +1,5 @@
 package com.soft1841.cn.dao;
 
-import cn.hutool.db.Entity;
 import com.soft1841.cn.entity.Type;
 import com.soft1841.cn.utils.DAOFactory;
 import org.junit.Test;
@@ -30,14 +29,14 @@ public class TypeDAOTest {
 
     @Test
     public void selectAllTypes() throws SQLException{
-        List<Entity> typeList = typeDAO.selectAllTypes();
+        List<Type> typeList = typeDAO.selectAllTypes();
         typeList.forEach(entity -> System.out.println(entity));
 
     }
 
     @Test
     public void getTypeById() throws SQLException {
-        Entity entity = typeDAO.getTypeByName("食品类");
+        Type entity = typeDAO.getTypeById(1);
         System.out.println(entity);
     }
 }
