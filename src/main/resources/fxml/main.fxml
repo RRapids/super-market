@@ -41,142 +41,118 @@
     </top>
     <!--风琴面板-->
     <left>
-        <ScrollPane prefHeight="200.0" prefWidth="220" BorderPane.alignment="CENTER">
-            <content>
-                <ScrollPane prefHeight="683.0" prefWidth="220">
-                    <content>
-                        <Accordion styleClass="new1-theme">
-                            <panes>
-                                <TitledPane animated="false" text="商品管理" prefHeight="300" prefWidth="220">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <VBox prefHeight="300" prefWidth="220" spacing="20.0">
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="商品类别" onAction="#listType">
-                                                    <VBox.margin>
-                                                        <Insets left="20.0" top="10.0"/>
-                                                    </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="商品查询" onAction="#listGoods">
-                                                    <VBox.margin>
-                                                        <Insets left="20.0"/>
-                                                    </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="商品信息更改">
-                                                    <VBox.margin>
-                                                        <Insets left="20.0"/>
-                                                    </VBox.margin>
-                                                </Button>
-                                            </VBox>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
-                                <TitledPane animated="false" text="商品销售管理" prefWidth="200" prefHeight="220">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="220.0">
-                                            <VBox layoutX="-8.0" layoutY="-1.0" prefHeight="300" prefWidth="220"
-                                                  spacing="20.0">
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="商品销售统计">
-                                                    <VBox.margin>
-                                                        <Insets left="20.0"/>
-                                                    </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="商品库存">
-                                                    <VBox.margin>
-                                                        <Insets left="20.0"/>
-                                                    </VBox.margin>
-                                                </Button>
-                                            </VBox>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
-                                <TitledPane animated="false" text="会员管理" prefHeight="200" prefWidth="220">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="220.0">
-                                            <VBox layoutY="-1.0" prefHeight="200" prefWidth="220" spacing="20.0">
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="会员信息">
-                                                    <VBox.margin>
-                                                        <Insets left="20.0"/>
-                                                    </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="会员余额">
-                                                    <VBox.margin>
-                                                        <Insets left="20.0"/>
-                                                    </VBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="积分">
-                                                    <VBox.margin>
-                                                        <Insets left="20.0"/>
-                                                    </VBox.margin>
-                                                </Button>
-                                            </VBox>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
-                                <TitledPane animated="false" prefHeight="200" prefWidth="220" text="用户管理">
-                                    <content>
-                                        <VBox prefHeight="200.0" prefWidth="220" spacing="20.0">
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                    text="管理员信息">
-                                                <VBox.margin>
-                                                    <Insets right="-10.0"/>
-                                                </VBox.margin>
-                                            </Button>
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                    text="收银员信息">
-                                                <VBox.margin>
-                                                    <Insets right="-10.0"/>
-                                                </VBox.margin>
-                                            </Button>
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="入驻时间">
-                                                <VBox.margin>
-                                                    <Insets right="-10.0"/>
-                                                </VBox.margin>
-                                            </Button>
-                                        </VBox>
-                                    </content>
-                                </TitledPane>
-                                <TitledPane animated="false" prefHeight="200" prefWidth="220" text="统计">
-                                    <content>
-                                        <VBox prefHeight="282.0" prefWidth="182.0" spacing="20.0">
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                    text="商品销售统计">
-                                                <VBox.margin>
-                                                    <Insets/>
-                                                </VBox.margin>
-                                            </Button>
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="月收入"/>
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="年统计"/>
-                                        </VBox>
-                                    </content>
-                                </TitledPane>
-                                <TitledPane animated="false" text="系统维护" prefWidth="400" prefHeight="200">
-                                    <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="183.0">
-                                            <VBox prefHeight="200" prefWidth="220" spacing="20.0">
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="整体维护"/>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
-                                                        text="样式"/>
-                                            </VBox>
-                                        </AnchorPane>
-                                    </content>
-                                </TitledPane>
-                            </panes>
-                        </Accordion>
-                    </content>
-                    <padding>
-                        <Insets bottom="50.0" top="50.0"/>
-                    </padding>
-                </ScrollPane>
-            </content>
+        <ScrollPane styleClass="new1-theme" prefHeight="802.0" prefWidth="300" BorderPane.alignment="CENTER">
+            <AnchorPane styleClass="new1-theme" prefHeight="860">
+                <Accordion>
+                    <panes>
+                        <TitledPane styleClass="default-theme" animated="false" text="商品管理" prefHeight="300" prefWidth="220">
+                                <VBox styleClass="new-theme" prefHeight="300" prefWidth="220" spacing="20.0">
+                                    <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                            text="商品类别" styleClass="menu-btn" onAction="#listType">
+                                        <VBox.margin>
+                                            <Insets left="20.0" top="10.0"/>
+                                        </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                            text="商品查询" styleClass="menu-btn" onAction="#listGoods">
+                                        <VBox.margin>
+                                            <Insets left="20.0"/>
+                                        </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                            text="商品信息更改" styleClass="menu-btn">
+                                        <VBox.margin>
+                                            <Insets left="20.0"/>
+                                        </VBox.margin>
+                                    </Button>
+                                </VBox>
+                        </TitledPane>
+                        <TitledPane styleClass="default-theme" animated="false" text="商品销售管理" prefWidth="200" prefHeight="220">
+                                <VBox styleClass="new-theme" layoutX="-8.0" layoutY="-1.0" prefHeight="250" prefWidth="220"
+                                      spacing="20.0">
+                                    <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                            text="商品销售统计" styleClass="menu-btn">
+                                        <VBox.margin>
+                                            <Insets left="20.0"/>
+                                        </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                            text="商品库存" styleClass="menu-btn">
+                                        <VBox.margin>
+                                            <Insets left="20.0"/>
+                                        </VBox.margin>
+                                    </Button>
+                                </VBox>
+                        </TitledPane>
+                        <TitledPane animated="false" text="会员管理" styleClass="menu-btn" prefHeight="200" prefWidth="220">
+                            <VBox styleClass="new-theme" layoutY="-1.0" prefHeight="300" prefWidth="220" spacing="20.0">
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                        text="会员信息" styleClass="menu-btn">
+                                    <VBox.margin>
+                                        <Insets left="20.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                        text="会员余额" styleClass="menu-btn">
+                                    <VBox.margin>
+                                        <Insets left="20.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                        text="积分" styleClass="menu-btn">
+                                    <VBox.margin>
+                                        <Insets left="20.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </VBox>
+                        </TitledPane>
+                        <TitledPane styleClass="default-theme" animated="false" prefHeight="200" prefWidth="220" text="用户管理">
+                            <VBox styleClass="new-theme" prefHeight="250.0" prefWidth="220" spacing="20.0">
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                        text="管理员信息" styleClass="menu-btn">
+                                    <VBox.margin>
+                                        <Insets right="-10.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                        text="收银员信息" styleClass="menu-btn">
+                                    <VBox.margin>
+                                        <Insets right="-10.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="入驻时间" styleClass="menu-btn">
+                                    <VBox.margin>
+                                        <Insets right="-10.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </VBox>
+                        </TitledPane>
+                        <TitledPane styleClass="default-theme" animated="false" prefHeight="200" prefWidth="220" text="统计">
+                            <VBox styleClass="new-theme" prefHeight="300.0" prefWidth="182.0" spacing="20.0">
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                        text="商品销售统计" styleClass="menu-btn">
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="月收入" styleClass="menu-btn"/>
+                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="年统计" styleClass="menu-btn"/>
+                            </VBox>
+                        </TitledPane>
+                        <TitledPane animated="false" text="系统维护" styleClass="menu-btn" prefWidth="400" prefHeight="200">
+                                <VBox styleClass="new-theme" prefHeight="250" prefWidth="220" spacing="20.0">
+                                    <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                            text="整体维护" styleClass="menu-btn"/>
+                                    <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
+                                            text="样式" styleClass="menu-btn"/>
+                                </VBox>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+                <padding>
+                    <Insets bottom="50.0" top="50.0"/>
+                </padding>
+            </AnchorPane>
         </ScrollPane>
     </left>
     <padding>
@@ -191,6 +167,5 @@
                 </padding>
             </StackPane>
         </ScrollPane>
-
     </center>
 </BorderPane>
