@@ -1,7 +1,4 @@
 package com.soft1841.cn.dao.impl;
-/**
- * 待修改
- */
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
@@ -9,9 +6,12 @@ import com.soft1841.cn.dao.MemberDAO;
 import com.soft1841.cn.entity.Member;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
 /**
  * 会员DAO
+ *
  * @author 汤越
  */
 public class MemberDAOImpl implements MemberDAO {
@@ -33,12 +33,34 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public List<Entity> selectAllMember() throws SQLException {
-        return Db.use().query("SELECT * FROM t_member ");
+    public List<Member> selectAllMember() throws SQLException {
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_member");
+        List<Member> memberList = new ArrayList<>();
+        for (Entity entity : entityList) {
+            memberList.add(convertMember(entity));
+        }
+        return memberList;
     }
 
     @Override
-    public Entity getMemberById(int id) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_member WHERE id = ? ", id);
+    public Member getMemberById(int id) throws SQLException {
+        Entity entity = Db.use().queryOne("SELECT * FROM t_member WHERE id = ? ", id);
+        return convertMember(entity);
+    }
+
+    /**
+     * 将Entity转换为Type类型
+     *
+     * @param entity
+     * @return Member
+     */
+    private Member convertMember(Entity entity) {
+        Member member = new Member();
+        member.setId(entity.getLong("id"));
+        member.setName(entity.getStr("name"));
+        member.setAddress(entity.getStr("address"));
+        member.setPhone(entity.getStr("phone"));
+        member.getIntegral();
+        return member;
     }
 }

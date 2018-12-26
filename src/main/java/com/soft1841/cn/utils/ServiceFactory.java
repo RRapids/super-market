@@ -1,12 +1,8 @@
 package com.soft1841.cn.utils;
 
 import com.soft1841.cn.entity.Type;
-import com.soft1841.cn.service.AdminService;
-import com.soft1841.cn.service.SellerService;
-import com.soft1841.cn.service.TypeService;
-import com.soft1841.cn.service.impl.AdminServiceImpl;
-import com.soft1841.cn.service.impl.SellerServiceImpl;
-import com.soft1841.cn.service.impl.TypeServiceImpl;
+import com.soft1841.cn.service.*;
+import com.soft1841.cn.service.impl.*;
 
 public class ServiceFactory {
     public static SellerService getSellerServiceInstance() {
@@ -21,6 +17,11 @@ public class ServiceFactory {
     public static TypeService getTypeServiceInstance() {
         return new TypeServiceImpl();
     }
-
+    public static MemberService getMemberServiceInstance(){
+        return new MemberServiceImpl();
+    }
+    public static TicketService getTicketServiceInstance(){
+        return new TicketServiceImpl();
+    }
 
 }

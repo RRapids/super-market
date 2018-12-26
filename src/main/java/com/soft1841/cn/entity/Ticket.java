@@ -17,6 +17,10 @@ public class Ticket {
         this.total = total;
     }
 
+    public Ticket() {
+
+    }
+
     public Long getId() {
         return id;
     }

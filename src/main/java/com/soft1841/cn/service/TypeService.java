@@ -16,7 +16,7 @@ public interface TypeService {
     List<Type> selectAllTypes();
 
     /**
-     * 根据名称查询类别
+     * 根据id查询类别
      * @param id
      * @return
      */

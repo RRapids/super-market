@@ -25,12 +25,12 @@ public interface MemberDAO {
      * 查询所有类别
      * @return
      */
-    List<Entity> selectAllMember() throws SQLException;
+    List<Member> selectAllMember() throws SQLException;
 
     /**
      * 根据id查询类别信息
      * @param id
      * @return
      */
-    Entity getMemberById(int id) throws SQLException;
+    Member getMemberById(int id) throws SQLException;
 }
