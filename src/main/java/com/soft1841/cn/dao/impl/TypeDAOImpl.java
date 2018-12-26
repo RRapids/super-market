@@ -4,21 +4,24 @@ package com.soft1841.cn.dao.impl;
  */
 
 import cn.hutool.db.Db;
+import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.TypeDAO;
 import com.soft1841.cn.entity.Type;
-import cn.hutool.db.Entity;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
 /**
  * 类型DAO
+ *
  * @author 袁腾飞
  */
 public class TypeDAOImpl implements TypeDAO {
     @Override
     public Long insertType(Type type) throws SQLException {
         return Db.use().insertForGeneratedKey(
-                cn.hutool.db.Entity.create("t_type")
+                Entity.create("t_type")
                         .set("name", type.getTypeName())
         );
     }
@@ -26,17 +29,44 @@ public class TypeDAOImpl implements TypeDAO {
     @Override
     public int deleteTypeById(long id) throws SQLException {
         return Db.use().del(
-                cn.hutool.db.Entity.create("t_type").set("id", id)
+                Entity.create("t_type").set("id", id)
         );
     }
 
-    @Override
-    public List<Entity> selectAllTypes() throws SQLException {
-        return Db.use().query("SELECT * FROM t_type ");
-    }
 
     @Override
-    public Entity getTypeByName(String name) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_type WHERE id = ? ", name);
+    public List<Type> selectAllTypes() throws SQLException {
+        //查询得到List<Entity>
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_type ");
+        //创建一个List<Type>，存放具体的图书类别
+        List<Type> typeList = new ArrayList<>();
+        //遍历entityList，转换为typeList
+        for (Entity entity : entityList) {
+            typeList.add(convertType(entity));
+        }
+        return typeList;
+    }
+
+
+    @Override
+    public Type getTypeById(long id) throws SQLException {
+        //采用自定义带参查询语句，返回单个实体
+        Entity entity = Db.use().queryOne("SELECT * FROM t_type WHERE id = ? ", id);
+        //将Entity转换为Type类型返回
+        return convertType(entity);
+    }
+
+
+    /**
+     * 将Entity转换为Type类型
+     *
+     * @param entity
+     * @return Type
+     */
+    private Type convertType(Entity entity) {
+        Type type = new Type();
+        type.setId(entity.getLong("id"));
+        type.setTypeName(entity.getStr("name"));
+        return type;
     }
 }
