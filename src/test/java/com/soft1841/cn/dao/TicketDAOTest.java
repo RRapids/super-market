@@ -23,14 +23,14 @@ public class TicketDAOTest {
 
     @Test
     public void getAllTicket() throws SQLException {
-        List<Ticket> ticketList = ticketDAO.getAllTicket();
+        List<Entity> ticketList = ticketDAO.getAllTicket();
         ticketList.forEach(ticket -> System.out.println(ticket));
 
     }
 
     @Test
     public void getTicketById() throws SQLException {
-        Ticket ticket = ticketDAO.getTicketById(1);
+        Entity ticket = ticketDAO.getTicketById(1);
         System.out.println(ticket);
 
     }

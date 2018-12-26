@@ -3,7 +3,6 @@ import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.TicketDAO;
 import com.soft1841.cn.entity.Detail;
-import com.soft1841.cn.entity.Ticket;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,12 +13,12 @@ import java.util.List;
 public class TicketDAOImpl implements TicketDAO {
 
     @Override
-    public List<Ticket> getAllTicket() throws SQLException {
+    public List<Entity> getAllTicket() throws SQLException {
         return Db.use().query("SELECT * FROM t_ticket");
     }
 
     @Override
-    public Ticket getTicketById(int id) throws SQLException {
+    public Entity getTicketById(int id) throws SQLException {
         return Db.use().queryOne("SELECT * FROM t_ticket WHERE id = ? ", id);
     }
 

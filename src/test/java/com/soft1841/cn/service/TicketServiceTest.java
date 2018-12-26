@@ -18,7 +18,7 @@ public class TicketServiceTest {
 
     @Test
     public void getAllTicket() {
-        List<Ticket> ticketList = ticketService.getAllTicket();
+        List<Entity> ticketList = ticketService.getAllTicket();
         ticketList.forEach(ticket -> System.out.println(ticket));
     }
 

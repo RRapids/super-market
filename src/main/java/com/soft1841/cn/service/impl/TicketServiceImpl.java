@@ -1,8 +1,8 @@
 package com.soft1841.cn.service.impl;
 
+import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.TicketDAO;
 import com.soft1841.cn.entity.Detail;
-import com.soft1841.cn.entity.Ticket;
 import com.soft1841.cn.service.TicketService;
 import com.soft1841.cn.utils.DAOFactory;
 
@@ -19,8 +19,8 @@ public class TicketServiceImpl implements TicketService {
     private TicketDAO ticketDAO = DAOFactory.getTicketDAOInstance();
 
     @Override
-    public List<Ticket> getAllTicket() {
-        List<Ticket> ticketList = new ArrayList<>();
+    public List<Entity> getAllTicket() {
+        List<Entity> ticketList = new ArrayList<>();
         try {
             ticketList = ticketDAO.getAllTicket();
         } catch (SQLException e) {
@@ -31,8 +31,8 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public Ticket getTicketById(int id) {
-        Ticket ticket = new Ticket();
+    public Entity getTicketById(int id) {
+        Entity ticket = new Entity();
         try {
             ticket = ticketDAO.getTicketById(id);
         } catch (SQLException e) {

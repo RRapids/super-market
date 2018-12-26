@@ -1,7 +1,7 @@
 package com.soft1841.cn.service;
 
+import cn.hutool.db.Entity;
 import com.soft1841.cn.entity.Detail;
-import com.soft1841.cn.entity.Ticket;
 
 import java.util.List;
 
@@ -13,14 +13,14 @@ public interface TicketService {
      * 查所有
      * @return
      */
-    List<Ticket> getAllTicket();
+    List<Entity> getAllTicket();
 
     /**
      * 根据id查询类别信息
      * @param id
      * @return
      */
-    Ticket getTicketById(int id);
+    Entity getTicketById(int id);
 
     /**
      * 新增类别, 返回自增主键(Long)
