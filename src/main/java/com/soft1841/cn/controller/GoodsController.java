@@ -2,13 +2,18 @@ package com.soft1841.cn.controller;
 
 import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.GoodsDAO;
+import com.soft1841.cn.entity.Goods;
 import com.soft1841.cn.utils.DAOFactory;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,6 +21,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -75,6 +82,10 @@ public class GoodsController implements Initializable {
             Label barCodeLabel = new Label(entity.getStr("barCode"));
             //数量
             Label quantityLabel = new Label(entity.getStr("quantity"));
+            //描述
+            Label descriptionLabel = new Label(entity.getStr("description"));
+            //类别
+            Label typeNameLabel = new Label(entity.getStr("typename"));
             //点击删除按钮做的事件
             Button delBtn = new Button("删除");
             //点击删除按钮做的事件
@@ -111,12 +122,92 @@ public class GoodsController implements Initializable {
             //头像加入左边
             leftBox.getChildren().add(avatarImg);
             leftBox.getChildren().add(priceLabel);
-            rightBox.getChildren().addAll(nameLabel, barCodeLabel, quantityLabel, delBtn);
+            rightBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, quantityLabel, barCodeLabel, delBtn);
             //左边加入卡片
             hBox.getChildren().add(leftBox);
             hBox.getChildren().add(rightBox);
             goodsPane.getChildren().add(hBox);
         }
+    }
+
+    //新增图书方法
+    public void addGoods() throws SQLException {
+        //创建Goods对象
+        Goods goods = new Goods();
+        //新建舞台
+        Stage stage = new Stage();
+        stage.setTitle("新增商品界面");
+        //创建垂直布局，以便放入新增组件
+        VBox vBox = new VBox();
+        vBox.setSpacing(10);
+        vBox.setPadding(new Insets(20, 10, 10, 10));
+        TextField nameField = new TextField("请输入商品名");
+        TextField avatarField = new TextField("请输入商品图");
+        //选择商品类别
+        String[] departments = {"服装类", "食品类", "生活用品类", "学习工具类", "小礼品类", "摆件类", "医药类", "手机类", "电脑类"};
+        List<String> list = Arrays.asList(departments);
+        //将list中的数据加入observableList
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        observableList.addAll(list);
+        //创建院系下拉框
+        ComboBox<String> depComboBox = new ComboBox<>();
+        depComboBox.setPromptText("选择类别");
+        //给下拉框初始化值
+        depComboBox.setItems(observableList);
+        //选中改变
+        depComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                goods.setTypename(newValue);
+
+            }
+        });
+        //条码输入框
+        TextField barCodeField = new TextField("请输入条码");
+        //价格输入框
+        TextField priceField = new TextField("请输入价格");
+        //货存输入框
+        TextField quantityField = new TextField("货存");
+        //描述框
+        TextField descriptionField = new TextField("描述");
+        //新增按钮
+        Button addBtn = new Button("新增");
+        addBtn.getStyleClass().add("blue-theme");
+        vBox.getChildren().addAll(nameField, depComboBox, avatarField, barCodeField, priceField, quantityField, descriptionField, addBtn);
+        Scene scene = new Scene(vBox, 600, 380);
+        scene.getStylesheets().add("/css/style.css");
+        stage.setScene(scene);
+        stage.show();
+        //点击新增按钮，将界面数据封装成一个Reader对象，写入数据库
+        addBtn.setOnAction(event -> {
+            String nameString = nameField.getText().trim();
+            String avatarString = avatarField.getText().trim();
+            String barCodeString = barCodeField.getText().trim();
+            String priceString = priceField.getText().trim();
+            String quantityString = quantityField.getText().trim();
+            String descriptionString = descriptionField.getText().trim();
+
+
+            goods.setName(nameString);
+            goods.setAvatar(avatarString);
+            goods.setQuantity(quantityString);
+            goods.setBarCode(barCodeString);
+            goods.setDescription(descriptionString);
+            goods.setPrice(priceString);
+            System.out.println(goods.getName() + goods.getTypename() + goods.getBarCode());
+            try {
+                goodsDAO.insertGoods(goods);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            stage.close();
+            //重新读取数据显示
+            try {
+                goodsList = goodsDAO.getAllGoods();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }

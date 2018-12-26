@@ -8,10 +8,12 @@
             fx:controller="com.soft1841.cn.controller.GoodsController">
     <FlowPane fx:id="goodsPane" hgap="10" vgap="10"
               AnchorPane.topAnchor="50" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"/>
+
     <Button text="新增商品" styleClass="green-theme"
-            AnchorPane.topAnchor="5" AnchorPane.leftAnchor="10"/>
-    <TextField text="请输入关键词" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="100"
-               fx:id="keywordsField"/>
-    <Button text="查询" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="300" styleClass="btn-radius-large,gray-theme"/>
+            AnchorPane.topAnchor="5" AnchorPane.leftAnchor="10" onAction="#addGoods"/>
+
+    <TextField text="请输入关键词" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="100" fx:id="keywordsField"/>
+
+    <Button text="查询" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="300" styleClass="btn-radius-large,blue-theme"/>
 
 </AnchorPane>

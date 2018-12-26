@@ -41,29 +41,29 @@
     </top>
     <!--风琴面板-->
     <left>
-        <ScrollPane prefHeight="200.0" prefWidth="400" BorderPane.alignment="CENTER">
+        <ScrollPane prefHeight="200.0" prefWidth="220" BorderPane.alignment="CENTER">
             <content>
-                <ScrollPane prefHeight="683.0" prefWidth="400">
+                <ScrollPane prefHeight="683.0" prefWidth="220">
                     <content>
                         <Accordion styleClass="new1-theme">
                             <panes>
-                                <TitledPane animated="false" text="商品管理" prefHeight="300" prefWidth="400">
+                                <TitledPane animated="false" text="商品管理" prefHeight="300" prefWidth="220">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <VBox prefHeight="300" prefWidth="400" spacing="20.0">
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                            <VBox prefHeight="300" prefWidth="220" spacing="20.0">
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="商品类别" onAction="#listType">
                                                     <VBox.margin>
                                                         <Insets left="20.0" top="10.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="商品查询" onAction="#listGoods">
                                                     <VBox.margin>
                                                         <Insets left="20.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="商品信息更改">
                                                     <VBox.margin>
                                                         <Insets left="20.0"/>
@@ -73,7 +73,7 @@
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane animated="false" text="商品销售管理" prefWidth="400" prefHeight="200">
+                                <TitledPane animated="false" text="商品销售管理" prefWidth="220" prefHeight="200">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <VBox layoutX="-8.0" layoutY="-1.0" prefHeight="200" prefWidth="400"

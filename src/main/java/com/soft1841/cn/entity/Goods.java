@@ -2,7 +2,7 @@ package com.soft1841.cn.entity;
 
 public class Goods {
     private long id;
-    private long typeID;
+    private String typename;
     private String barCode;
     private String name;
     private String price;
@@ -10,16 +10,19 @@ public class Goods {
     private String quantity;
     private String description;
 
-
-    public Goods(long id, long typeID, String barCode, String name, String price, String avatar, String quantity, String description) {
+    public Goods(long id, String typename, String barCode, String name, String price, String avatar, String quantity, String description) {
         this.id = id;
-        this.typeID = typeID;
+        this.typename = typename;
         this.barCode = barCode;
         this.name = name;
         this.price = price;
         this.avatar = avatar;
         this.quantity = quantity;
         this.description = description;
+    }
+
+    public Goods() {
+
     }
 
     public long getId() {
@@ -30,12 +33,12 @@ public class Goods {
         this.id = id;
     }
 
-    public long getTypeID() {
-        return typeID;
+    public String getTypename() {
+        return typename;
     }
 
-    public void setTypeID(long typeID) {
-        this.typeID = typeID;
+    public void setTypename(String typename) {
+        this.typename = typename;
     }
 
     public String getBarCode() {
@@ -90,7 +93,7 @@ public class Goods {
     public String toString() {
         return "Goods{" +
                 "id=" + id +
-                ", typeID=" + typeID +
+                ", typename='" + typename + '\'' +
                 ", barCode='" + barCode + '\'' +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +

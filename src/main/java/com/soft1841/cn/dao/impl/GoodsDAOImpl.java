@@ -23,7 +23,7 @@ public class GoodsDAOImpl implements GoodsDAO {
         return Db.use().insertForGeneratedKey(
                 cn.hutool.db.Entity.create("t_goods")
                 .set("name",goods.getName())
-                .set("typeID",goods.getTypeID())
+                .set("typename",goods.getTypename())
                 .set("barCode",goods.getBarCode())
                 .set("price",goods.getPrice())
                 .set("avatar",goods.getAvatar())
