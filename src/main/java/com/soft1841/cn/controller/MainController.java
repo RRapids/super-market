@@ -27,16 +27,6 @@ public class MainController{
 
     @FXML
     private javafx.scene.control.Button exitButton;
-//
-////    @Override
-////    public void initialize(URL location, ResourceBundle resources) {
-////        try {
-////            AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/main.fxml")).load();
-////            mainContainer.getChildren().add(anchorPane);
-////        } catch (IOException e) {
-////            e.printStackTrace();
-////        }
-////    }
 
     @FXML
     private void exitButtonAction() throws Exception {

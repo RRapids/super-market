@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 小票
+ * 待完成
  * @author 腾飞
  * 2018.12.26
  */
@@ -21,16 +22,18 @@ public class TicketServiceTest {
         List<Entity> ticketList = ticketService.getAllTicket();
         ticketList.forEach(ticket -> System.out.println(ticket));
     }
-
+        //
     @Test
     public void getTicketById() {
 
     }
 
+
+    //增待修改
     @Test
     public void insertTicket() {
         Detail detail = new Detail();
-        detail.setNumber("测试");
+        detail.setNumber("777777");
         ticketService.insertTicket(detail);
     }
 }
