@@ -14,7 +14,6 @@
 
 <AnchorPane prefHeight="397.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.LoginController">
-    <children>
         <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="/img/lobg.jpg" />
@@ -25,7 +24,6 @@
                 <Insets left="22" right="0" />
             </padding>
         </TextField>
-
         <PasswordField fx:id="passwordField" layoutX="263.0" layoutY="248.0" prefHeight="25.0" promptText="请输入密码">
             <padding>
                 <Insets left="22" right="0" />
@@ -80,5 +78,4 @@
                 <Font size="20.0" />
             </font>
         </RadioButton>
-    </children>
 </AnchorPane>
