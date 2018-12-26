@@ -1,29 +1,32 @@
-package com.soft1841.cn.dao;
+package com.soft1841.cn.service;
 
 import com.soft1841.cn.entity.Detail;
 import com.soft1841.cn.entity.Ticket;
 
-import java.sql.SQLException;
 import java.util.List;
 
-public interface TicketDAO {
+/**
+ * 小票的业务逻辑接口
+ */
+public interface TicketService {
     /**
      * 查所有
      * @return
      */
-    List<Ticket> getAllTicket() throws SQLException;
+    List<Ticket> getAllTicket();
 
     /**
      * 根据id查询类别信息
      * @param id
      * @return
      */
-    Ticket getTicketById(int id) throws SQLException;
+    Ticket getTicketById(int id);
 
     /**
      * 新增类别, 返回自增主键(Long)
      * @param detail
      * @return
      */
-    Long insertTicket(Detail detail) throws SQLException;
+    Long insertTicket(Detail detail);
+
 }

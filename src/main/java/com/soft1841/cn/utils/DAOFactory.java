@@ -21,8 +21,8 @@ public class DAOFactory {
 
     public static DetailDAO getDetailDAOInstance(){return new DetailDAOImpl();}
 
-    public static GoodsDAO getGoodsDAOInstance(){return new GoodsDAOImpl();}
+    public static GoodsDAO getGoodsDAOInstance() {return new GoodsDAOImpl();}
 
-    public static TicketDAO getTicketsDAOTntance(){return new TicketDAOImpl();}
+    public static TicketDAO getTicketDAOInstance(){return new TicketDAOImpl();}
 }
 

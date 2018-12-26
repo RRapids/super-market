@@ -174,7 +174,7 @@ public class GoodsController implements Initializable {
         Button addBtn = new Button("新增");
         addBtn.getStyleClass().add("blue-theme");
         vBox.getChildren().addAll(nameField, depComboBox, avatarField, barCodeField, priceField, quantityField, descriptionField, addBtn);
-        Scene scene = new Scene(vBox, 600, 380);
+        Scene scene = new Scene(vBox, 200, 380);
         scene.getStylesheets().add("/css/style.css");
         stage.setScene(scene);
         stage.show();

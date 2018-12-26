@@ -13,7 +13,7 @@
     <!--顶部的logo-->
     <top>
         <AnchorPane styleClass="new1-theme"
-                    stylesheets="@../css/style.css">
+                    stylesheets="/css/style.css">
             <HBox prefHeight="126.0" prefWidth="1096.0" styleClass="new1-theme"
                   stylesheets="/css/style.css" BorderPane.alignment="CENTER"
                   onMouseClicked="#listDefault"
@@ -73,18 +73,18 @@
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane animated="false" text="商品销售管理" prefWidth="220" prefHeight="200">
+                                <TitledPane animated="false" text="商品销售管理" prefWidth="200" prefHeight="220">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <VBox layoutX="-8.0" layoutY="-1.0" prefHeight="200" prefWidth="400"
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="220.0">
+                                            <VBox layoutX="-8.0" layoutY="-1.0" prefHeight="300" prefWidth="220"
                                                   spacing="20.0">
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="商品销售统计">
                                                     <VBox.margin>
                                                         <Insets left="20.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="商品库存">
                                                     <VBox.margin>
                                                         <Insets left="20.0"/>
@@ -94,23 +94,23 @@
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane animated="false" text="会员管理" prefHeight="200" prefWidth="400">
+                                <TitledPane animated="false" text="会员管理" prefHeight="200" prefWidth="220">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                            <VBox layoutY="-1.0" prefHeight="200" prefWidth="400" spacing="20.0">
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="220.0">
+                                            <VBox layoutY="-1.0" prefHeight="200" prefWidth="220" spacing="20.0">
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="会员信息">
                                                     <VBox.margin>
                                                         <Insets left="20.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="会员余额">
                                                     <VBox.margin>
                                                         <Insets left="20.0"/>
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="积分">
                                                     <VBox.margin>
                                                         <Insets left="20.0"/>
@@ -120,22 +120,22 @@
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane animated="false" prefHeight="200" prefWidth="400" text="用户管理">
+                                <TitledPane animated="false" prefHeight="200" prefWidth="220" text="用户管理">
                                     <content>
-                                        <VBox prefHeight="200.0" prefWidth="400" spacing="20.0">
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                        <VBox prefHeight="200.0" prefWidth="220" spacing="20.0">
+                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                     text="管理员信息">
                                                 <VBox.margin>
                                                     <Insets right="-10.0"/>
                                                 </VBox.margin>
                                             </Button>
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                     text="收银员信息">
                                                 <VBox.margin>
                                                     <Insets right="-10.0"/>
                                                 </VBox.margin>
                                             </Button>
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="350" text="入驻时间">
+                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="入驻时间">
                                                 <VBox.margin>
                                                     <Insets right="-10.0"/>
                                                 </VBox.margin>
@@ -143,27 +143,27 @@
                                         </VBox>
                                     </content>
                                 </TitledPane>
-                                <TitledPane animated="false" prefHeight="200" prefWidth="400" text="统计">
+                                <TitledPane animated="false" prefHeight="200" prefWidth="220" text="统计">
                                     <content>
                                         <VBox prefHeight="282.0" prefWidth="182.0" spacing="20.0">
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                     text="商品销售统计">
                                                 <VBox.margin>
                                                     <Insets/>
                                                 </VBox.margin>
                                             </Button>
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="350" text="月收入"/>
-                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="350" text="年统计"/>
+                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="月收入"/>
+                                            <Button mnemonicParsing="false" prefHeight="50" prefWidth="160" text="年统计"/>
                                         </VBox>
                                     </content>
                                 </TitledPane>
                                 <TitledPane animated="false" text="系统维护" prefWidth="400" prefHeight="200">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="183.0">
-                                            <VBox prefHeight="200" prefWidth="400" spacing="20.0">
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                            <VBox prefHeight="200" prefWidth="220" spacing="20.0">
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="整体维护"/>
-                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="350"
+                                                <Button mnemonicParsing="false" prefHeight="50" prefWidth="160"
                                                         text="样式"/>
                                             </VBox>
                                         </AnchorPane>
