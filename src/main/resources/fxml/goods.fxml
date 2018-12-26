@@ -11,9 +11,10 @@
 
     <Button text="新增商品" styleClass="green-theme"
             AnchorPane.topAnchor="5" AnchorPane.leftAnchor="10" onAction="#addGoods"/>
+    <ComboBox promptText="选择商品类别" fx:id="typeComboBox" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="100"/>
 
-    <TextField text="请输入关键词" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="100" fx:id="keywordsField"/>
+    <TextField promptText="请输入关键字" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="300" fx:id="keywordsField" onMouseClicked="#enter"/>
 
-    <Button text="查询" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="300" styleClass="btn-radius-large,blue-theme"/>
+    <Button text="查询" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="500"  styleClass="btn-radius-large,blue-theme" onAction="#searchByKeywords"/>
 
 </AnchorPane>

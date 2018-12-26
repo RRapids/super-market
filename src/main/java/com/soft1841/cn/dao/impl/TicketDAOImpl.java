@@ -22,7 +22,6 @@ public class TicketDAOImpl implements TicketDAO {
         return Db.use().queryOne("SELECT * FROM t_ticket WHERE ticket_id = ? ", id);
     }
 
-
     @Override
     public Long insertTicket(Detail detail) throws SQLException {
         return Db.use().insertForGeneratedKey(
