@@ -1,13 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.soft1841.cn.controller.MainController">
-
+<AnchorPane prefHeight="649.0" prefWidth="1187.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.MainController">
+   <children>
+            <FlowPane hgap="80.0" layoutX="84.0" layoutY="50.0" prefHeight="560.0" prefWidth="1032.0" vgap="100.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="270.0" spacing="20.0">
+                     <children>
+                                 <ImageView fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../img/库存.png" />
+                                    </image>
+                                 </ImageView>
+                           <Label prefHeight="20.0" prefWidth="59.0" text="库存" textAlignment="RIGHT" textOverrun="CLIP">
+                              <font>
+                                 <Font name="System Bold Italic" size="21.0" />
+                              </font>
+                           </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="270.0" spacing="20.0">
+                     <children>
+                                 <ImageView fitHeight="180.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../img/商品.png" />
+                                    </image>
+                                 </ImageView>
+                           <Label prefHeight="20.0" prefWidth="59.0" text="商品" textAlignment="RIGHT" textOverrun="CLIP">
+                              <font>
+                                 <Font name="System Bold Italic" size="21.0" />
+                              </font>
+                           </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="270.0" spacing="20.0">
+                     <children>
+                           <ImageView fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../img/U.png" />
+                              </image>
+                           </ImageView>
+                           <Label prefHeight="28.0" prefWidth="78.0" text="管理者" textAlignment="RIGHT" textOverrun="CLIP">
+                              <font>
+                                 <Font name="System Bold Italic" size="21.0" />
+                              </font>
+                           </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="270.0" spacing="20.0">
+                     <children>
+                           <ImageView fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../img/礼物.png" />
+                              </image>
+                           </ImageView>
+                           <Label prefHeight="20.0" prefWidth="59.0" text="折扣" textAlignment="RIGHT" textOverrun="CLIP">
+                              <font>
+                                 <Font name="System Bold Italic" size="21.0" />
+                              </font>
+                           </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="270.0" spacing="20.0">
+                     <children>
+                           <ImageView fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../img/shezhi.png" />
+                              </image>
+                           </ImageView>
+                           <Label prefHeight="20.0" prefWidth="59.0" text="设置" textAlignment="RIGHT" textOverrun="CLIP">
+                              <font>
+                                 <Font name="System Bold Italic" size="21.0" />
+                              </font>
+                           </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="270.0" spacing="20.0">
+                     <children>
+                           <ImageView fitHeight="180.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../img/kefu.png" />
+                              </image>
+                           </ImageView>
+                           <Label prefHeight="20.0" prefWidth="59.0" text="客服" textAlignment="RIGHT" textOverrun="CLIP">
+                              <font>
+                                 <Font name="System Bold Italic" size="21.0" />
+                              </font>
+                           </Label>
+                     </children>
+                  </VBox>
+               </children>
+             </FlowPane>
+   </children>
 </AnchorPane>
