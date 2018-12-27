@@ -2,9 +2,15 @@ package com.soft1841.cn.controller;
 
 import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.GoodsDAO;
+import com.soft1841.cn.dao.TypeDAO;
 import com.soft1841.cn.entity.Detail;
 import com.soft1841.cn.entity.Goods;
+import com.soft1841.cn.entity.Type;
+import com.soft1841.cn.service.GoodsService;
+import com.soft1841.cn.service.TypeService;
+import com.soft1841.cn.service.impl.TypeServiceImpl;
 import com.soft1841.cn.utils.DAOFactory;
+import com.soft1841.cn.utils.ServiceFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -65,7 +71,7 @@ public class GoodsController implements Initializable {
         //通过循环遍历readerList集合，创建HBox来显示每个商品信息
         for (Entity entity : goodsList) {
             HBox hBox = new HBox();
-            hBox.setPrefSize(300, 280);
+            hBox.setPrefSize(290, 280);
             hBox.setSpacing(10);
             hBox.setPadding(new Insets(10, 10, 10, 10));
             hBox.getStyleClass().add("box");
@@ -137,7 +143,7 @@ public class GoodsController implements Initializable {
         }
     }
 
-        //新增商品方法
+    //新增商品方法
     public void addGoods() throws SQLException {
         //创建Goods对象
         Goods goods = new Goods();
