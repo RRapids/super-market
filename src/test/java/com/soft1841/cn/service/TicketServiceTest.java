@@ -6,6 +6,7 @@ import com.soft1841.cn.entity.Ticket;
 import com.soft1841.cn.utils.ServiceFactory;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,8 +33,9 @@ public class TicketServiceTest {
     //增待修改
     @Test
     public void insertTicket() {
-        Detail detail = new Detail();
-        detail.setNumber("777777");
-        ticketService.insertTicket(detail);
+        Ticket ticket = new Ticket();
+        ticket.setMemberID(5);
+        ticket.setSellerID(5);
+        ticketService.insertTicket(ticket);
     }
 }

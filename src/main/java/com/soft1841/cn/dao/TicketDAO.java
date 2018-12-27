@@ -2,6 +2,7 @@ package com.soft1841.cn.dao;
 
 import cn.hutool.db.Entity;
 import com.soft1841.cn.entity.Detail;
+import com.soft1841.cn.entity.Ticket;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -22,8 +23,8 @@ public interface TicketDAO {
 
     /**
      * 新增类别, 返回自增主键(Long)
-     * @param detail
+     * @param ticket
      * @return
      */
-    Long insertTicket(Detail detail) throws SQLException;
+    Long insertTicket(Ticket ticket) throws SQLException;
 }

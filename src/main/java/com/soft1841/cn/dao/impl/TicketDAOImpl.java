@@ -3,6 +3,7 @@ import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.TicketDAO;
 import com.soft1841.cn.entity.Detail;
+import com.soft1841.cn.entity.Ticket;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -23,10 +24,10 @@ public class TicketDAOImpl implements TicketDAO {
     }
 
     @Override
-    public Long insertTicket(Detail detail) throws SQLException {
+    public Long insertTicket(Ticket ticket) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_ticket")
-                        .set("sellerID", detail.getTicketID())//根据cashier_id增加
+                        .set("sellerID", ticket.getSellerID())
         );
     }
 }
