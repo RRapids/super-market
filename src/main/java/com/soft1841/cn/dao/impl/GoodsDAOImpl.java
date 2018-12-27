@@ -23,7 +23,7 @@ public class GoodsDAOImpl implements GoodsDAO {
         return Db.use().insertForGeneratedKey(
                 cn.hutool.db.Entity.create("t_goods")
                 .set("name",goods.getName())
-                .set("typename",goods.getTypename())
+                .set("type_id",goods.getTypeId())
                 .set("barCode",goods.getBarCode())
                 .set("price",goods.getPrice())
                 .set("avatar",goods.getAvatar())
@@ -36,13 +36,13 @@ public class GoodsDAOImpl implements GoodsDAO {
     @Override
     public int deleteGoodsByID(long id) throws SQLException {
         return Db.use().del(
-                cn.hutool.db.Entity.create("t_goods").set("id",id)
+                cn.hutool.db.Entity.create("t_goods").set("goods_id",id)
         );
     }
 
     @Override
-    public Entity getGoodsById(int id) throws SQLException {
-        return Db.use().queryOne("SELECT * FROM t_goods WHERE id = ?",id);
+    public Entity getGoodsById(long id) throws SQLException {
+        return Db.use().queryOne("SELECT * FROM t_goods WHERE goods_id = ?",id);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class GoodsDAOImpl implements GoodsDAO {
                 .set("quantity",goods.getQuantity())
                 .set("description",goods.getDescription())
                 .set("barCode",goods.getBarCode()),
-                Entity.create("t_goods").set("id",goods.getId())
+                Entity.create("t_goods").set("goods_id",goods.getId())
         );
 
     }

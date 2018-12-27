@@ -33,7 +33,7 @@ public interface GoodsDAO {
      * @param id
      * @return
      */
-    Entity getGoodsById(int id) throws SQLException;
+    Entity getGoodsById(long id) throws SQLException;
 
     /**
      * 修改商品信息
