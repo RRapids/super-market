@@ -1,5 +1,7 @@
 package com.soft1841.cn.entity;
 
+import cn.hutool.db.Entity;
+
 public class Goods {
     private long id;
     private long typeId;
@@ -9,8 +11,9 @@ public class Goods {
     private String avatar;
     private String quantity;
     private String description;
+    private String typename;
 
-    public Goods(long id, long typeId, String barCode, String name, String price, String avatar, String quantity, String description) {
+    public Goods() {
         this.id = id;
         this.typeId = typeId;
         this.barCode = barCode;
@@ -19,10 +22,7 @@ public class Goods {
         this.avatar = avatar;
         this.quantity = quantity;
         this.description = description;
-    }
-
-    public Goods() {
-
+        this.typename = typename;
     }
 
     public long getId() {
@@ -89,17 +89,26 @@ public class Goods {
         this.description = description;
     }
 
+    public String getTypename() {
+        return typename;
+    }
+
+    public void setTypename(String typename) {
+        this.typename = typename;
+    }
+
     @Override
     public String toString() {
         return "Goods{" +
                 "id=" + id +
-                ", typeId='" + typeId + '\'' +
+                ", typeId=" + typeId +
                 ", barCode='" + barCode + '\'' +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", quantity='" + quantity + '\'' +
                 ", description='" + description + '\'' +
+                ", typename='" + typename + '\'' +
                 '}';
     }
 }

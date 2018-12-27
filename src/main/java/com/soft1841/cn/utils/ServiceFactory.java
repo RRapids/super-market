@@ -24,6 +24,9 @@ public class ServiceFactory {
     public static TicketService getTicketServiceInstance() {
         return new TicketServiceImpl();
     }
+    public static GoodsService getGoodsServiceInstance(){
+        return new GoodsServiceImpl();
+    }
 
     public static DetailService getDetailServiceInstance() {
         return new DetailServiceImpl();
