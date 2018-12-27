@@ -21,7 +21,7 @@ public class MemberDAOImpl implements MemberDAO {
                 Entity.create("t_member")
                         .set("name", member.getName())
                         .set("address", member.getAddress())
-                        .set("phone_number", member.getPhone())
+                        .set("phnoe_number", member.getPhone())
         );
     }
 
@@ -59,7 +59,7 @@ public class MemberDAOImpl implements MemberDAO {
         member.setId(entity.getLong("memberID"));
         member.setName(entity.getStr("name"));
         member.setAddress(entity.getStr("address"));
-        member.setPhone(entity.getStr("phone"));
+        member.setPhone(entity.getStr("phnoe_number"));
         member.getIntegral();
         return member;
     }

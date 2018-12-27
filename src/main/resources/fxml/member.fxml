@@ -8,26 +8,26 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="719.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-      <TableView layoutX="13.0" layoutY="102.0"  prefWidth="734.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="会员号" />
-          <TableColumn prefWidth="99.0" text="姓名" />
-            <TableColumn prefWidth="213.0" text="地址" />
-            <TableColumn minWidth="0.0" prefWidth="249.0" text="电话" />
-            <TableColumn prefWidth="96.0" text="积分额" />
-        </columns>
-      </TableView>
-      <TextField layoutX="26.0" layoutY="48.0" text="请输入关键字" />
-      <Button layoutX="244.0" layoutY="48.0" mnemonicParsing="false" stylesheets="@../css/style.css" text="查询">
-         <styleClass>
-            <String fx:value="btn-radius-large" />
-            <String fx:value="blue-theme" />
-         </styleClass>
-      </Button>
-      <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="198.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/Magnifier.png" />
-         </image>
-      </ImageView>
+<AnchorPane prefHeight="719.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.soft1841.cn.controller.MemberController">
+    <!--<TableView layoutX="13.0" layoutY="102.0"  prefWidth="734.0">-->
+
+    <!--</TableView>-->
+    <FlowPane fx:id="memberPane" hgap="10" vgap="10"
+              AnchorPane.topAnchor="90"
+              AnchorPane.leftAnchor="10"
+              AnchorPane.rightAnchor="10"/>
+    <TextField layoutX="26.0" layoutY="48.0" text="请输入关键字"/>
+    <Button layoutX="244.0" layoutY="48.0" mnemonicParsing="false" stylesheets="@../css/style.css" text="查询">
+        <styleClass>
+            <String fx:value="btn-radius-large"/>
+            <String fx:value="blue-theme"/>
+        </styleClass>
+    </Button>
+    <ImageView fitHeight="30.0" fitWidth="42.0" layoutX="198.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../img/Magnifier.png"/>
+        </image>
+    </ImageView>
 </AnchorPane>

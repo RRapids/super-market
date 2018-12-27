@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 会员服务接口测试类
+ *
  * @author 腾飞
  * 2018.12.26
  */
@@ -18,12 +19,13 @@ public class MemberServiceTest {
     public void insertMember() {
         Member member = new Member();
         member.setName("测试");
-        memberService.insertMember(member);
+        member.setPhone("52582");
+        System.out.println(memberService.insertMember(member));
     }
 
     @Test
     public void deleteMemberById() {
-        memberService.deleteMemberById(3);
+        memberService.deleteMemberById(16);
     }
 
     @Test
