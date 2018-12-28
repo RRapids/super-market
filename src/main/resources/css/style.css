@@ -80,7 +80,7 @@
 
 /*蓝色主题*/
 .blue-theme {
-    -fx-background-color: rgb(30, 158, 255);
+    -fx-background-color:rgb(46, 105, 162);
     -fx-text-fill: #fff;
 }
 /*内容盒子样式，设置一下圆角和内边距*/
