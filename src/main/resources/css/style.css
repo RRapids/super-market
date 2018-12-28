@@ -23,6 +23,9 @@
     /*透明度*/
     -fx-opacity: 0.8;
 }
+.btn-basic2{
+    -fx-opacity: 0.7;
+}
 
 /*边框正常弧度按钮*/
 .btn-radius-normal {
@@ -204,4 +207,8 @@
 }
 .new1-theme{
     -fx-background-color: #a0bcae;
+}
+.text-field{
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
 }

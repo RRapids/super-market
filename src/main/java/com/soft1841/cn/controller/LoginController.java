@@ -6,10 +6,7 @@ import com.soft1841.cn.utils.ServiceFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -50,7 +47,7 @@ public class LoginController {
                 alert.showAndWait();
             }
         }else {
-            //调用service的登录 功能
+            //调用service的登录功能
             boolean flag = adminService.login(account, password);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("提示");
@@ -70,6 +67,6 @@ public class LoginController {
                 alert.setContentText("账号或密码错误，登录失败!");
                 alert.showAndWait();
             }
-        }
+     }
     }
 }
