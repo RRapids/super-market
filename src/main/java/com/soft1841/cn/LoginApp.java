@@ -15,7 +15,8 @@ public class LoginApp extends Application {
         primaryStage.setTitle("登录");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
          AnchorPane root = fxmlLoader.load();
-        Scene scene = new Scene(root,1920,1080);
+        Scene scene = new Scene(root);
+        primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
