@@ -322,6 +322,7 @@ public class GoodsController implements Initializable {
         goodsPane.getChildren().removeAll(goodsData);
         String keywords = keywordsField.getText().trim();
         goodsList = goodsService.getGoodsLike(keywords);
+        //通过条码查找（待修改）
         String barCode = keywordsField.getText().trim();
         goodsList = goodsService.getGoodsByBarCode(barCode);
         showGoods(goodsList);
