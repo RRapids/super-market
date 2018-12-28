@@ -1,6 +1,5 @@
 package com.soft1841.cn.controller;
 
-import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.GoodsDAO;
 import com.soft1841.cn.dao.TypeDAO;
 import com.soft1841.cn.entity.Detail;
@@ -46,19 +45,41 @@ public class GoodsController implements Initializable {
     @FXML
     private TextField keywordsField;
     @FXML
-    private ComboBox typeComboBox;
-
-    private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
-    private  GoodsService goodsService = ServiceFactory.getGoodsServiceInstance();
-
-    private List<Goods> goodsList = new ArrayList<>();
+    private ComboBox<Type> typeComboBox;
+    //商品模型数据集合，可以实时相应数据变化，无需刷新
+    private ObservableList<Goods> goodsData = FXCollections.observableArrayList();
+    //类型模型数据集合
+    private ObservableList<Type> typeData = FXCollections.observableArrayList();
+    //类别GoodsService对象
+    private GoodsService goodsService = ServiceFactory.getGoodsServiceInstance();
+    //类别TypeService对象
+    private TypeService typeService = ServiceFactory.getTypeServiceInstance();
+    //商品集合，存放数据库类别表查询结果
+    private List<Goods> goodsList = null;
+    //类别集合，存放数据库类别表查询结果
+    private List<Type> typeList = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         goodsList = goodsService.getAllGoods();
         showGoods(goodsList);
+        initComBox();
 
-        typeComboBox.getItems().setAll("服装类", "食品类", "生活用品类", "学习工具类", "小礼品类", "摆件类", "医药类", "手机类", "电脑类");
+    }
+    private void initComBox(){
+        //1.到数据库查询所有的类别
+        typeList = typeService.selectAllTypes();
+        //2.将typeList集合加入typeData模型数据集合
+        typeData.addAll(typeList);
+        //3.将数据模型设置给下拉框
+        typeComboBox.setItems(typeData);
+        //4.下拉框选择事件监听，根据选择不同的类别，过滤出该类别的商品
+        typeComboBox.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue)-> {
+            //移除掉之前的数据
+            goodsPane.getChildren().removeAll(goodsData);
+            goodsList = goodsService.getGoodsByTypeId(newValue.getId());
+            showGoods(goodsList);
+        });
 
     }
 
@@ -79,7 +100,7 @@ public class GoodsController implements Initializable {
             leftBox.setSpacing(10);
             leftBox.setAlignment(Pos.TOP_CENTER);
             //头像
-           // ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
+            // ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
             //价格
             Label priceLabel = new Label(goods.getPrice());
             priceLabel.getStyleClass().add("role-name");
@@ -120,6 +141,55 @@ public class GoodsController implements Initializable {
             });
             //按钮美化
             delBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
+            //添加修改按钮
+            Button priceBtn = new Button("价格修改");
+            priceBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
+            //事件
+            priceBtn.setOnAction(event -> {
+                TextInputDialog dialog = new TextInputDialog("请输入价格");
+                dialog.setTitle("商品修改");
+                dialog.setHeaderText("商品名" + goods.getName());
+                dialog.setContentText("输入新价格");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()){
+                    String priceSting = result.get();
+                    goods.setPrice(priceSting);
+                    goodsService.updateGoods(goods);
+
+                }
+            });
+            Button quantityBtn = new Button("库存修改");
+            quantityBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
+            //事件
+            quantityBtn.setOnAction(event -> {
+                TextInputDialog dialog = new TextInputDialog("请输入库存");
+                dialog.setTitle("商品修改");
+                dialog.setHeaderText("商品名" + goods.getName());
+                dialog.setContentText("更改库存");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()){
+                    String quantityString = result.get();
+                    goods.setQuantity(quantityString);
+                    goodsService.updateGoods(goods);
+                }
+            });
+            Button descriptionBtn = new Button("描述修改");
+            descriptionBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
+            //事件
+            descriptionBtn.setOnAction(event -> {
+                TextInputDialog dialog = new TextInputDialog("请输入库存");
+                dialog.setTitle("商品修改");
+                dialog.setHeaderText("商品名" + goods.getName());
+                dialog.setContentText("修改描述");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()){
+                    String descriptionString = result.get();
+                    goods.setDescription(descriptionString);
+                    goodsService.updateGoods(goods);
+                }
+            });
+
+
 //            //商品图片大小
 //            avatarImg.setFitWidth(80);
 //            avatarImg.setFitHeight(80);
@@ -131,10 +201,10 @@ public class GoodsController implements Initializable {
 //            avatarImg.setClip(circle);
             //商品图加入左边
 //            leftBox.getChildren().add(avatarImg);
-            rightBox.getChildren().add(delBtn);
-            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, quantityLabel, barCodeLabel);
+            rightBox.getChildren().addAll(priceBtn,quantityBtn,descriptionBtn,delBtn);
+            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
             //左边加入卡片
-            hBox.getChildren().addAll(leftBox,rightBox);
+            hBox.getChildren().addAll(leftBox, rightBox);
             goodsPane.getChildren().add(hBox);
         }
     }
@@ -252,7 +322,7 @@ public class GoodsController implements Initializable {
             leftBox.setSpacing(10);
             leftBox.setAlignment(Pos.TOP_CENTER);
             //头像
-           // ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
+            // ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
             //价格
             Label priceLabel = new Label(goods.getPrice());
             priceLabel.getStyleClass().add("role-name");
@@ -278,7 +348,7 @@ public class GoodsController implements Initializable {
                 //弹出一个确认对话框
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("确认对话框");
-                alert.setContentText("确定要删除此纪录吗？");
+                alert.setContentText("确定删除此纪录吗？");
                 //确认
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
@@ -292,6 +362,53 @@ public class GoodsController implements Initializable {
             });
             //按钮美化
             delBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
+            //添加修改按钮
+            Button priceBtn = new Button("价格修改");
+            priceBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
+            //事件
+            priceBtn.setOnAction(event -> {
+                TextInputDialog dialog = new TextInputDialog("请输入价格");
+                dialog.setTitle("商品修改");
+                dialog.setHeaderText("商品名" + goods.getName());
+                dialog.setContentText("输入新价格");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()){
+                    String priceSting = result.get();
+                    goods.setPrice(priceSting);
+                    goodsService.updateGoods(goods);
+
+                }
+            });
+            Button quantityBtn = new Button("库存修改");
+            quantityBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
+            //事件
+            quantityBtn.setOnAction(event -> {
+                TextInputDialog dialog = new TextInputDialog("请输入库存");
+                dialog.setTitle("商品修改");
+                dialog.setHeaderText("商品名" + goods.getName());
+                dialog.setContentText("更改库存");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()){
+                    String quantityString = result.get();
+                    goods.setQuantity(quantityString);
+                    goodsService.updateGoods(goods);
+                }
+            });
+            Button descriptionBtn = new Button("描述修改");
+            descriptionBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
+            //事件
+            descriptionBtn.setOnAction(event -> {
+                TextInputDialog dialog = new TextInputDialog("请输入库存");
+                dialog.setTitle("商品修改");
+                dialog.setHeaderText("商品名" + goods.getName());
+                dialog.setContentText("修改描述");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()){
+                    String descriptionString = result.get();
+                    goods.setDescription(descriptionString);
+                    goodsService.updateGoods(goods);
+                }
+            });
             //商品图片大小
 //            avatarImg.setFitWidth(80);
 //            avatarImg.setFitHeight(80);
@@ -303,10 +420,10 @@ public class GoodsController implements Initializable {
 //            avatarImg.setClip(circle);
 //            //商品图加入左边
 //            leftBox.getChildren().add(avatarImg);
-            rightBox.getChildren().add(delBtn);
+            rightBox.getChildren().addAll(priceBtn,quantityBtn,descriptionBtn,delBtn);
             leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, quantityLabel, barCodeLabel);
             //左边加入卡片
-            hBox.getChildren().addAll(leftBox,rightBox);
+            hBox.getChildren().addAll(leftBox, rightBox);
             goodsPane.getChildren().add(hBox);
 
             if (goods.getName().contains(keywords)) {
