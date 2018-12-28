@@ -13,18 +13,6 @@ public class Goods {
     private String description;
     private String typename;
 
-    public Goods() {
-        this.id = id;
-        this.typeId = typeId;
-        this.barCode = barCode;
-        this.name = name;
-        this.price = price;
-        this.avatar = avatar;
-        this.quantity = quantity;
-        this.description = description;
-        this.typename = typename;
-    }
-
     public long getId() {
         return id;
     }
@@ -95,20 +83,5 @@ public class Goods {
 
     public void setTypename(String typename) {
         this.typename = typename;
-    }
-
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", typeId=" + typeId +
-                ", barCode='" + barCode + '\'' +
-                ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", quantity='" + quantity + '\'' +
-                ", description='" + description + '\'' +
-                ", typename='" + typename + '\'' +
-                '}';
     }
 }

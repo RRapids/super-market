@@ -36,6 +36,7 @@ public class MainController{
         Scene scene = new Scene(root, 570, 395);
         scene.getStylesheets().add("/css/style.css");
         loginStage.setTitle("登录");
+        loginStage.setMaximized(true);
         loginStage.setScene(scene);
         loginStage.show();
         Stage mainStage = (Stage) exitButton.getScene().getWindow();
@@ -69,4 +70,11 @@ public class MainController{
         switchView("goods.fxml");
     }
 
+    public void listSeller()throws Exception{
+        switchView("seller.fxml");
+    }
+
+    public void listMember() throws Exception{
+        switchView("member.fxml");
+    }
 }

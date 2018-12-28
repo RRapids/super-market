@@ -1,6 +1,5 @@
 package com.soft1841.cn.service;
 
-import cn.hutool.db.Entity;
 import com.soft1841.cn.entity.Goods;
 
 import java.sql.SQLException;
@@ -23,14 +22,14 @@ public interface GoodsService {
      *
      * @param goods
      */
-    Long insertGoods(Goods goods);
+    Long addGoods(Goods goods);
 
     /**
      * 根据id删除商品
      *
      * @param id
      */
-    int deleteGoodsByID(long id);
+    void deleteGoodsByID(long id);
 
     /**
      * 根据id查询商品
@@ -38,14 +37,14 @@ public interface GoodsService {
      * @param id
      * @return
      */
-    Goods getGoodsById(long id);
+    List<Goods> getGoodsById(long id);
 
     /**
      * 修改商品信息
      *
      * @param goods
      */
-    int updateGoods(Goods goods);
+    void updateGoods(Goods goods);
 
     /**
      * 根据商品类别查询商品

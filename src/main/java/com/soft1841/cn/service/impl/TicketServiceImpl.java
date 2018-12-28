@@ -3,6 +3,7 @@ package com.soft1841.cn.service.impl;
 import cn.hutool.db.Entity;
 import com.soft1841.cn.dao.TicketDAO;
 import com.soft1841.cn.entity.Detail;
+import com.soft1841.cn.entity.Ticket;
 import com.soft1841.cn.service.TicketService;
 import com.soft1841.cn.utils.DAOFactory;
 
@@ -42,10 +43,10 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public Long insertTicket(Detail detail) {
+    public Long insertTicket(Ticket ticket) {
         long result = 0;
         try {
-            result = ticketDAO.insertTicket(detail);
+            result = ticketDAO.insertTicket(ticket);
         } catch (SQLException e) {
             System.err.println("新增小票出现异常!");
         }

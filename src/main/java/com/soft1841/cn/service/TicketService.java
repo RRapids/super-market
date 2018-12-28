@@ -2,6 +2,7 @@ package com.soft1841.cn.service;
 
 import cn.hutool.db.Entity;
 import com.soft1841.cn.entity.Detail;
+import com.soft1841.cn.entity.Ticket;
 
 import java.util.List;
 
@@ -24,9 +25,9 @@ public interface TicketService {
 
     /**
      * 新增类别, 返回自增主键(Long)
-     * @param detail
+     * @param ticket
      * @return
      */
-    Long insertTicket(Detail detail);
+    Long insertTicket(Ticket ticket);
 
 }

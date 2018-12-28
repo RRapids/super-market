@@ -13,33 +13,70 @@ import java.util.List;
  * @author 腾飞
  */
 public class GoodsServiceImpl implements GoodsService {
+    private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
     @Override
     public List<Goods> getAllGoods() {
-        return null;
+        List<Goods> goodsList = new ArrayList<>();
+        try {
+            goodsList = goodsDAO.selectGoods();
+        } catch (SQLException e) {
+            System.err.println("查询所有商品信息出现异常");
+        }
+        return goodsList;
     }
 
     @Override
-    public Long insertGoods(Goods goods) {
-        return null;
+    public Long addGoods(Goods goods) {
+        long result = 0;
+        try {
+            result = goodsDAO.insertGoods(goods);
+        } catch (SQLException e) {
+            System.err.println("新增商品信息出现异常");
+        }
+        return result;
     }
 
     @Override
-    public int deleteGoodsByID(long id) {
-        return 0;
+    public void deleteGoodsByID(long id) {
+        try {
+            goodsDAO.deleteGoodsByID(id);
+        } catch (SQLException e) {
+            System.err.println("删除商品信息出现异常");
+        }
+
     }
 
     @Override
-    public Goods getGoodsById(long id) {
-        return null;
+    public List<Goods> getGoodsById(long id) {
+        List<Goods> goodsList = new ArrayList<>();
+        try {
+            goodsList = goodsDAO.getGoodsById(id);
+        } catch (SQLException e) {
+            System.err.println("通过id查询商品出现异常");
+        }
+
+        return goodsList;
     }
 
+
     @Override
-    public int updateGoods(Goods goods) {
-        return 0;
+    public void updateGoods(Goods goods) {
+        try {
+            goodsDAO.updateGoods(goods);
+        } catch (SQLException e) {
+            System.err.println("更新商品信息出现异常");
+        }
     }
 
     @Override
     public List<Goods> getGoodsByTypeId(long typeId) {
-        return null;
+        List<Goods> goodsList = new ArrayList<>();
+        try {
+            goodsList = goodsDAO.getGoodsByTypeId(typeId);
+        } catch (SQLException e) {
+            System.err.println("通过类别增加商品出现异常");
+        }
+        return goodsList;
     }
+
 }

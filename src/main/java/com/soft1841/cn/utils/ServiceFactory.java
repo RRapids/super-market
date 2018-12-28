@@ -6,7 +6,6 @@ import com.soft1841.cn.service.impl.*;
 
 public class ServiceFactory {
     public static SellerService getSellerServiceInstance() {
-
         return new SellerServiceImpl();
     }
 
@@ -17,14 +16,19 @@ public class ServiceFactory {
     public static TypeService getTypeServiceInstance() {
         return new TypeServiceImpl();
     }
-    public static MemberService getMemberServiceInstance(){
+
+    public static MemberService getMemberServiceInstance() {
         return new MemberServiceImpl();
     }
-    public static TicketService getTicketServiceInstance(){
+
+    public static TicketService getTicketServiceInstance() {
         return new TicketServiceImpl();
     }
     public static GoodsService getGoodsServiceInstance(){
         return new GoodsServiceImpl();
     }
 
+    public static DetailService getDetailServiceInstance() {
+        return new DetailServiceImpl();
+    }
 }
