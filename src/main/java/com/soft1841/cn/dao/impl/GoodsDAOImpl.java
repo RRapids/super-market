@@ -2,8 +2,10 @@ package com.soft1841.cn.dao.impl;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import cn.hutool.db.sql.Condition;
 import com.soft1841.cn.dao.GoodsDAO;
 import com.soft1841.cn.entity.Goods;
+import org.apache.poi.ss.usermodel.ConditionType;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class GoodsDAOImpl implements GoodsDAO {
     @Override
     public Long insertGoods(Goods goods) throws SQLException {
         return Db.use().insertForGeneratedKey(
-                cn.hutool.db.Entity.create("t_goods")
+                Entity.create("t_goods")
                         .set("name", goods.getName())
                         .set("type_id", goods.getTypeId())
                         .set("barCode", goods.getBarCode())
@@ -77,6 +79,26 @@ public class GoodsDAOImpl implements GoodsDAO {
         for (Entity entity : entityList) {
             goodsList.add(convertGoods(entity));
 
+        }
+        return goodsList;
+    }
+
+    @Override
+    public List<Goods> selectBooksLike(String keywords) throws SQLException {
+        List<Entity> entityList = Db.use().findLike("t_goods","name",keywords, Condition.LikeType.Contains);
+        List<Goods> goodsList = new ArrayList<>();
+        for (Entity entity:entityList) {
+            goodsList.add(convertGoods(entity));
+        }
+        return goodsList;
+    }
+
+    @Override
+    public List<Goods> getGoodsByBarCode(String barCode) throws SQLException {
+        List<Entity> entityList = Db.use().findLike("t_goods","barCode",barCode, Condition.LikeType.Contains);
+        List<Goods> goodsList = new ArrayList<>();
+        for (Entity entity:entityList) {
+            goodsList.add(convertGoods(entity));
         }
         return goodsList;
     }

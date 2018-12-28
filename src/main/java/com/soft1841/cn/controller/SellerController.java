@@ -72,6 +72,7 @@ public class SellerController implements Initializable {
             Label idLabel = new Label(seller.getNumber());
             vBox.getChildren().addAll(imageView, nameLabel, idLabel);
             sellerPane.getChildren().add(vBox);
+            //
             vBox.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2) {
                     vBox.getChildren().clear();

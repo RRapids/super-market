@@ -69,12 +69,34 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
+    public List<Goods> getGoodsLike(String keywords) {
+        List<Goods> goodsList = new ArrayList<>();
+        try {
+            goodsList = goodsDAO.selectBooksLike(keywords);
+        } catch (SQLException e) {
+            System.err.println("根据关键字查询商品信息出现异常");
+        }
+        return goodsList;
+    }
+
+    @Override
     public List<Goods> getGoodsByTypeId(long typeId) {
         List<Goods> goodsList = new ArrayList<>();
         try {
             goodsList = goodsDAO.getGoodsByTypeId(typeId);
         } catch (SQLException e) {
             System.err.println("通过类别增加商品出现异常");
+        }
+        return goodsList;
+    }
+
+    @Override
+    public List<Goods> getGoodsByBarCode(String barCode) {
+        List<Goods> goodsList = new ArrayList<>();
+        try {
+            goodsList = goodsDAO.getGoodsByBarCode(barCode);
+        } catch (SQLException e) {
+            System.err.println("根据关键字查询商品信息出现异常");
         }
         return goodsList;
     }

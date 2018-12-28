@@ -53,4 +53,15 @@ public interface GoodsDAO {
      */
     List<Goods> getGoodsByTypeId(long typeId) throws SQLException;
 
+    /**
+     * 根据关键词模糊查询图书
+     * @param keywords
+     * @return
+     * @throws SQLException
+     */
+    List<Goods> selectBooksLike(String keywords) throws SQLException;
+
+    List<Goods> getGoodsByBarCode(String barCode) throws SQLException;
+
+
 }
