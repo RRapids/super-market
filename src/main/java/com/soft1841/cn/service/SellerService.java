@@ -43,4 +43,9 @@ public interface SellerService {
      */
     Long insertSeller(Seller seller);
 
+    /**
+     * 修改密码
+     */
+    void updateSeller(Seller seller);
+
 }

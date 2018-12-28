@@ -5,6 +5,10 @@ import com.soft1841.cn.entity.Seller;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * 收银员DAO
+ * @author Yue Tang
+ */
 
 public interface SellerDAO {
 
@@ -32,4 +36,9 @@ public interface SellerDAO {
      * 新增
      */
     Long insertSeller(Seller seller) throws SQLException;
+
+    /**
+     * 修改收银员信息
+     */
+    int updateSeller(Seller seller) throws SQLException;
 }

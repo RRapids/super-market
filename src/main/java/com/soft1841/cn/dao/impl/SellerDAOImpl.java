@@ -50,6 +50,15 @@ public class SellerDAOImpl implements SellerDAO {
         );
     }
 
+    @Override
+    public int updateSeller(Seller seller) throws SQLException {
+        //只改密码
+        return Db.use().update(
+                Entity.create().set("password", seller.getPassword()),
+                Entity.create("t_cashier").set("sellerID", seller.getId())
+        );
+    }
+
 //    private Seller convertSeller(Entity entity) {
 //        Seller seller = new Seller(entity.getLong("sellerID"), entity.getStr("number"),
 //                entity.getStr("name"), entity.getStr("password"), entity.getStr("avatar"));

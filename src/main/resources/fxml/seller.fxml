@@ -27,5 +27,5 @@
             <Font size="26.0" />
         </font>
     </Label>
-   <Button layoutX="700.0" layoutY="87.0" mnemonicParsing="false" text="添加收银员" />
+   <Button layoutX="700.0" layoutY="87.0" mnemonicParsing="false" text="添加收银员" onAction="#addSellerStage"/>
 </AnchorPane>

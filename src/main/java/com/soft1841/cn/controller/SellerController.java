@@ -3,19 +3,21 @@ package com.soft1841.cn.controller;
 import com.soft1841.cn.entity.Seller;
 import com.soft1841.cn.service.SellerService;
 import com.soft1841.cn.utils.ServiceFactory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -38,6 +40,8 @@ public class SellerController implements Initializable {
 
     private List<Seller> sellerList = new ArrayList<>();
 
+    private ObservableList<Seller> sellerData = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         sellerList = sellerService.selectAllSellers();
@@ -45,6 +49,7 @@ public class SellerController implements Initializable {
     }
 
     //通过循环遍历readerList集合，创建Hbox来显示每个读者信息
+    //还有删除以及修改密码
     private void listSeller(List<Seller> sellerList) {
         //移除之前的记录
         sellerPane.getChildren().clear();
@@ -68,7 +73,7 @@ public class SellerController implements Initializable {
             vBox.getChildren().addAll(imageView, nameLabel, idLabel);
             sellerPane.getChildren().add(vBox);
             vBox.setOnMouseClicked(event -> {
-                if(event.getClickCount()==2){
+                if (event.getClickCount() == 2) {
                     vBox.getChildren().clear();
                     //删除按钮
                     Button delBtn = new Button("删除");
@@ -84,6 +89,23 @@ public class SellerController implements Initializable {
                             sellerService.deleteSellerById(id);
                             //从流式面板移除当前这个人的布局
                             sellerPane.getChildren().remove(vBox);
+                        }
+                    });
+
+                    //修改密码
+                    Button psBtn = new Button("修改密码");
+                    psBtn.getStyleClass().add("warning-theme");
+                    psBtn.setOnAction(psevent -> {
+                        //创建新对话框
+                        TextInputDialog cgpsDialog = new TextInputDialog();
+                        cgpsDialog.setTitle("修改密码");
+                        cgpsDialog.setHeaderText("收银员：" + seller.getName());
+                        cgpsDialog.setContentText("请输入新密码：");
+                        Optional<String> resultps = cgpsDialog.showAndWait();
+                        if (resultps.isPresent()){
+                            String password = resultps.get();
+                            seller.setPassword(password);
+                            sellerService.updateSeller(seller);
                         }
                     });
 
@@ -105,16 +127,26 @@ public class SellerController implements Initializable {
                         vBox.getChildren().addAll(imageView1, nameLabel1, idLabel1);
                     });
 
-                    vBox.getChildren().addAll(delBtn,reBtn);
+                    vBox.getChildren().addAll(delBtn,psBtn,reBtn);
                 }
             });
         }
 
     }
 
-//    private void addSeller(){
-//
-//    }
+    public void addSellerStage() throws Exception {
+        Stage addSellerStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_seller.fxml"));
+        AnchorPane root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/style.css");
+        AddSellerController addSellerController = fxmlLoader.getController();
+        addSellerController.setSellerData(sellerData);
+        addSellerStage.setTitle("新增收银员界面");
+        addSellerStage.setResizable(false);
+        addSellerStage.setScene(scene);
+        addSellerStage.show();
+    }
 
 
 }
