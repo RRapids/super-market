@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 商品测试类
+ *
  * @author 袁腾飞
  * 2018.12.25
  */
@@ -17,9 +18,34 @@ public class GoodsDAOTest {
     private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
 
     @Test
-    public void getAllGoods() throws SQLException {
-        List<Entity> goodsList = goodsDAO.getAllGoods();
+    public void selectGoods() throws SQLException {
+        List<Goods> goodsList = goodsDAO.selectGoods();
         goodsList.forEach(entity -> System.out.println(entity));
     }
 
+    @Test
+    public void insertGoods() throws SQLException {
+
+    }
+
+    @Test
+    public void deleteGoodsByID() throws SQLException {
+        goodsDAO.deleteGoodsByID(2);
+    }
+
+    @Test
+    public void getGoodsById() throws SQLException {
+        goodsDAO.getGoodsById(3);
+        System.out.println();
+    }
+
+    @Test
+    public void updateGoods() throws SQLException {
+    }
+
+    @Test
+    public void getGoodsByTypeId() throws SQLException {
+        List<Goods> count = goodsDAO.getGoodsByTypeId(2);
+        System.out.println(count);
+    }
 }
