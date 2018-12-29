@@ -62,7 +62,7 @@ public class LoginController {
             if (flag) {
                 Stage mainStage = new Stage();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
-                BorderPane root = fxmlLoader.load();
+              BorderPane root = fxmlLoader.load();
                 Scene scene = new Scene(root);
                 scene.getStylesheets().add("/css/style.css");
                 mainStage.setTitle("收银管理系统");
