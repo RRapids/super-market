@@ -218,6 +218,9 @@
                               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0"
                                       styleClass="warning-theme" stylesheets="@../css/style.css" text="结账"
                                       AnchorPane.bottomAnchor="40" AnchorPane.leftAnchor="605.0" />
+                         <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0"
+                                 styleClass="warning-theme" stylesheets="@../css/style.css" text="打印小票"
+                                 AnchorPane.bottomAnchor="40" AnchorPane.leftAnchor="700.0" />
                               <Label layoutX="53.0" layoutY="33.0" text="数量：" />
                               <Label layoutX="53.0" layoutY="64.0" text="总价：¥" />
                               <Label layoutX="227.0" layoutY="33.0" text="实际收款：¥" />

@@ -20,6 +20,8 @@
     <top>
         <AnchorPane prefHeight="44.0" prefWidth="1320.0" styleClass="blue-theme"
                     stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+            <Label  fx:id="timeLabel" AnchorPane.topAnchor="30" AnchorPane.rightAnchor="500" styleClass="font-white"/>
+
             <children>
                 <ImageView fitHeight="45.0" fitWidth="401.0" layoutX="76.0" layoutY="14.0"
                            pickOnBounds="true" preserveRatio="true">
@@ -120,7 +122,7 @@
                     <children>
                         <Circle fill="#2e69a2" layoutX="336.0" layoutY="368.0" radius="85.0" stroke="#030403"
                                 strokeType="INSIDE"/>
-                        <Label layoutX="264.0" layoutY="352.0" text="超市后台管理">
+                        <Label layoutX="264.0" layoutY="352.0" text="超市后台管理" onMouseClicked="#listDefault">
                             <font>
                                 <Font size="24.0"/>
                             </font>

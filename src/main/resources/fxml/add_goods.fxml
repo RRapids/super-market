@@ -12,8 +12,8 @@
             fx:controller="com.soft1841.cn.controller.AddGoodsController"
             prefHeight="400.0" prefWidth="600.0">
     <HBox AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
-          minHeight="50" alignment="CENTER" styleClass="green-theme">
-        <Label text="新增商品信息" styleClass="font-title,green-theme,font-white"/>
+          minHeight="50" alignment="CENTER" styleClass="green1-theme">
+        <Label text="新增商品信息" styleClass="font-title,blue-theme,font-white"/>
     </HBox>
     <VBox styleClass="default-theme" spacing="20" minHeight="400"
           AnchorPane.topAnchor="55" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
