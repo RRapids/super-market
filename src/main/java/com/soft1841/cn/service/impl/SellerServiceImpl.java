@@ -52,7 +52,7 @@ public class SellerServiceImpl implements SellerService {
         try {
             sellerList = sellerDAO.selectAllSellers();
         } catch (SQLException e) {
-            System.err.println("查询所有读者信息出现异常");
+            System.err.println("查询所有收银员信息出现异常");
         }
         return sellerList;
     }
@@ -62,7 +62,7 @@ public class SellerServiceImpl implements SellerService {
         try {
             sellerDAO.deleteSellerById(id);
         } catch (SQLException e) {
-            System.err.println("删除读者信息出现异常");
+            System.err.println("删除收银员信息出现异常");
         }
     }
 
@@ -72,7 +72,7 @@ public class SellerServiceImpl implements SellerService {
         try {
             result = sellerDAO.insertSeller(seller);
         } catch (SQLException e) {
-            System.err.println("新增读者信息出现异常");
+            System.err.println("新增收银员信息出现异常");
         }
         return result;
     }

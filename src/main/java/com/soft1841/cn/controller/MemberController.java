@@ -29,20 +29,20 @@ public class MemberController implements Initializable {
         listMember(memberList);
     }
 
-    public void listMember(List<Member> memberList){
+    public void listMember(List<Member> memberList) {
         memberPane.getChildren().clear();
-        for (Member member:memberList
-             ) {
+        for (Member member : memberList
+        ) {
             VBox vBox = new VBox();
             vBox.setPrefSize(150, 120);
             vBox.getStyleClass().add("box");
             vBox.setSpacing(30);
             vBox.setAlignment(Pos.TOP_CENTER);
             Label nameLabel = new Label(member.getName());
-            Label phLabel = new Label(member.getPhone());
-            Label daLabel = new Label(member.getAddress());
-            Label intLabel = new Label(member.getIntegral());
-            vBox.getChildren().addAll(nameLabel,phLabel,daLabel,intLabel);
+            Label phLabel = new Label("电话：" + member.getPhone());
+            Label daLabel = new Label("地址：" + member.getAddress());
+            Label intLabel = new Label("积分：" + member.getIntegral());
+            vBox.getChildren().addAll(nameLabel, phLabel, daLabel, intLabel);
             memberPane.getChildren().add(vBox);
         }
 

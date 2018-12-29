@@ -57,4 +57,15 @@ public class Member {
     public void setIntegral(String integral) {
         this.integral = integral;
     }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", integral='" + integral + '\'' +
+                '}';
+    }
 }

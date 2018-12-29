@@ -69,7 +69,7 @@ public class SellerController implements Initializable {
             circle.setRadius(40.0);
             imageView.setClip(circle);
             Label nameLabel = new Label(seller.getName());
-            Label idLabel = new Label(seller.getNumber());
+            Label idLabel = new Label("账号：" + seller.getNumber());
             vBox.getChildren().addAll(imageView, nameLabel, idLabel);
             sellerPane.getChildren().add(vBox);
             //
@@ -103,7 +103,7 @@ public class SellerController implements Initializable {
                         cgpsDialog.setHeaderText("收银员：" + seller.getName());
                         cgpsDialog.setContentText("请输入新密码：");
                         Optional<String> resultps = cgpsDialog.showAndWait();
-                        if (resultps.isPresent()){
+                        if (resultps.isPresent()) {
                             String password = resultps.get();
                             seller.setPassword(password);
                             sellerService.updateSeller(seller);
@@ -128,7 +128,7 @@ public class SellerController implements Initializable {
                         vBox.getChildren().addAll(imageView1, nameLabel1, idLabel1);
                     });
 
-                    vBox.getChildren().addAll(delBtn,psBtn,reBtn);
+                    vBox.getChildren().addAll(delBtn, psBtn, reBtn);
                 }
             });
         }

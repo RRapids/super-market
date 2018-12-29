@@ -59,12 +59,6 @@ public class SellerDAOImpl implements SellerDAO {
         );
     }
 
-//    private Seller convertSeller(Entity entity) {
-//        Seller seller = new Seller(entity.getLong("sellerID"), entity.getStr("number"),
-//                entity.getStr("name"), entity.getStr("password"), entity.getStr("avatar"));
-//        return seller;
-//    }
-
     /**
      * 将Entity转换为Type类型
      *

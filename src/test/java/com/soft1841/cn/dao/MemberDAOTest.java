@@ -23,4 +23,8 @@ public class MemberDAOTest {
         System.out.println(memberDAO.insertMember(member));
     }
 
+    @Test
+    public void getMemberById() throws SQLException{
+        System.out.println(memberDAO.getMemberById(5));
+    }
 }

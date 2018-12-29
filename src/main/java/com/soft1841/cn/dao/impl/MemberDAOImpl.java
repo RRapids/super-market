@@ -60,7 +60,7 @@ public class MemberDAOImpl implements MemberDAO {
         member.setName(entity.getStr("name"));
         member.setAddress(entity.getStr("address"));
         member.setPhone(entity.getStr("phnoe_number"));
-        member.getIntegral();
+        member.setIntegral(entity.getStr("integral"));
         return member;
     }
 }
