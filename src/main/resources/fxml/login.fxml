@@ -74,14 +74,20 @@
             <String fx:value="btn-basic2"/>
         </styleClass>
     </Button>
-    <RadioButton layoutX="840.0" layoutY="468.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="133.0"
-                 selected="true" text="收银员" textFill="BLACK" toggleGroup="$user">
+    <RadioButton layoutX="840.0" layoutY="468.0"
+                 mnemonicParsing="false" prefHeight="36.0"
+                 prefWidth="133.0"
+                 selected="true" text="收银员"
+                 textFill="BLACK" toggleGroup="$user">
         <toggleGroup>
             <ToggleGroup fx:id="user"/>
         </toggleGroup>
     </RadioButton>
-    <RadioButton layoutX="1030.0" layoutY="468.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="133.0" text="管理员"
-                 textFill="BLACK" toggleGroup="$user" userData="1"/>
+    <RadioButton layoutX="1030.0" layoutY="468.0"
+                 mnemonicParsing="false" prefHeight="36.0"
+                 prefWidth="133.0" text="管理员"
+                 textFill="BLACK" toggleGroup="$user"
+                 userData="1"/>
     <Separator layoutX="693.0" layoutY="285.0" prefHeight="3.0" prefWidth="551.0"/>
     <Separator layoutX="696.0" layoutY="287.0" orientation="VERTICAL" prefHeight="635.0" prefWidth="3.0"/>
     <Separator layoutX="699.0" layoutY="921.0" prefHeight="3.0" prefWidth="551.0"/>

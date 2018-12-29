@@ -83,6 +83,11 @@
     -fx-background-color:rgb(46, 105, 162);
     -fx-text-fill: #fff;
 }
+/*浅蓝色*/
+.bule-theme1{
+    -fx-background-color: rgb(75,177,255);
+    -fx-text-fill: #fff;
+}
 /*内容盒子样式，设置一下圆角和内边距*/
 .box {
     -fx-border-color: rgb(162, 162, 162);
@@ -118,7 +123,10 @@
 .font-white {
     -fx-text-fill: #fff;
 }
-
+/*红色字体*/
+.font-red{
+    -fx-text-fill: rgb(204, 0, 0);
+}
 /*灰色字体*/
 .font-gray {
     -fx-text-fill: rgb(110, 110, 110);
@@ -204,6 +212,7 @@
 }
 .new-theme{
     -fx-background-color: #6cc2f3;
+    -fx-text-fill: #fff;
 }
 .new1-theme{
     -fx-background-color: #a0bcae;

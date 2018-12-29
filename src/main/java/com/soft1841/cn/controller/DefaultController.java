@@ -15,7 +15,7 @@ public class DefaultController implements Initializable {
     private ImageView smImg;
 
     //轮播图资源数组
-    String[] imgPath = {"e.png", "f.png", "g.png", "h.png", "i.png"};
+    String[] imgPath = {"e.jpg", "f.png", "g.jpg", "h.jpg", "i.png"};
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
