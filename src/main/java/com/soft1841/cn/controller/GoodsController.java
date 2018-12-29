@@ -15,6 +15,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -23,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -46,6 +48,7 @@ public class GoodsController implements Initializable {
     private TextField keywordsField;
     @FXML
     private ComboBox<Type> typeComboBox;
+
     //商品模型数据集合，可以实时相应数据变化，无需刷新
     private ObservableList<Goods> goodsData = FXCollections.observableArrayList();
     //类型模型数据集合
@@ -216,103 +219,29 @@ public class GoodsController implements Initializable {
 
         }
     }
-//    //弹出新增图书界面方法
-//    public void newStage() throws Exception {
-////        Stage addBookStage = new Stage();
-////        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_book.fxml"));
-////        AnchorPane root = fxmlLoader.load();
-////        Scene scene = new Scene(root);
-////        scene.getStylesheets().add("/css/style.css");
-//        AddGoodsController addGoodsController = fxmlLoader.getController();
-//        addGoodsController.setGoodsData(goodsList);
-//        addBookStage.setTitle("新增图书界面");
-//        //界面大小不可变
-//        addBookStage.setResizable(false);
-//        addBookStage.setScene(scene);
-//        addBookStage.show();
-//    }
-
-    //新增商品方法
-    public void addGoods() throws SQLException {
-        //创建Goods对象
-        Goods goods = new Goods();
-        //新建舞台
-        Stage stage = new Stage();
-        stage.setTitle("新增商品界面");
-        //创建垂直布局，以便放入新增组件
-        VBox vBox = new VBox();
-        vBox.setSpacing(10);
-        vBox.setPadding(new Insets(20, 10, 10, 10));
-
-        TextField nameField = new TextField();
-        nameField.setPromptText("请输入商品");
-        TextField avatarField = new TextField();
-        avatarField.setPromptText("请输入商品图");
-
-        //选择商品类别
-        String[] departments = {"服装类", "食品类", "生活用品类", "学习工具类", "小礼品类", "摆件类", "医药类", "手机类", "电脑类"};
-        List<String> list = Arrays.asList(departments);
-        //将list中的数据加入observableList
-        ObservableList<String> observableList = FXCollections.observableArrayList();
-        observableList.addAll(list);
-        //创建院系下拉框
-        ComboBox<String> depComboBox = new ComboBox<>();
-        depComboBox.setPromptText("选择类别");
-        //给下拉框初始化值
-        depComboBox.setItems(observableList);
-        //选中改变
-        depComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                goods.setTypename(newValue);
-
-            }
-        });
-        //条码输入框
-        TextField barCodeField = new TextField();
-        barCodeField.setPromptText("请输入条码");
-        //价格输入框
-        TextField priceField = new TextField();
-        priceField.setPromptText("请输入价格");
-        //货存输入框
-        TextField quantityField = new TextField();
-        quantityField.setPromptText("货存");
-        //描述框
-        TextField descriptionField = new TextField();
-        descriptionField.setPromptText("描述");
-        //新增按钮
-        Button addBtn = new Button("新增");
-        addBtn.getStyleClass().add("blue-theme");
-        vBox.getChildren().addAll(nameField, depComboBox, avatarField, barCodeField, priceField, quantityField, descriptionField, addBtn);
-        Scene scene = new Scene(vBox, 304, 380);
-        scene.getStylesheets().add("/css/style.css");
-        stage.setScene(scene);
-        stage.show();
-        //点击新增按钮，将界面数据封装成一个Reader对象，写入数据库
-        addBtn.setOnAction(event -> {
-            String nameString = nameField.getText().trim();
-            String avatarString = avatarField.getText().trim();
-            String barCodeString = barCodeField.getText().trim();
-            String priceString = priceField.getText().trim();
-            String quantityString = quantityField.getText().trim();
-            String descriptionString = descriptionField.getText().trim();
 
 
-            goods.setName(nameString);
-            goods.setAvatar(avatarString);
-            goods.setQuantity(quantityString);
-            goods.setBarCode(barCodeString);
-            goods.setDescription(descriptionString);
-            goods.setPrice(priceString);
-            System.out.println(goods.getName() + goods.getTypename() + goods.getBarCode());
-
-            goodsService.addGoods(goods);
-            stage.close();
-            //重新读取数据显示
-            goodsList = goodsService.getAllGoods();
-            showGoods(goodsList);
-        });
+    private void showGoodsData(List<Goods> goodsList){
+        goodsData.addAll(goodsList);
+        goodsPane.getChildren().add((Node) goodsData);
     }
+
+//弹出新增界面方法
+public void newGoodsStage() throws Exception {
+    Stage addGoodsStage = new Stage();
+    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_goods.fxml"));
+    AnchorPane root = fxmlLoader.load();
+    Scene scene = new Scene(root);
+    scene.getStylesheets().add("/css/style.css");
+    AddGoodsController addGoodsController = fxmlLoader.getController();
+    addGoodsController.setGoodsData(goodsData);
+    addGoodsStage.setTitle("新增商品界面");
+    //界面大小不可变
+    addGoodsStage.setResizable(false);
+    addGoodsStage.setScene(scene);
+    addGoodsStage.show();
+}
+
 
     public void enter() {
         keywordsField.setText("");
@@ -322,9 +251,9 @@ public class GoodsController implements Initializable {
         goodsPane.getChildren().removeAll(goodsData);
         String keywords = keywordsField.getText().trim();
         goodsList = goodsService.getGoodsLike(keywords);
-        //通过条码查找（待修改）
-        String barCode = keywordsField.getText().trim();
-        goodsList = goodsService.getGoodsByBarCode(barCode);
+//        //通过条码查找（待修改）
+//        String barCode = keywordsField.getText().trim();
+//        goodsList = goodsService.getGoodsByBarCode(barCode);
         showGoods(goodsList);
     }
 }

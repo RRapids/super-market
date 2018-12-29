@@ -5,7 +5,6 @@ import cn.hutool.db.Entity;
 import cn.hutool.db.sql.Condition;
 import com.soft1841.cn.dao.GoodsDAO;
 import com.soft1841.cn.entity.Goods;
-import org.apache.poi.ss.usermodel.ConditionType;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

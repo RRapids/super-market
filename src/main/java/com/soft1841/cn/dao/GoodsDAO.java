@@ -61,6 +61,12 @@ public interface GoodsDAO {
      */
     List<Goods> selectBooksLike(String keywords) throws SQLException;
 
+    /**
+     * 根据barCode模糊查询图书
+     * @param barCode
+     * @return
+     * @throws SQLException
+     */
     List<Goods> getGoodsByBarCode(String barCode) throws SQLException;
 
 
