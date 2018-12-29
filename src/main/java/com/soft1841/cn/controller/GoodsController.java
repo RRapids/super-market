@@ -202,23 +202,14 @@ public class GoodsController implements Initializable {
                     ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
                     avatarImg.setFitWidth(150);
                     avatarImg.setFitHeight(150);
-//                    Button reBtn = new Button("返回");
-//                    reBtn.getStyleClass().add("warning-theme");
-//                    reBtn.setOnAction(reEvent -> {
-//                        hBox.getChildren().clear();
-//                        rightBox.getChildren().addAll(priceBtn, quantityBtn, descriptionBtn, delBtn);
-//                        leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
-//                        hBox.getChildren().addAll(leftBox,rightBox);
-//                        goodsPane.getChildren().add(hBox);
-//                    });
                     hBox.getChildren().addAll(avatarImg);
 
                     //再次双击返回
                     hBox.setOnMouseClicked(event1 -> {
                         if (event1.getClickCount() == 2) {
                             hBox.getChildren().clear();
-                            rightBox.getChildren().addAll(priceBtn, quantityBtn, descriptionBtn, delBtn);
-                            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
+//                            rightBox.getChildren().addAll(priceBtn, quantityBtn, descriptionBtn, delBtn);
+//                            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
                             hBox.getChildren().addAll(leftBox,rightBox);                        }
                     });
                 }
