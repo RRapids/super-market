@@ -9,10 +9,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -33,6 +35,8 @@ public class AddGoodsController implements Initializable {
     @FXML
     private ComboBox<Type> goodsType;
     @FXML
+    private FlowPane goodsPane;
+    @FXML
     private TextField goodsName, goodsAvatar, goodsBarCode, goodsPrice, goodsQuantity;
     @FXML
     private TextArea goodsDescription;
@@ -44,6 +48,8 @@ public class AddGoodsController implements Initializable {
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
 
     private List<Type> typeList = null;
+
+    private List<Goods> goodsList = null;
 
     private Long typeId;
 
@@ -57,16 +63,18 @@ public class AddGoodsController implements Initializable {
                 }
         );
     }
-    public void addGoods(){
-        String nameString = goodsName.getText().trim();
-        String avatarString = goodsAvatar.getText().trim();
-        String barCodeString = goodsBarCode.getText().trim();
-        String priceString = goodsPrice.getText().trim();
-        String quantityString = goodsQuantity.getText().trim();
-        String descriptionString = goodsDescription.getText().trim();
 
+    public void addGoods() {
+        String nameString = goodsName.getText();
+        String avatarString = goodsAvatar.getText();
+        String barCodeString = goodsBarCode.getText();
+        String priceString = goodsPrice.getText();
+        String quantityString = goodsQuantity.getText();
+        String descriptionString = goodsDescription.getText();
+        System.out.println(descriptionString);
 
         Goods goods = new Goods();
+        goods.setTypeId(typeId);
         goods.setName(nameString);
         goods.setAvatar(avatarString);
         goods.setQuantity(quantityString);
@@ -76,11 +84,14 @@ public class AddGoodsController implements Initializable {
         long id = goodsService.addGoods(goods);
         goods.setId(id);
         this.getGoodsData().add(goods);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("提示信息");
-        alert.setHeaderText("新增图书成功!");
-        alert.showAndWait();
+//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//        alert.setTitle("提示信息");
+//        alert.setHeaderText("新增图书成功!");
+//        alert.showAndWait();
         Stage stage = (Stage) goodsName.getScene().getWindow();
         stage.close();
+//        goodsList = goodsService.getAllGoods();
+//        goodsData.addAll(goodsList);
+//        goodsPane.getChildren().addAll((Node) goodsData);
     }
 }
