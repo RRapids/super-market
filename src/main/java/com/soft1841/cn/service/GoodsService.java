@@ -47,11 +47,26 @@ public interface GoodsService {
     void updateGoods(Goods goods);
 
     /**
+     * 根据商品名模糊查找
+     * @param keywords
+     * @return
+     */
+    List<Goods> getGoodsLike(String keywords);
+
+    /**
      * 根据商品类别查询商品
      * @param typeId
      * @return
      * @throws SQLException
      */
     List<Goods> getGoodsByTypeId(long typeId);
+
+    /**
+     * 根据条码查询商品
+     * @param barCode
+     * @return
+     */
+    List<Goods> getGoodsByBarCode(String barCode);
+
 
 }

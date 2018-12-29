@@ -66,7 +66,8 @@ public class GoodsController implements Initializable {
         initComBox();
 
     }
-    private void initComBox(){
+
+    private void initComBox() {
         //1.到数据库查询所有的类别
         typeList = typeService.selectAllTypes();
         //2.将typeList集合加入typeData模型数据集合
@@ -74,7 +75,7 @@ public class GoodsController implements Initializable {
         //3.将数据模型设置给下拉框
         typeComboBox.setItems(typeData);
         //4.下拉框选择事件监听，根据选择不同的类别，过滤出该类别的商品
-        typeComboBox.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue)-> {
+        typeComboBox.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             //移除掉之前的数据
             goodsPane.getChildren().removeAll(goodsData);
             goodsList = goodsService.getGoodsByTypeId(newValue.getId());
@@ -82,7 +83,6 @@ public class GoodsController implements Initializable {
         });
 
     }
-
 
     private void showGoods(List<Goods> goodsList) {
         ObservableList<Node> observableList = goodsPane.getChildren();
@@ -99,10 +99,8 @@ public class GoodsController implements Initializable {
             VBox leftBox = new VBox();
             leftBox.setSpacing(10);
             leftBox.setAlignment(Pos.TOP_CENTER);
-            //头像
-            // ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
             //价格
-            Label priceLabel = new Label(goods.getPrice());
+            Label priceLabel = new Label("价格：" + goods.getPrice());
             priceLabel.getStyleClass().add("role-name");
             //创建右侧垂直布局
             VBox rightBox = new VBox();
@@ -112,9 +110,9 @@ public class GoodsController implements Initializable {
             Label nameLabel = new Label(goods.getName());
             nameLabel.getStyleClass().add("font-title");
             //条码
-            Label barCodeLabel = new Label(goods.getBarCode());
+            Label barCodeLabel = new Label("条码：" + goods.getBarCode());
             //数量
-            Label quantityLabel = new Label(goods.getQuantity());
+            Label quantityLabel = new Label("库存：" + goods.getQuantity());
             //描述
             Label descriptionLabel = new Label(goods.getDescription());
             //类别
@@ -151,7 +149,7 @@ public class GoodsController implements Initializable {
                 dialog.setHeaderText("商品名" + goods.getName());
                 dialog.setContentText("输入新价格");
                 Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()){
+                if (result.isPresent()) {
                     String priceSting = result.get();
                     goods.setPrice(priceSting);
                     goodsService.updateGoods(goods);
@@ -167,7 +165,7 @@ public class GoodsController implements Initializable {
                 dialog.setHeaderText("商品名" + goods.getName());
                 dialog.setContentText("更改库存");
                 Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()){
+                if (result.isPresent()) {
                     String quantityString = result.get();
                     goods.setQuantity(quantityString);
                     goodsService.updateGoods(goods);
@@ -182,32 +180,57 @@ public class GoodsController implements Initializable {
                 dialog.setHeaderText("商品名" + goods.getName());
                 dialog.setContentText("修改描述");
                 Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()){
+                if (result.isPresent()) {
                     String descriptionString = result.get();
                     goods.setDescription(descriptionString);
                     goodsService.updateGoods(goods);
                 }
             });
 
-
-//            //商品图片大小
-//            avatarImg.setFitWidth(80);
-//            avatarImg.setFitHeight(80);
-//            //给商品图设置圆形（为头像大小的一半）
-//            Circle circle = new Circle();
-//            circle.setCenterX(40);
-//            circle.setCenterY(40);
-//            circle.setRadius(40);
-//            avatarImg.setClip(circle);
-            //商品图加入左边
-//            leftBox.getChildren().add(avatarImg);
-            rightBox.getChildren().addAll(priceBtn,quantityBtn,descriptionBtn,delBtn);
+            rightBox.getChildren().addAll(priceBtn, quantityBtn, descriptionBtn, delBtn);
             leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
             //左边加入卡片
             hBox.getChildren().addAll(leftBox, rightBox);
             goodsPane.getChildren().add(hBox);
+            //双击事件
+            hBox.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2) {
+                    hBox.getChildren().clear();
+                    ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
+                    avatarImg.setFitWidth(150);
+                    avatarImg.setFitHeight(150);
+//                    Button reBtn = new Button("返回");
+//                    reBtn.getStyleClass().add("warning-theme");
+//                    reBtn.setOnAction(reEvent -> {
+//                        hBox.getChildren().clear();
+//                        rightBox.getChildren().addAll(priceBtn, quantityBtn, descriptionBtn, delBtn);
+//                        leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
+//                        hBox.getChildren().addAll(leftBox,rightBox);
+//                        goodsPane.getChildren().add(hBox);
+//                    });
+                    hBox.getChildren().addAll(avatarImg);
+
+                }
+            });
+
+
         }
     }
+//    //弹出新增图书界面方法
+//    public void newStage() throws Exception {
+////        Stage addBookStage = new Stage();
+////        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_book.fxml"));
+////        AnchorPane root = fxmlLoader.load();
+////        Scene scene = new Scene(root);
+////        scene.getStylesheets().add("/css/style.css");
+//        AddGoodsController addGoodsController = fxmlLoader.getController();
+//        addGoodsController.setGoodsData(goodsList);
+//        addBookStage.setTitle("新增图书界面");
+//        //界面大小不可变
+//        addBookStage.setResizable(false);
+//        addBookStage.setScene(scene);
+//        addBookStage.show();
+//    }
 
     //新增商品方法
     public void addGoods() throws SQLException {
@@ -282,21 +305,12 @@ public class GoodsController implements Initializable {
             goods.setDescription(descriptionString);
             goods.setPrice(priceString);
             System.out.println(goods.getName() + goods.getTypename() + goods.getBarCode());
-//            try {
-//               goodsDAO.insertGoods(goods);
-//           } catch (SQLException e) {
-//               e.printStackTrace();
-//          }
+
             goodsService.addGoods(goods);
             stage.close();
             //重新读取数据显示
             goodsList = goodsService.getAllGoods();
             showGoods(goodsList);
-//            try {
-//                goodsList = goodsDAO.getAllGoods();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
         });
     }
 
@@ -304,145 +318,15 @@ public class GoodsController implements Initializable {
         keywordsField.setText("");
     }
 
-    //商品模糊查询
-    public void searchByKeywords() throws SQLException {
-        //ObservableList<Node> observableList = goodsPane.getChildren();
-        //goodsPane.getChildren().removeAll(Collections.singleton(observableList));
+    public void searchByKeywords() {
+        goodsPane.getChildren().removeAll(goodsData);
         String keywords = keywordsField.getText().trim();
-        goodsPane.getChildren().clear();
-        //通过循环遍历readerList集合，创建HBox来显示每个商品信息
-        for (Goods goods : goodsList) {
-            HBox hBox = new HBox();
-            hBox.setPrefSize(290, 280);
-            hBox.setSpacing(10);
-            hBox.setPadding(new Insets(10, 10, 10, 10));
-            hBox.getStyleClass().add("box");
-            //创建左侧垂直布局
-            VBox leftBox = new VBox();
-            leftBox.setSpacing(10);
-            leftBox.setAlignment(Pos.TOP_CENTER);
-            //头像
-            // ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
-            //价格
-            Label priceLabel = new Label(goods.getPrice());
-            priceLabel.getStyleClass().add("role-name");
-            //创建右侧垂直布局
-            VBox rightBox = new VBox();
-            rightBox.setSpacing(15);
-            rightBox.setAlignment(Pos.TOP_RIGHT);
-            //商品名
-            Label nameLabel = new Label(goods.getName());
-            nameLabel.getStyleClass().add("font-title");
-            //条码
-            Label barCodeLabel = new Label(goods.getBarCode());
-            //数量
-            Label quantityLabel = new Label(goods.getQuantity());
-            //描述
-            Label descriptionLabel = new Label(goods.getDescription());
-            //类别
-            Label typeNameLabel = new Label(goods.getTypename());
-            //点击删除按钮做的事件
-            Button delBtn = new Button("删除");
-            //点击删除按钮做的事件
-            delBtn.setOnAction(event -> {
-                //弹出一个确认对话框
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("确认对话框");
-                alert.setContentText("确定删除此纪录吗？");
-                //确认
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK) {
-                    //得到id
-                    long id = goods.getId();
-                    goodsService.deleteGoodsByID(id);
-                    //从流式面板删除
-                    goodsPane.getChildren().remove(hBox);
-
-                }
-            });
-            //按钮美化
-            delBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
-            //添加修改按钮
-            Button priceBtn = new Button("价格修改");
-            priceBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
-            //事件
-            priceBtn.setOnAction(event -> {
-                TextInputDialog dialog = new TextInputDialog("请输入价格");
-                dialog.setTitle("商品修改");
-                dialog.setHeaderText("商品名" + goods.getName());
-                dialog.setContentText("输入新价格");
-                Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()){
-                    String priceSting = result.get();
-                    goods.setPrice(priceSting);
-                    goodsService.updateGoods(goods);
-
-                }
-            });
-            Button quantityBtn = new Button("库存修改");
-            quantityBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
-            //事件
-            quantityBtn.setOnAction(event -> {
-                TextInputDialog dialog = new TextInputDialog("请输入库存");
-                dialog.setTitle("商品修改");
-                dialog.setHeaderText("商品名" + goods.getName());
-                dialog.setContentText("更改库存");
-                Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()){
-                    String quantityString = result.get();
-                    goods.setQuantity(quantityString);
-                    goodsService.updateGoods(goods);
-                }
-            });
-            Button descriptionBtn = new Button("描述修改");
-            descriptionBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
-            //事件
-            descriptionBtn.setOnAction(event -> {
-                TextInputDialog dialog = new TextInputDialog("请输入库存");
-                dialog.setTitle("商品修改");
-                dialog.setHeaderText("商品名" + goods.getName());
-                dialog.setContentText("修改描述");
-                Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()){
-                    String descriptionString = result.get();
-                    goods.setDescription(descriptionString);
-                    goodsService.updateGoods(goods);
-                }
-            });
-            //商品图片大小
-//            avatarImg.setFitWidth(80);
-//            avatarImg.setFitHeight(80);
-//            //给商品图设置圆形（为头像大小的一半）
-//            Circle circle = new Circle();
-//            circle.setCenterX(40);
-//            circle.setCenterY(40);
-//            circle.setRadius(40);
-//            avatarImg.setClip(circle);
-//            //商品图加入左边
-//            leftBox.getChildren().add(avatarImg);
-            rightBox.getChildren().addAll(priceBtn,quantityBtn,descriptionBtn,delBtn);
-            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, quantityLabel, barCodeLabel);
-            //左边加入卡片
-            hBox.getChildren().addAll(leftBox, rightBox);
-            goodsPane.getChildren().add(hBox);
-
-            if (goods.getName().contains(keywords)) {
-                goodsPane.getChildren().clear();
-                goodsPane.getChildren().add(hBox);
-
-            }
-
-            if (goods.getBarCode().contains(keywords)) {
-                goodsPane.getChildren().clear();
-                goodsPane.getChildren().add(hBox);
-            }
-
-            if (goods.getTypename().contains(keywords)) {
-                goodsPane.getChildren().clear();
-                goodsPane.getChildren().add(hBox);
-
-            }
-        }
+        goodsList = goodsService.getGoodsLike(keywords);
+        //通过条码查找（待修改）
+        String barCode = keywordsField.getText().trim();
+        goodsList = goodsService.getGoodsByBarCode(barCode);
+        showGoods(goodsList);
     }
 }
+
 

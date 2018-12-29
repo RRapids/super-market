@@ -29,7 +29,7 @@
                 <ImageView fitHeight="67.0" fitWidth="110.0" layoutY="4.0"
                            pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../img/shoppingCar.png" />
+                        <Image url="@../img/shoppingCar.png"/>
                     </image>
                 </ImageView>
                 <TextField prefHeight="45.0" prefWidth="276.0" text="请输入关键字"
@@ -125,12 +125,12 @@
                         <Circle fill="#2e69a2" layoutX="579.0" layoutY="497.0" radius="75.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="#2e69a2" layoutX="119.0" layoutY="266.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="#2e69a2" layoutX="247.0" layoutY="622.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button layoutX="163.0" layoutY="106.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="84.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="会员信息" />
+                        <Button layoutX="163.0" layoutY="106.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="84.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="会员信息" onAction="#listMember"/>
                         <Button layoutX="436.0" layoutY="134.0" mnemonicParsing="false" onAction="#listType" prefHeight="49.0" prefWidth="105.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品类别" />
                         <Circle fill="#2e69a2" layoutX="488.0" layoutY="299.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button layoutX="86.0" layoutY="457.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="94.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="会员信息" />
-                        <Button layoutX="200.0" layoutY="596.0" mnemonicParsing="false" onAction="#listGoods" prefHeight="44.0" prefWidth="95.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品查询" />
-                        <Button layoutX="517.0" layoutY="464.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="130.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="收银员信息" />
+                        <Button layoutX="86.0" layoutY="457.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="94.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="管理员信息" />
+                        <Button layoutX="200.0" layoutY="596.0" mnemonicParsing="false" onAction="#listGoods" prefHeight="44.0" prefWidth="95.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品查询"/>
+                        <Button layoutX="517.0" layoutY="464.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="130.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="收银员信息" onAction="#listSeller"/>
                         <Circle fill="#2e69a2" layoutX="449.0" layoutY="645.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="#2e69a2" layoutX="264.0" layoutY="478.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
                     </children>
