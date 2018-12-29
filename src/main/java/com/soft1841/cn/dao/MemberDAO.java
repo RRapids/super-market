@@ -33,4 +33,14 @@ public interface MemberDAO {
      * @return
      */
     Member getMemberById(long id) throws SQLException;
+
+    /**
+     * 根据姓名查
+     */
+    List<Member> selectMemberByName(String keywords) throws SQLException;
+
+    /**
+     * 改手机
+     */
+    int updateMemberPhone(Member member)throws SQLException;
 }

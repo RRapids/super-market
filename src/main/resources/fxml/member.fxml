@@ -18,8 +18,8 @@
               AnchorPane.topAnchor="90"
               AnchorPane.leftAnchor="10"
               AnchorPane.rightAnchor="10"/>
-    <TextField layoutX="26.0" layoutY="48.0" text="请输入关键字"/>
-    <Button layoutX="244.0" layoutY="48.0" mnemonicParsing="false" stylesheets="@../css/style.css" text="查询">
+    <TextField layoutX="26.0" layoutY="48.0" text="请输入关键字" fx:id="keywordField"/>
+    <Button layoutX="244.0" layoutY="48.0" mnemonicParsing="false" stylesheets="@../css/style.css" text="查询" onAction="#searchMemberByName" defaultButton="true">
         <styleClass>
             <String fx:value="btn-radius-large"/>
             <String fx:value="blue-theme"/>

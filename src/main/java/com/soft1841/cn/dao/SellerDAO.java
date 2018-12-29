@@ -38,7 +38,12 @@ public interface SellerDAO {
     Long insertSeller(Seller seller) throws SQLException;
 
     /**
-     * 修改收银员信息
+     * 修改收银员密码
      */
     int updateSeller(Seller seller) throws SQLException;
+
+    /**
+     * 根据姓名查
+     */
+    List<Seller> selectSellersByName(String keywords) throws SQLException;
 }

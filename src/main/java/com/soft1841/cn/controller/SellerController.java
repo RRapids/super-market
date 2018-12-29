@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -35,6 +37,9 @@ public class SellerController implements Initializable {
 
     @FXML
     private FlowPane sellerPane;
+
+    @FXML
+    private TextField keywordsField;
 
     private SellerService sellerService = ServiceFactory.getSellerServiceInstance();
 
@@ -115,24 +120,23 @@ public class SellerController implements Initializable {
                     reBtn.getStyleClass().add("warning-theme");
                     reBtn.setOnAction(retevent -> {
                         vBox.getChildren().clear();
-                        ImageView imageView1 = new ImageView(new Image(seller.getAvatar()));
-                        imageView1.setFitWidth(80);
-                        imageView1.setFitHeight(80);
-                        Circle circle1 = new Circle();
-                        circle1.setCenterX(40.0);
-                        circle1.setCenterY(40.0);
-                        circle1.setRadius(40.0);
-                        imageView.setClip(circle1);
-                        Label nameLabel1 = new Label(seller.getName());
-                        Label idLabel1 = new Label(seller.getNumber());
-                        vBox.getChildren().addAll(imageView1, nameLabel1, idLabel1);
+//                        ImageView imageView1 = new ImageView(new Image(seller.getAvatar()));
+//                        imageView1.setFitWidth(80);
+//                        imageView1.setFitHeight(80);
+//                        Circle circle1 = new Circle();
+//                        circle1.setCenterX(40.0);
+//                        circle1.setCenterY(40.0);
+//                        circle1.setRadius(40.0);
+//                        imageView1.setClip(circle1);
+//                        Label nameLabel1 = new Label(seller.getName());
+//                        Label idLabel1 = new Label(seller.getNumber());
+                        vBox.getChildren().addAll(imageView, nameLabel, idLabel);
                     });
 
                     vBox.getChildren().addAll(delBtn, psBtn, reBtn);
                 }
             });
         }
-
     }
 
     public void addSellerStage() throws Exception {
@@ -149,5 +153,28 @@ public class SellerController implements Initializable {
         addSellerStage.show();
     }
 
-
+    public void searchBySellerName() {
+        sellerPane.getChildren().clear();
+        String keywords = keywordsField.getText().trim();
+        sellerList = sellerService.getSellerByName(keywords);
+        for (Seller seller : sellerList) {
+            ImageView imageView1 = new ImageView(new Image(seller.getAvatar()));
+            imageView1.setFitWidth(80);
+            imageView1.setFitHeight(80);
+            Circle circle1 = new Circle();
+            circle1.setCenterX(40.0);
+            circle1.setCenterY(40.0);
+            circle1.setRadius(40.0);
+            imageView1.setClip(circle1);
+            Label nameLabel1 = new Label(seller.getName());
+            Label idLabel1 = new Label(seller.getNumber());
+            VBox vBox = new VBox();
+            vBox.setPrefSize(150, 120);
+            vBox.getStyleClass().add("box");
+            vBox.setSpacing(30);
+            vBox.setAlignment(Pos.TOP_CENTER);
+            vBox.getChildren().addAll(imageView1, nameLabel1, idLabel1);
+            sellerPane.getChildren().add(vBox);
+        }
+    }
 }

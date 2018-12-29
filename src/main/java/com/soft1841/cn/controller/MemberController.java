@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
@@ -18,6 +19,9 @@ import java.util.ResourceBundle;
 public class MemberController implements Initializable {
     @FXML
     private FlowPane memberPane;
+
+    @FXML
+    private TextField keywordField;
 
     private MemberService memberService = ServiceFactory.getMemberServiceInstance();
 
@@ -45,6 +49,25 @@ public class MemberController implements Initializable {
             vBox.getChildren().addAll(nameLabel, phLabel, daLabel, intLabel);
             memberPane.getChildren().add(vBox);
         }
+    }
 
+    public void searchMemberByName() {
+        memberPane.getChildren().clear();
+        String keywords = keywordField.getText().trim();
+        memberList = memberService.getMemberByName(keywords);
+        for (Member member : memberList
+        ) {
+            VBox vBox = new VBox();
+            vBox.setPrefSize(150, 120);
+            vBox.getStyleClass().add("box");
+            vBox.setSpacing(30);
+            vBox.setAlignment(Pos.TOP_CENTER);
+            Label nameLabel = new Label(member.getName());
+            Label phLabel = new Label("电话：" + member.getPhone());
+            Label daLabel = new Label("地址：" + member.getAddress());
+            Label intLabel = new Label("积分：" + member.getIntegral());
+            vBox.getChildren().addAll(nameLabel, phLabel, daLabel, intLabel);
+            memberPane.getChildren().add(vBox);
+        }
     }
 }

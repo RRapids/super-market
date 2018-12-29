@@ -85,4 +85,16 @@ public class SellerServiceImpl implements SellerService {
             System.err.println("修改收银员密码异常");
         }
     }
+
+    @Override
+    public List<Seller> getSellerByName(String keywords) {
+        List<Seller> sellerList = new ArrayList<>();
+        try {
+            sellerList = sellerDAO.selectSellersByName(keywords);
+        } catch (SQLException e) {
+            System.err.println("根据名字查询收银员信息出现异常");
+        }
+        return sellerList;
+    }
+
 }

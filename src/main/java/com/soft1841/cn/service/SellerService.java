@@ -48,4 +48,11 @@ public interface SellerService {
      */
     void updateSeller(Seller seller);
 
+    /**
+     * 根据名字查
+     * @param keywords
+     * @return
+     */
+    List<Seller> getSellerByName(String keywords);
+
 }

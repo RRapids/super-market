@@ -2,6 +2,7 @@ package com.soft1841.cn.dao.impl;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import cn.hutool.db.sql.Condition;
 import com.soft1841.cn.dao.SellerDAO;
 import com.soft1841.cn.entity.Seller;
 
@@ -57,6 +58,16 @@ public class SellerDAOImpl implements SellerDAO {
                 Entity.create().set("password", seller.getPassword()),
                 Entity.create("t_cashier").set("sellerID", seller.getId())
         );
+    }
+
+    @Override
+    public List<Seller> selectSellersByName(String keywords) throws SQLException {
+        List<Entity> entityList = Db.use().findLike("t_cashier", "name", keywords, Condition.LikeType.Contains);
+        List<Seller> sellerList = new ArrayList<>();
+        for (Entity entity : entityList) {
+            sellerList.add(convertSeller(entity));
+        }
+        return sellerList;
     }
 
     /**

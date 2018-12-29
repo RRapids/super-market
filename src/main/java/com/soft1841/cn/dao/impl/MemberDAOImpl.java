@@ -2,6 +2,7 @@ package com.soft1841.cn.dao.impl;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import cn.hutool.db.sql.Condition;
 import com.soft1841.cn.dao.MemberDAO;
 import com.soft1841.cn.entity.Member;
 
@@ -47,6 +48,22 @@ public class MemberDAOImpl implements MemberDAO {
         Entity entity = Db.use().queryOne("SELECT * FROM t_member WHERE memberID = ? ", id);
         return convertMember(entity);
     }
+
+    @Override
+    public List<Member> selectMemberByName(String keywords) throws SQLException {
+        List<Entity> entityList = Db.use().findLike("t_member", "name", keywords, Condition.LikeType.Contains);
+        List<Member> memberList = new ArrayList<>();
+        for (Entity entity : entityList) {
+            memberList.add(convertMember(entity));
+        }
+        return memberList;    }
+
+    @Override
+    public int updateMemberPhone(Member member) throws SQLException {
+        return Db.use().update(
+                Entity.create().set("phnoe_number", member.getPhone()),
+                Entity.create("t_member").set("memberID", member.getId())
+        );    }
 
     /**
      * 将Entity转换为Type类型

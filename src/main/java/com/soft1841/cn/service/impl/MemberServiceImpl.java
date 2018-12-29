@@ -53,4 +53,23 @@ public class MemberServiceImpl implements MemberService {
         }
         return member;
     }
+
+    @Override
+    public void updateMemberPhone(Member member) {
+        try {
+            memberDAO.updateMemberPhone(member);
+        } catch (SQLException e) {
+            System.err.println("修改会员手机异常");
+        }
+    }
+
+    @Override
+    public List<Member> getMemberByName(String keywords) {
+        List<Member> memberList = new ArrayList<>();
+        try {
+            memberList = memberDAO.selectMemberByName(keywords);
+        } catch (SQLException e) {
+            System.err.println("根据名字查询收银员信息出现异常");
+        }
+        return memberList;    }
 }

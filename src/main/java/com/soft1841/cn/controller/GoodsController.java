@@ -213,34 +213,42 @@ public class GoodsController implements Initializable {
 //                    });
                     hBox.getChildren().addAll(avatarImg);
 
+                    //再次双击返回
+                    hBox.setOnMouseClicked(event1 -> {
+                        if (event1.getClickCount() == 2) {
+                            hBox.getChildren().clear();
+                            rightBox.getChildren().addAll(priceBtn, quantityBtn, descriptionBtn, delBtn);
+                            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
+                            hBox.getChildren().addAll(leftBox,rightBox);                        }
+                    });
                 }
             });
 
-
         }
+
     }
 
 
-    private void showGoodsData(List<Goods> goodsList){
+    private void showGoodsData(List<Goods> goodsList) {
         goodsData.addAll(goodsList);
         goodsPane.getChildren().add((Node) goodsData);
     }
 
-//弹出新增界面方法
-public void newGoodsStage() throws Exception {
-    Stage addGoodsStage = new Stage();
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_goods.fxml"));
-    AnchorPane root = fxmlLoader.load();
-    Scene scene = new Scene(root);
-    scene.getStylesheets().add("/css/style.css");
-    AddGoodsController addGoodsController = fxmlLoader.getController();
-    addGoodsController.setGoodsData(goodsData);
-    addGoodsStage.setTitle("新增商品界面");
-    //界面大小不可变
-    addGoodsStage.setResizable(false);
-    addGoodsStage.setScene(scene);
-    addGoodsStage.show();
-}
+    //弹出新增界面方法
+    public void newGoodsStage() throws Exception {
+        Stage addGoodsStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_goods.fxml"));
+        AnchorPane root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/style.css");
+        AddGoodsController addGoodsController = fxmlLoader.getController();
+        addGoodsController.setGoodsData(goodsData);
+        addGoodsStage.setTitle("新增商品界面");
+        //界面大小不可变
+        addGoodsStage.setResizable(false);
+        addGoodsStage.setScene(scene);
+        addGoodsStage.show();
+    }
 
 
     public void enter() {

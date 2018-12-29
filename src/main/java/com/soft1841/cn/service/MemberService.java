@@ -34,4 +34,9 @@ public interface MemberService {
      * @return
      */
     Member getMemberById(long id);
+
+    void updateMemberPhone(Member member);
+
+    List<Member> getMemberByName(String keywords);
+
 }
