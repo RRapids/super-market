@@ -13,38 +13,53 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="1091.0" prefWidth="2126.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.MainController">
+<BorderPane prefHeight="1091.0" prefWidth="2126.0"
+            xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.soft1841.cn.controller.MainController">
     <top>
-        <AnchorPane prefHeight="44.0" prefWidth="1320.0" styleClass="blue-theme" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="44.0" prefWidth="1320.0" styleClass="blue-theme"
+                    stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="45.0" fitWidth="401.0" layoutX="76.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="45.0" fitWidth="401.0" layoutX="76.0" layoutY="14.0"
+                           pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/d.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="67.0" fitWidth="110.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="67.0" fitWidth="110.0" layoutY="4.0"
+                           pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/shoppingCar.png" />
                     </image>
                 </ImageView>
-                <TextField prefHeight="45.0" prefWidth="276.0" text="请输入关键字" AnchorPane.leftAnchor="815" AnchorPane.topAnchor="15" />
-                <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="38.0" prefWidth="97.0" stylesheets="@../css/style.css" text="退出系统" AnchorPane.rightAnchor="350" AnchorPane.topAnchor="16">
+                <TextField prefHeight="45.0" prefWidth="276.0" text="请输入关键字"
+                           AnchorPane.leftAnchor="815" AnchorPane.topAnchor="15" />
+                <Button fx:id="closeButton" mnemonicParsing="false"
+                        onAction="#closeButtonAction" prefHeight="38.0" prefWidth="97.0"
+                        stylesheets="@../css/style.css" text="退出系统" AnchorPane.rightAnchor="350"
+                        AnchorPane.topAnchor="16">
                <styleClass>
                   <String fx:value="new-theme" />
                   <String fx:value="btn-radius-large" />
                </styleClass></Button>
-                <Button fx:id="exitButton" onAction="#exitButtonAction" prefHeight="38.0" prefWidth="97.0" stylesheets="@../css/style.css" text="退出登录" AnchorPane.rightAnchor="200" AnchorPane.topAnchor="16">
+                <Button fx:id="exitButton" onAction="#exitButtonAction"
+                        prefHeight="38.0" prefWidth="97.0" stylesheets="@../css/style.css"
+                        text="退出登录" AnchorPane.rightAnchor="200" AnchorPane.topAnchor="16">
                <styleClass>
                   <String fx:value="new-theme" />
                   <String fx:value="btn-radius-large" />
                </styleClass>
                 </Button>
-                <ImageView fitHeight="43.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="1044" AnchorPane.topAnchor="15">
+                <ImageView fitHeight="43.0" fitWidth="47.0"
+                           pickOnBounds="true" preserveRatio="true"
+                           AnchorPane.leftAnchor="1044" AnchorPane.topAnchor="15">
                     <image>
                         <Image url="@../img/Magnifier.png" />
                     </image>
                 </ImageView>
-                <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="68.0" stylesheets="@../css/style.css" text="查询" AnchorPane.rightAnchor="762.0" AnchorPane.topAnchor="20">
+                <Button mnemonicParsing="false" prefHeight="37.0"
+                        prefWidth="68.0" stylesheets="@../css/style.css"
+                        text="查询" AnchorPane.rightAnchor="762.0" AnchorPane.topAnchor="20">
                <styleClass>
                   <String fx:value="new-theme" />
                   <String fx:value="btn-radius-large" />
@@ -55,30 +70,40 @@
     <center>
         <AnchorPane prefHeight="999.0" prefWidth="1829.0" BorderPane.alignment="CENTER">
             <children>
-                <AnchorPane layoutX="-14.0" layoutY="-4.0" prefHeight="35" prefWidth="2379.0" styleClass="blue-theme" stylesheets="@../css/style.css" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="-1051.0">
+                <AnchorPane layoutX="-14.0" layoutY="-4.0" prefHeight="35" prefWidth="2379.0"
+                            styleClass="blue-theme" stylesheets="@../css/style.css"
+                            AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="-1051.0">
                     <children>
-                        <Button layoutX="20.0" layoutY="4.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="122.0" styleClass="blue-theme1" text="管理中心" />
-                        <Button layoutX="414.0" layoutY="4.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="122.0" styleClass="blue-theme1" text="设置中心" />
-                        <Button layoutX="210.0" layoutY="4.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="122.0" styleClass="blue-theme1" text="手机端" />
+                        <Button layoutX="20.0" layoutY="4.0" mnemonicParsing="false" prefHeight="30.0"
+                                prefWidth="122.0" styleClass="blue-theme1" text="管理中心" />
+                        <Button layoutX="414.0" layoutY="4.0" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="122.0" styleClass="blue-theme1" text="设置中心" />
+                        <Button layoutX="210.0" layoutY="4.0" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="122.0" styleClass="blue-theme1" text="手机端" />
                     </children>
                 </AnchorPane>
                 <ImageView fitHeight="29.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" />
-                <ImageView fitHeight="29.0" fitWidth="36.0" layoutX="8.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="29.0" fitWidth="36.0" layoutX="8.0"
+                           layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/administrative.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="30.0" fitWidth="37.0" layoutX="196.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="30.0" fitWidth="37.0" layoutX="196.0"
+                           pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/phone.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="400.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="27.0" fitWidth="34.0" layoutX="400.0"
+                           layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/she-zhi.png" />
                     </image>
                 </ImageView>
-                <StackPane fx:id="mainContainer" layoutX="8.0" layoutY="31.0" minWidth="1049.0" prefHeight="979.0" prefWidth="1140.0" styleClass="default-theme" stylesheets="@../css/style.css">
+                <StackPane fx:id="mainContainer" layoutX="8.0" layoutY="31.0"
+                           minWidth="1049.0" prefHeight="979.0" prefWidth="1140.0"
+                           styleClass="default-theme" stylesheets="@../css/style.css">
                     <children>
                         <fx:include source="default.fxml" />
                     </children>

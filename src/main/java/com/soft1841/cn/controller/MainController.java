@@ -75,6 +75,7 @@ public class MainController{
     }
 
     public void listMember() throws Exception{
-        switchView("member.fxml");
+        switchView
+                ("member.fxml");
     }
 }

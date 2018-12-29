@@ -1,159 +1,239 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane styleClass="new1-theme" prefHeight="900" prefWidth="1200"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane prefHeight="900" prefWidth="1200" styleClass="blue-theme"
+            xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.soft1841.cn.controller.LoginController">
    <top>
-      <HBox prefWidth="200.0" spacing="15" BorderPane.alignment="CENTER">
-          <Button mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="前台销售" />
-          <Button mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="采购进货" />
-          <Button mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="库存管理" />
-          <Button mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="会员管理" />
-          <Button mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="统计" />
-          <Button mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="系统设置" />
-          <Button mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="挂机" />
-          <Button mnemonicParsing="false" styleClass="btn-basic" stylesheets="@../css/style.css" text="退出" />
+      <HBox prefWidth="200.0" spacing="15" styleClass="blue-theme" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+         <children>
+             <Button mnemonicParsing="false" prefWidth="97.0" stylesheets="@../css/style.css" text="前台销售">
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="blue-theme" />
+               </styleClass>
+            </Button>
+             <Button mnemonicParsing="false" stylesheets="@../css/style.css" text="采购进货">
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="blue-theme" />
+               </styleClass>
+             </Button>
+             <Button mnemonicParsing="false" stylesheets="@../css/style.css" text="库存管理">
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="blue-theme" />
+               </styleClass>
+            </Button>
+             <Button mnemonicParsing="false" stylesheets="@../css/style.css" text="会员管理">
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="blue-theme" />
+               </styleClass>
+            </Button>
+             <Button mnemonicParsing="false" stylesheets="@../css/style.css" text="统计">
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="blue-theme" />
+               </styleClass>
+            </Button>
+             <Button mnemonicParsing="false" stylesheets="@../css/style.css" text="系统设置">
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="blue-theme" />
+               </styleClass>
+            </Button>
+             <Button mnemonicParsing="false" stylesheets="@../css/style.css" text="挂机">
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="blue-theme" />
+               </styleClass>
+            </Button>
+             <Button mnemonicParsing="false" stylesheets="@../css/style.css" text="退出">
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="blue-theme" />
+               </styleClass>
+             </Button>
+             <Button fx:id="exitButton" onAction="#exitButton"
+                     stylesheets="@../css/style.css" text="退出登录" underline="true">
+               <HBox.margin>
+                  <Insets left="800.0" right="20.0" top="5.0" />
+               </HBox.margin>
+               <styleClass>
+                  <String fx:value="btn-basic" />
+                  <String fx:value="new-theme" />
+               </styleClass>
+            </Button>
+         </children>
+          
       </HBox>
    </top>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-          <TitledPane animated="false" prefHeight="500.0" text="销售的商品">
-              <content>
-                  <AnchorPane prefHeight="654" prefWidth="1210">
-                      <TableView AnchorPane.topAnchor="5"
-                                 AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="480" prefHeight="500.0"
-                                 prefWidth="865.0">
-                          <columns>
-                              <TableColumn prefWidth="75.0" text="id" />
-                              <TableColumn prefWidth="75.0" text="商品条码" />
-                              <TableColumn prefWidth="75.0" text="商品名称" />
-                              <TableColumn prefWidth="75.0" text="规格" />
-                              <TableColumn prefWidth="75.0" text="单价" />
-                              <TableColumn prefWidth="75.0" text="数量" />
-                              <TableColumn prefWidth="75.0" text="日期" />
-                                </columns>
-                              </TableView>
-                        <HBox AnchorPane.topAnchor="5"
-                              AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="1500"
-                              prefHeight="51.0" prefWidth="343.0" spacing="15.0">
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="7">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="8">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="9">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                        </HBox>
-                        <HBox AnchorPane.topAnchor="85" AnchorPane.leftAnchor="1500" AnchorPane.rightAnchor="10"
-                              prefHeight="51.0" prefWidth="343.0" spacing="15.0">
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="4">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="5">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="6">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                        </HBox>
-                        <HBox AnchorPane.topAnchor="160" AnchorPane.leftAnchor="1500" AnchorPane.rightAnchor="10"
-                              prefHeight="51.0" prefWidth="343.0" spacing="15.0">
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="1">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="2">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="3">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                        </HBox>
-                        <HBox AnchorPane.topAnchor="235" AnchorPane.leftAnchor="1500" AnchorPane.rightAnchor="10"
-                              prefHeight="51.0" prefWidth="343.0" spacing="15.0">
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="0">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text=".">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="确定">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                        </HBox>
-                        <HBox AnchorPane.topAnchor="310" AnchorPane.leftAnchor="1500" AnchorPane.rightAnchor="10"
-                              prefHeight="51.0" prefWidth="343.0" spacing="15.0">
-                              <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="Enter">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="154.0" text="删除">
-                                 <font>
-                                    <Font name="System Bold Italic" size="25.0" />
-                                 </font>
-                              </Button>
-                        </HBox>
-                     </AnchorPane>
-                 </content>
-               </TitledPane>
-               <TitledPane animated="false" text="请输入商品条码">
+         <children>
+             <TitledPane animated="false" prefHeight="500.0" text="销售的商品">
                  <content>
-                   <AnchorPane  prefHeight="180.0" prefWidth="200.0">
-                              <TextField layoutX="36.0" layoutY="38.0" />
-                              <Button layoutX="243.0" layoutY="38.0" mnemonicParsing="false" text="确定" />
-                              <Label layoutX="36.0" layoutY="87.0" text="快捷键：F5 删除商品        F6 修改数量" />
-                     </AnchorPane>
-                 </content>
-               </TitledPane>
-               <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                        <TextField layoutX="320.0" layoutY="29.0" />
-                        <TextField layoutX="320.0" layoutY="67.0" />
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0"
-                                styleClass="warning-theme" stylesheets="@../css/style.css"
-                                text="结账" AnchorPane.bottomAnchor="40" AnchorPane.leftAnchor="605.0" />
-                        <Label layoutX="53.0" layoutY="33.0" text="数量：" />
-                        <Label layoutX="53.0" layoutY="64.0" text="总价：¥" />
-                        <Label layoutX="227.0" layoutY="33.0" text="实际收款：¥" />
-                        <Label layoutX="227.0" layoutY="64.0" text="找零现金：¥" />
-               </AnchorPane>
+                     <AnchorPane prefHeight="654" prefWidth="1210">
+                        <children>
+                            <TableView prefHeight="500.0" prefWidth="865.0" AnchorPane.leftAnchor="10.0"
+                                       AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="5.0">
+                                <columns>
+                                    <TableColumn prefWidth="75.0" text="id" />
+                                    <TableColumn prefWidth="75.0" text="商品条码" />
+                                    <TableColumn prefWidth="75.0" text="商品名称" />
+                                    <TableColumn prefWidth="75.0" text="规格" />
+                                    <TableColumn prefWidth="75.0" text="单价" />
+                                    <TableColumn prefWidth="75.0" text="数量" />
+                                    <TableColumn prefWidth="75.0" text="日期" />
+                                      </columns>
+                                    </TableView>
+                              <HBox prefHeight="51.0" prefWidth="343.0" spacing="15.0" AnchorPane.leftAnchor="1500"
+                                    AnchorPane.rightAnchor="10" AnchorPane.topAnchor="5">
+                                 <children>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="7">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="8">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="9">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="51.0" prefWidth="343.0" spacing="15.0" AnchorPane.leftAnchor="1500"
+                                    AnchorPane.rightAnchor="10" AnchorPane.topAnchor="85">
+                                 <children>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="4">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="5">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="6">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="51.0" prefWidth="343.0" spacing="15.0" AnchorPane.leftAnchor="1500"
+                                    AnchorPane.rightAnchor="10" AnchorPane.topAnchor="160">
+                                 <children>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="1">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="2">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="3">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="51.0" prefWidth="343.0" spacing="15.0" AnchorPane.leftAnchor="1500"
+                                    AnchorPane.rightAnchor="10" AnchorPane.topAnchor="235">
+                                 <children>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="0">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text=".">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="92.0" text="确定">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="51.0" prefWidth="343.0" spacing="15.0" AnchorPane.leftAnchor="1500"
+                                    AnchorPane.rightAnchor="10" AnchorPane.topAnchor="310">
+                                 <children>
+                                       <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="Enter">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                       <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="154.0" text="删除">
+                                          <font>
+                                             <Font name="System Bold Italic" size="25.0" />
+                                          </font>
+                                       </Button>
+                                 </children>
+                              </HBox>
+                        </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="请输入商品条码">
+                    <content>
+                      <AnchorPane prefHeight="180.0" prefWidth="200.0">
+                         <children>
+                                    <TextField layoutX="36.0" layoutY="38.0" />
+                                    <Button layoutX="243.0" layoutY="38.0" mnemonicParsing="false" text="确定" />
+                                    <Label layoutX="36.0" layoutY="87.0" text="快捷键：F5 删除商品        F6 修改数量" />
+                         </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                              <TextField layoutX="320.0" layoutY="29.0" />
+                              <TextField layoutX="320.0" layoutY="67.0" />
+                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0"
+                                      styleClass="warning-theme" stylesheets="@../css/style.css" text="结账"
+                                      AnchorPane.bottomAnchor="40" AnchorPane.leftAnchor="605.0" />
+                              <Label layoutX="53.0" layoutY="33.0" text="数量：" />
+                              <Label layoutX="53.0" layoutY="64.0" text="总价：¥" />
+                              <Label layoutX="227.0" layoutY="33.0" text="实际收款：¥" />
+                              <Label layoutX="227.0" layoutY="64.0" text="找零现金：¥" />
+                     </children>
+                  </AnchorPane>
+         </children>
       </VBox>
    </center>
    <bottom>
       <HBox prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
-            <Label text="当前用户：" />
-            <Label text="登陆时间：" />
-            <Label prefHeight="20.0" prefWidth="147.0" text="当前时间：" />
+         <children>
+               <Label text="当前用户：" />
+               <Label text="登陆时间：" />
+               <Label prefHeight="20.0" prefWidth="147.0" text="当前时间：" />
+         </children>
       </HBox>
    </bottom>
 </BorderPane>

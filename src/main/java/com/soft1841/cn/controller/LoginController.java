@@ -5,10 +5,15 @@ import com.soft1841.cn.service.SellerService;
 import com.soft1841.cn.utils.ServiceFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LoginController {
     @FXML
@@ -17,6 +22,9 @@ public class LoginController {
     private PasswordField passwordField;
     @FXML
     private ToggleGroup user;
+    @FXML
+    private javafx.scene.control.Button exitButton;
+
 
     private SellerService sellerService = ServiceFactory.getSellerServiceInstance();
     private AdminService adminService = ServiceFactory.getAdminServiceInstance();
@@ -46,7 +54,7 @@ public class LoginController {
                 alert.setContentText("账号或密码错误，登录失败!");
                 alert.showAndWait();
             }
-        }else {
+        } else {
             //调用service的登录功能
             boolean flag = adminService.login(account, password);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -67,6 +75,21 @@ public class LoginController {
                 alert.setContentText("账号或密码错误，登录失败!");
                 alert.showAndWait();
             }
-     }
+        }
+    }
+
+    @FXML
+    public void exitButton() throws Exception {
+        Stage loginStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 570, 395);
+        scene.getStylesheets().add("/css/style.css");
+        loginStage.setTitle("登录");
+        loginStage.setMaximized(true);
+        loginStage.setScene(scene);
+        loginStage.show();
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
 }
