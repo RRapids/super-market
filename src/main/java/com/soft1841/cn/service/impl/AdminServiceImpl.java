@@ -82,4 +82,14 @@ public class AdminServiceImpl implements AdminService {
             System.err.println("修改管理员密码异常");
         }
     }
+
+    @Override
+    public List<Admin> getAdminByName(String keywords) {
+        List<Admin> adminList = new ArrayList<>();
+        try {
+            adminList = adminDAO.selectAdminByName(keywords);
+        } catch (SQLException e) {
+            System.err.println("根据名字查询管理员信息出现异常");
+        }
+        return adminList;    }
 }

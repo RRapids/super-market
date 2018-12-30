@@ -1,10 +1,11 @@
 package com.soft1841.cn.controller;
 
-import com.soft1841.cn.entity.Seller;
-import com.soft1841.cn.service.SellerService;
+import com.soft1841.cn.entity.Admin;
+import com.soft1841.cn.service.AdminService;
 import com.soft1841.cn.utils.ServiceFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,8 +14,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -27,38 +26,30 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-/**
- * 管理收银员的控制器
- *
- * @author Yue Tang
- */
-
-public class SellerController implements Initializable {
+public class AdminController implements Initializable {
 
     @FXML
-    private FlowPane sellerPane;
+    private FlowPane adminPane;
 
     @FXML
     private TextField keywordsField;
 
-    private SellerService sellerService = ServiceFactory.getSellerServiceInstance();
+    private AdminService adminService = ServiceFactory.getAdminServiceInstance();
 
-    private List<Seller> sellerList = new ArrayList<>();
+    private List<Admin> adminList = new ArrayList<>();
 
-    private ObservableList<Seller> sellerData = FXCollections.observableArrayList();
+    private ObservableList<Admin> adminData = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        sellerList = sellerService.selectAllSellers();
-        listSeller(sellerList);
+        adminList = adminService.selectAllAdmins();
+        listAdmin(adminList);
     }
 
-    //通过循环遍历readerList集合，创建Hbox来显示每个信息
-    //还有删除以及修改密码
-    private void listSeller(List<Seller> sellerList) {
+    private void listAdmin(List<Admin> adminList) {
         //移除之前的记录
-        sellerPane.getChildren().clear();
-        for (Seller seller : sellerList
+        adminPane.getChildren().clear();
+        for (Admin admin : adminList
         ) {
             VBox vBox = new VBox();
             vBox.setPrefSize(150, 120);
@@ -66,15 +57,8 @@ public class SellerController implements Initializable {
             vBox.setSpacing(30);
             vBox.setAlignment(Pos.TOP_CENTER);
             ImageView imageView = new ImageView();
-
-//            try {
-                Image image = new Image(seller.getAvatar());
-                imageView.setImage(image);
-//
-//            } catch (IllegalArgumentException e){
-//                System.err.println("无头像");
-//            }
-//
+            Image image = new Image(admin.getAvatar());
+            imageView.setImage(image);
             imageView.setFitWidth(80);
             imageView.setFitHeight(80);
             Circle circle = new Circle();
@@ -82,11 +66,10 @@ public class SellerController implements Initializable {
             circle.setCenterY(40.0);
             circle.setRadius(40.0);
             imageView.setClip(circle);
-            Label nameLabel = new Label(seller.getName());
-            Label idLabel = new Label("账号：" + seller.getNumber());
+            Label nameLabel = new Label(admin.getName());
+            Label idLabel = new Label("账号：" + admin.getNumber());
             vBox.getChildren().addAll(imageView, nameLabel, idLabel);
-            sellerPane.getChildren().add(vBox);
-            //
+            adminPane.getChildren().add(vBox);
             vBox.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2) {
                     vBox.getChildren().clear();
@@ -99,11 +82,11 @@ public class SellerController implements Initializable {
                         alert.setContentText("确定要删除这行记录吗?");
                         Optional<ButtonType> result = alert.showAndWait();
                         if (result.get() == ButtonType.OK) {
-                            long id = seller.getId();
+                            long id = admin.getId();
                             //删除掉这行记录
-                            sellerService.deleteSellerById(id);
+                            adminService.deleteAdminById(id);
                             //从流式面板移除当前这个人的布局
-                            sellerPane.getChildren().remove(vBox);
+                            adminPane.getChildren().remove(vBox);
                         }
                     });
 
@@ -114,13 +97,13 @@ public class SellerController implements Initializable {
                         //创建新对话框
                         TextInputDialog cgpsDialog = new TextInputDialog();
                         cgpsDialog.setTitle("修改密码");
-                        cgpsDialog.setHeaderText("收银员：" + seller.getName());
+                        cgpsDialog.setHeaderText("管理员：" + admin.getName());
                         cgpsDialog.setContentText("请输入新密码：");
                         Optional<String> resultps = cgpsDialog.showAndWait();
                         if (resultps.isPresent()) {
                             String password = resultps.get();
-                            seller.setPassword(password);
-                            sellerService.updateSeller(seller);
+                            admin.setPassword(password);
+                            adminService.updateAdmin(admin);
                         }
                     });
 
@@ -129,16 +112,6 @@ public class SellerController implements Initializable {
                     reBtn.getStyleClass().add("warning-theme");
                     reBtn.setOnAction(retevent -> {
                         vBox.getChildren().clear();
-//                        ImageView imageView1 = new ImageView(new Image(seller.getAvatar()));
-//                        imageView1.setFitWidth(80);
-//                        imageView1.setFitHeight(80);
-//                        Circle circle1 = new Circle();
-//                        circle1.setCenterX(40.0);
-//                        circle1.setCenterY(40.0);
-//                        circle1.setRadius(40.0);
-//                        imageView1.setClip(circle1);
-//                        Label nameLabel1 = new Label(seller.getName());
-//                        Label idLabel1 = new Label(seller.getNumber());
                         vBox.getChildren().addAll(imageView, nameLabel, idLabel);
                     });
 
@@ -148,26 +121,12 @@ public class SellerController implements Initializable {
         }
     }
 
-    public void addSellerStage() throws Exception {
-        Stage addSellerStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_seller.fxml"));
-        AnchorPane root = fxmlLoader.load();
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/css/style.css");
-        AddSellerController addSellerController = fxmlLoader.getController();
-        addSellerController.setSellerData(sellerData);
-        addSellerStage.setTitle("新增收银员界面");
-        addSellerStage.setResizable(false);
-        addSellerStage.setScene(scene);
-        addSellerStage.show();
-    }
-
-    public void searchBySellerName() {
-        sellerPane.getChildren().clear();
+    public void searchBySellerName(ActionEvent actionEvent) {
+        adminPane.getChildren().clear();
         String keywords = keywordsField.getText().trim();
-        sellerList = sellerService.getSellerByName(keywords);
-        for (Seller seller : sellerList) {
-            ImageView imageView1 = new ImageView(new Image(seller.getAvatar()));
+        adminList = adminService.getAdminByName(keywords);
+        for (Admin admin : adminList) {
+            ImageView imageView1 = new ImageView(new Image(admin.getAvatar()));
             imageView1.setFitWidth(80);
             imageView1.setFitHeight(80);
             Circle circle1 = new Circle();
@@ -175,15 +134,30 @@ public class SellerController implements Initializable {
             circle1.setCenterY(40.0);
             circle1.setRadius(40.0);
             imageView1.setClip(circle1);
-            Label nameLabel1 = new Label(seller.getName());
-            Label idLabel1 = new Label(seller.getNumber());
+            Label nameLabel1 = new Label(admin.getName());
+            Label idLabel1 = new Label(admin.getNumber());
             VBox vBox = new VBox();
             vBox.setPrefSize(150, 120);
             vBox.getStyleClass().add("box");
             vBox.setSpacing(30);
             vBox.setAlignment(Pos.TOP_CENTER);
             vBox.getChildren().addAll(imageView1, nameLabel1, idLabel1);
-            sellerPane.getChildren().add(vBox);
+            adminPane.getChildren().add(vBox);
         }
+    }
+
+
+    public void addAdminStage(ActionEvent actionEvent) throws Exception {
+        Stage addAdminStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/add_admin.fxml"));
+        AnchorPane root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/css/style.css");
+        AddAdminController addAdminController = fxmlLoader.getController();
+        addAdminController.setAdminData(adminData);
+        addAdminStage.setTitle("新增收银员界面");
+        addAdminStage.setResizable(false);
+        addAdminStage.setScene(scene);
+        addAdminStage.show();
     }
 }

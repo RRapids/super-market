@@ -43,4 +43,11 @@ public interface AdminService {
      * 修改密码
      */
     void updateAdmin(Admin admin);
+
+    /**
+     * 根据名字查
+     * @param keywords
+     * @return
+     */
+    List<Admin> getAdminByName(String keywords);
 }

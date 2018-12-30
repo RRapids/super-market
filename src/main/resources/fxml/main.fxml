@@ -145,7 +145,7 @@
                                 stylesheets="@../css/style.css" text="商品类别"/>
                         <Circle fill="#2e69a2" layoutX="488.0" layoutY="299.0" radius="16.0" stroke="BLACK"
                                 strokeType="INSIDE"/>
-                        <Button layoutX="86.0" layoutY="457.0" mnemonicParsing="false" prefHeight="43.0"
+                        <Button layoutX="86.0" layoutY="457.0" mnemonicParsing="false" prefHeight="43.0" onAction="#listAdmin"
                                 prefWidth="94.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="管理员信息"/>
                         <Button layoutX="200.0" layoutY="596.0" mnemonicParsing="false" onAction="#listGoods"
                                 prefHeight="44.0" prefWidth="95.0" styleClass="blue-theme"

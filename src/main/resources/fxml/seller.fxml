@@ -15,7 +15,8 @@
 
     </FlowPane>
     <TextField layoutX="307.0" layoutY="87.0" styleClass="btn-radius-normal" stylesheets="@../css/style.css" promptText="请输入关键字" fx:id="keywordsField"/>
-    <Button defaultButton="true" layoutX="513.0" layoutY="87.0" mnemonicParsing="false" styleClass="blue-theme" stylesheets="@../css/style.css" text="查询" onAction="#searchBySellerName"/>
+    <Button defaultButton="true" layoutX="513.0" layoutY="87.0" mnemonicParsing="false" styleClass="blue-theme" stylesheets="@../css/style.css" text="查询"
+            onAction="#searchBySellerName"/>
     <ImageView fitHeight="28.0" fitWidth="50.0" layoutX="468.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../img/Magnifier.png" />

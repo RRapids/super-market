@@ -11,20 +11,25 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-public class AddSellerController{
 
-    private ObservableList<Seller> sellerData = FXCollections.observableArrayList();
+public class AddSellerController {
 
     @FXML
-    private TextField sellerName,sellerAvatar,sellerNumber;
+    private TextField sellerName, sellerAvatar, sellerNumber;
 
     @FXML
     private PasswordField sellerPassword;
 
+    private ObservableList<Seller> sellerData = FXCollections.observableArrayList();
+
     private SellerService sellerService = ServiceFactory.getSellerServiceInstance();
 
-    public ObservableList<Seller> getSellerData(){
+    public ObservableList<Seller> getSellerData() {
         return sellerData;
     }
 
@@ -32,7 +37,7 @@ public class AddSellerController{
         this.sellerData = sellerData;
     }
 
-    public void addSeller(){
+    public void addSeller() {
         String name = sellerName.getText();
         String avatar = sellerAvatar.getText();
         String number = sellerNumber.getText();
@@ -42,15 +47,21 @@ public class AddSellerController{
         seller.setAvatar(avatar);
         seller.setNumber(number);
         seller.setPassword(password);
-        long id = sellerService.insertSeller(seller);
-        seller.setId(id);
-        this.getSellerData().add(seller);
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("提示信息");
-        alert.setHeaderText("新增收银员成功！");
-        alert.showAndWait();
-        Stage stage = (Stage) sellerName.getScene().getWindow();
-        stage.close();
-    }
 
+        if (password.isEmpty() || avatar.isEmpty() || name.isEmpty() || number.isEmpty()) {
+            alert.setHeaderText("新增收银员失败！");
+            alert.showAndWait();
+        } else {
+            long id = sellerService.insertSeller(seller);
+            seller.setId(id);
+            this.getSellerData().add(seller);
+            alert.setHeaderText("新增收银员成功！");
+            alert.showAndWait();
+            Stage stage = (Stage) sellerName.getScene().getWindow();
+            stage.close();
+        }
+    }
 }

@@ -8,55 +8,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="932.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-       <FlowPane columnHalignment="CENTER" hgap="20.0" layoutX="28.0" layoutY="136.0" prefHeight="816.0" prefWidth="805.0" stylesheets="@../css/style.css" vgap="20.0">
-              <VBox prefHeight="246.0" prefWidth="376.0" spacing="20.0" styleClass="new-theme" stylesheets="@../css/style.css">
-                  <VBox prefHeight="261.0" prefWidth="376.0">
-                        <Label prefHeight="49.0" prefWidth="103.0" text="头像" />
-                  </VBox>
-              </VBox>
-              <VBox prefHeight="246.0" prefWidth="376.0" styleClass="new-theme" stylesheets="@../css/style.css">
-                     <Label prefHeight="20.0" prefWidth="63.0" text="头像">
-                         <font>
-                             <Font size="13.0" />
-                         </font>
-                     </Label>
-              </VBox>
-              <VBox prefHeight="246.0" prefWidth="376.0" styleClass="new-theme" stylesheets="@../css/style.css">
-                     <Label prefHeight="20.0" prefWidth="63.0" text="头像">
-                         <font>
-                             <Font name="System Bold Italic" size="16.0" />
-                         </font>
-                     </Label>
-              </VBox>
-              <VBox prefHeight="246.0" prefWidth="376.0" styleClass="new-theme" stylesheets="@../css/style.css">
-                     <Label prefHeight="20.0" prefWidth="63.0" text="头像">
-                         <font>
-                             <Font name="System Bold Italic" size="21.0" />
-                         </font>
-                     </Label>
-              </VBox>
-              <VBox prefHeight="246.0" prefWidth="376.0" styleClass="new-theme" stylesheets="@../css/style.css">
-                     <Label prefHeight="20.0" prefWidth="63.0" text="头像">
-                         <font>
-                             <Font name="System Bold Italic" size="21.0" />
-                         </font>
-                     </Label>
-              </VBox>
-              <VBox prefHeight="246.0" prefWidth="376.0" styleClass="new-theme" stylesheets="@../css/style.css">
-                     <Label prefHeight="20.0" prefWidth="63.0" text="头像">
-                         <font>
-                             <Font name="System Bold Italic" size="21.0" />
-                         </font>
-                     </Label>
-              </VBox>
-            </FlowPane>
-            <ChoiceBox layoutX="28.0" layoutY="87.0" prefHeight="30.0" prefWidth="195.0" />
-            <TextField layoutX="294.0" layoutY="87.0" styleClass="btn-radius-normal" stylesheets="@../css/style.css" text="请输入关键字" />
-            <Button layoutX="513.0" layoutY="87.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #009688;" text="查询" textFill="#f2e6e6" />
-         <Label layoutX="28.0" layoutY="20.0" prefHeight="30.0" prefWidth="141.0" stylesheets="@../css/style.css" text="管理员信息">
-            <font>
-               <Font size="26.0" />
-            </font>
-         </Label>
+<AnchorPane prefHeight="932.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.AdminController">
+    <FlowPane columnHalignment="CENTER" hgap="20.0" layoutX="28.0" layoutY="136.0" prefHeight="816.0"
+              prefWidth="805.0" stylesheets="@../css/style.css" vgap="20.0" fx:id="adminPane">
+
+    </FlowPane>
+    <TextField layoutX="294.0" layoutY="87.0" styleClass="btn-radius-normal" stylesheets="@../css/style.css"
+               promptText="请输入关键字" fx:id="keywordsField"/>
+    <Button layoutX="513.0" layoutY="87.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="69.0"
+            style="-fx-background-color: #009688;" text="查询" textFill="#f2e6e6" onAction="#searchBySellerName" defaultButton="true"/>
+    <Label layoutX="28.0" layoutY="20.0" prefHeight="30.0" prefWidth="141.0" stylesheets="@../css/style.css"
+           text="管理员信息">
+        <font>
+            <Font size="26.0"/>
+        </font>
+    </Label>
+    <Button layoutX="700.0" layoutY="87.0" mnemonicParsing="false" text="添加管理员" onAction="#addAdminStage"/>
+
 </AnchorPane>

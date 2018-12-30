@@ -57,14 +57,14 @@ public class AddGoodsController implements Initializable {
                 }
         );
     }
-    public void addGoods(){
+
+    public void addGoods() {
         String nameString = goodsName.getText().trim();
         String avatarString = goodsAvatar.getText().trim();
         String barCodeString = goodsBarCode.getText().trim();
         String priceString = goodsPrice.getText().trim();
         String quantityString = goodsQuantity.getText().trim();
         String descriptionString = goodsDescription.getText().trim();
-
 
         Goods goods = new Goods();
         goods.setName(nameString);
@@ -73,14 +73,22 @@ public class AddGoodsController implements Initializable {
         goods.setBarCode(barCodeString);
         goods.setDescription(descriptionString);
         goods.setPrice(priceString);
-        long id = goodsService.addGoods(goods);
-        goods.setId(id);
-        this.getGoodsData().add(goods);
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("提示信息");
-        alert.setHeaderText("新增图书成功!");
-        alert.showAndWait();
-        Stage stage = (Stage) goodsName.getScene().getWindow();
-        stage.close();
+
+        if (nameString.isEmpty() || avatarString.isEmpty() || quantityString.isEmpty() || barCodeString.isEmpty() || descriptionString.isEmpty() || priceString.isEmpty()) {
+            alert.setHeaderText("新增商品失败！");
+            alert.showAndWait();
+        } else {
+            long id = goodsService.addGoods(goods);
+            goods.setId(id);
+            this.getGoodsData().add(goods);
+
+            alert.setHeaderText("新增商品成功!");
+            alert.showAndWait();
+            Stage stage = (Stage) goodsName.getScene().getWindow();
+            stage.close();
+        }
     }
 }

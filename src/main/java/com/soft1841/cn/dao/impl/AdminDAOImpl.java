@@ -5,6 +5,7 @@ package com.soft1841.cn.dao.impl;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
+import cn.hutool.db.sql.Condition;
 import com.soft1841.cn.dao.AdminDAO;
 import com.soft1841.cn.entity.Admin;
 
@@ -27,7 +28,7 @@ public class AdminDAOImpl implements AdminDAO {
 
     @Override
     public List<Admin> selectAllAdmins() throws SQLException {
-        List<Entity> entityList = Db.use().query("SELECT * FROM t_cashier ");
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_admin ");
         List<Admin> adminList = new ArrayList<>();
         for (Entity entity : entityList) {
             adminList.add(convertAdmin(entity));
@@ -62,6 +63,16 @@ public class AdminDAOImpl implements AdminDAO {
         );
     }
 
+    @Override
+    public List<Admin> selectAdminByName(String keywords) throws SQLException {
+        List<Entity> entityList = Db.use().findLike("t_admin", "name", keywords, Condition.LikeType.Contains);
+        List<Admin> adminList = new ArrayList<>();
+        for (Entity entity : entityList) {
+            adminList.add(convertAdmin(entity));
+        }
+        return adminList;
+    }
+
     /**
      * 将Entity转换为Type类型
      *
@@ -69,7 +80,12 @@ public class AdminDAOImpl implements AdminDAO {
      * @return Admin
      */
     private Admin convertAdmin(Entity entity) {
-        Admin admin = new Admin(entity.getLong("admin_id"), entity.getStr("name"), entity.getStr("avatar"), entity.getStr("password"), entity.getStr("number"));
+        Admin admin = new Admin();
+        admin.setId(entity.getLong("admin_id"));
+        admin.setAvatar(entity.getStr("avatar"));
+        admin.setName(entity.getStr("name"));
+        admin.setPassword(entity.getStr("password"));
+        admin.setNumber(entity.getStr("number"));
         return admin;
     }
 

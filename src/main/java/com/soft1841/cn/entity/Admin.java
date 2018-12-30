@@ -1,7 +1,7 @@
 package com.soft1841.cn.entity;
 
 public class Admin {
-    private Long id;
+    private long id;
     private String name;
     private String avatar;
     private String password;

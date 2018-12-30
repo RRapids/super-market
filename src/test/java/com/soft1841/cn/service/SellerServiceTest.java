@@ -18,7 +18,7 @@ public class SellerServiceTest {
 
     @Test
     public void getSellerByNumber() {
-        System.out.println(sellerService.getSellerByNumber("184113"));
+        System.out.println(sellerService.getSellerByNumber("r'yu'j"));
     }
 
     @Test

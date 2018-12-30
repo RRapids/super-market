@@ -34,4 +34,9 @@ public interface AdminDAO {
      * 修改收银员信息
      */
     int updateAdmin(Admin admin) throws SQLException;
+
+    /**
+     * 根据姓名查
+     */
+    List<Admin> selectAdminByName(String keywords) throws SQLException;
 }
