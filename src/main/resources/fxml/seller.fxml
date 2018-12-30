@@ -14,9 +14,8 @@
     <FlowPane fx:id="sellerPane" columnHalignment="CENTER" hgap="20.0" layoutX="28.0" layoutY="136.0" prefHeight="816.0" prefWidth="805.0" stylesheets="@../css/style.css" vgap="20.0">
 
     </FlowPane>
-    <TextField layoutX="307.0" layoutY="87.0" styleClass="btn-radius-normal" stylesheets="@../css/style.css" promptText="请输入关键字" fx:id="keywordsField"/>
-    <Button defaultButton="true" layoutX="513.0" layoutY="87.0" mnemonicParsing="false" styleClass="blue-theme" stylesheets="@../css/style.css" text="查询"
-            onAction="#searchBySellerName"/>
+    <TextField layoutX="307.0" layoutY="87.0" styleClass="btn-radius-normal" stylesheets="@../css/style.css" text="请输入关键字" />
+    <Button layoutX="513.0" layoutY="87.0" mnemonicParsing="false" styleClass="blue-theme" stylesheets="@../css/style.css" text="查询" />
     <ImageView fitHeight="28.0" fitWidth="50.0" layoutX="468.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../img/Magnifier.png" />
