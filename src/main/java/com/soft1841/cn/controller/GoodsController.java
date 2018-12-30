@@ -76,7 +76,7 @@ public class GoodsController implements Initializable {
 
     private void initComBox() {
         //1.到数据库查询所有的类别
-        typeList = typeService.selectAllTypes();
+        typeList = typeService.getAllTypes();
         //2.将typeList集合加入typeData模型数据集合
         typeData.addAll(typeList);
         //3.将数据模型设置给下拉框
@@ -129,9 +129,6 @@ public class GoodsController implements Initializable {
             //描述
             TextField descriptionLabel = new TextField(goods.getDescription());
             descriptionLabel.setEditable(false);
-            //类别
-            TextField typeNameLabel = new TextField(goods.getTypename());
-            typeNameLabel.setEditable(false);
 
             //删除按钮
             Button delBtn = new Button("删除");
@@ -176,7 +173,7 @@ public class GoodsController implements Initializable {
 
             //加入
             rightBox.getChildren().addAll(alterBtn,delBtn,yesBtn);
-            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
+            leftBox.getChildren().addAll(nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
             //加入卡片
             hBox.getChildren().addAll(leftBox, rightBox);
             goodsPane.getChildren().add(hBox);
