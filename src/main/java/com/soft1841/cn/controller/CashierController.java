@@ -4,12 +4,11 @@ import com.soft1841.cn.service.GoodsService;
 import com.soft1841.cn.utils.ServiceFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+
 import javafx.scene.control.Alert;
 
 import java.awt.*;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public class CashierController {
 

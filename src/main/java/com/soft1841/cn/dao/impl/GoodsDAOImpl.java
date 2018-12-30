@@ -111,7 +111,6 @@ public class GoodsDAOImpl implements GoodsDAO {
         goods.setId(entity.getLong("goods_id"));
         goods.setName(entity.getStr("name"));
         goods.setAvatar(entity.getStr("avatar"));
-        goods.setTypename(entity.getStr("typename"));
         goods.setTypeId(entity.getLong("type_id"));
         goods.setPrice(entity.getStr("price"));
         goods.setBarCode(entity.getStr("barCode"));
