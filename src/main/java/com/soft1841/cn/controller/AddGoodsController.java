@@ -57,6 +57,7 @@ public class AddGoodsController implements Initializable {
                 }
         );
     }
+    //增加商品
     public void addGoods(){
         String nameString = goodsName.getText().trim();
         String avatarString = goodsAvatar.getText().trim();
