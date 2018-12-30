@@ -88,7 +88,7 @@
     -fx-text-fill: #fff;
 }
 /*浅蓝色*/
-.bule-theme1{
+.blue-theme1{
     -fx-background-color: rgb(75,177,255);
     -fx-text-fill: #fff;
 }
@@ -164,6 +164,13 @@
     -fx-background-color: #fff;
     -fx-border-color: rgb(230, 230, 230);
     -fx-border-radius: 100;
+}
+.radio-button2{
+    -fx-background-color: rgb(46, 105, 162) ;
+    -fx-background-radius: 100;
+    -fx-font-size: 20px;
+    -fx-border-radius: 100;
+
 }
 
 /*单选按钮中间点的颜色*/
