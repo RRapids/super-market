@@ -13,7 +13,7 @@ public interface TypeService {
      * 获取所有商品类别的功能
      * @return
      */
-    List<Type> selectAllTypes();
+    List<Type> getAllTypes();
 
     /**
      * 根据id查询类别

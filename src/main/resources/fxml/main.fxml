@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -16,6 +15,11 @@
            <children>
                <Label  fx:id="timeLabel" AnchorPane.topAnchor="30"
                        AnchorPane.rightAnchor="500" styleClass="font-white"/>
+               <ImageView fx:id="adminAvatar" fitWidth="40" fitHeight="40" AnchorPane.topAnchor="10"
+                          AnchorPane.rightAnchor="400">
+               </ImageView>
+               <Label fx:id="adminName" AnchorPane.topAnchor="55" AnchorPane.rightAnchor="350" styleClass="font-white"/>
+
                <ImageView fitHeight="45.0" fitWidth="401.0" layoutX="76.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                    <image>
                        <Image url="@../img/d.png" />
@@ -61,12 +65,17 @@
               <Circle fill="#2e69a2" layoutX="579.0" layoutY="497.0" radius="75.0" stroke="BLACK" strokeType="INSIDE" />
               <Circle fill="#2e69a2" layoutX="119.0" layoutY="266.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
               <Circle fill="#2e69a2" layoutX="247.0" layoutY="622.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-              <Button layoutX="163.0" layoutY="106.0" mnemonicParsing="false" onAction="#listMember" prefHeight="37.0" prefWidth="84.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="会员信息" />
-              <Button layoutX="436.0" layoutY="134.0" mnemonicParsing="false" onAction="#listType" prefHeight="49.0" prefWidth="105.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品类别" />
+              <Button layoutX="163.0" layoutY="106.0" mnemonicParsing="false" onAction="#listMember" prefHeight="37.0" prefWidth="84.0"
+                      styleClass="blue-theme" stylesheets="@../css/style.css" text="会员信息" />
+              <Button layoutX="436.0" layoutY="134.0" mnemonicParsing="false" onAction="#listType" prefHeight="49.0" prefWidth="105.0"
+                      styleClass="blue-theme" stylesheets="@../css/style.css" text="商品类别" />
               <Circle fill="#2e69a2" layoutX="488.0" layoutY="299.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-              <Button layoutX="86.0" layoutY="457.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="105.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="管理员信息" />
-              <Button layoutX="200.0" layoutY="596.0" mnemonicParsing="false" onAction="#listGoods" prefHeight="44.0" prefWidth="95.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品查询" />
-              <Button layoutX="517.0" layoutY="464.0" mnemonicParsing="false" onAction="#listSeller" prefHeight="64.0" prefWidth="130.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="收银员信息" />
+              <Button layoutX="86.0" layoutY="457.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="105.0"
+                      styleClass="blue-theme" stylesheets="@../css/style.css" text="管理员信息" />
+              <Button layoutX="200.0" layoutY="596.0" mnemonicParsing="false" onAction="#listGoods" prefHeight="44.0" prefWidth="95.0"
+                      styleClass="blue-theme" stylesheets="@../css/style.css" text="商品查询" />
+              <Button layoutX="517.0" layoutY="464.0" mnemonicParsing="false" onAction="#listSeller" prefHeight="64.0" prefWidth="130.0"
+                      styleClass="blue-theme" stylesheets="@../css/style.css" text="收银员信息" />
               <Circle fill="#2e69a2" layoutX="449.0" layoutY="645.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
               <Circle fill="#2e69a2" layoutX="264.0" layoutY="478.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
           </children>
@@ -75,7 +84,8 @@
     <center>
         <ScrollPane  fitToWidth="true"  hbarPolicy="NEVER"
                      vbarPolicy="AS_NEEDED" styleClass="default-theme">
-                <StackPane fx:id="mainContainer" layoutX="695.0" layoutY="32.0" minWidth="1041.0" prefHeight="988.0" prefWidth="1225.0" styleClass="default-theme" stylesheets="@../css/style.css">
+                <StackPane fx:id="mainContainer" layoutX="695.0" layoutY="32.0" minWidth="1041.0" prefHeight="988.0" prefWidth="1225.0"
+                           styleClass="default-theme" stylesheets="@../css/style.css">
                         <fx:include source="default.fxml" />
                     <padding>
                         <Insets bottom="5" left="30" right="10" top="10" />

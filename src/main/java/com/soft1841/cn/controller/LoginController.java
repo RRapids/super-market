@@ -26,7 +26,6 @@ public class LoginController {
     @FXML
     private javafx.scene.control.Button exitButton;
 
-
     private SellerService sellerService = ServiceFactory.getSellerServiceInstance();
     private AdminService adminService = ServiceFactory.getAdminServiceInstance();
 
@@ -70,10 +69,10 @@ public class LoginController {
                 mainStage.setMaximized(true);
                 mainStage.setScene(scene);
                 mainStage.show();
-//                //将这个管理员信息传给主控制器
-//                Admin admin = adminService.getAdminByAccount(account);
-//                MainController mainController = loader.getController();
-//                mainController.setAdmin(admin);
+               //将这个管理员信息传给主控制器
+                Admin admin = adminService.getAdminByNumber(account);
+                MainController mainController = fxmlLoader.getController();
+                mainController.setAdmin(admin);
                 Stage loginStage = (Stage) accountField.getScene().getWindow();
                 loginStage.close();
             } else {
@@ -98,3 +97,4 @@ public class LoginController {
         stage.close();
     }
 }
+
