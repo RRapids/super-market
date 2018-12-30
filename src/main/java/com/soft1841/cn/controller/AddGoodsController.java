@@ -49,7 +49,7 @@ public class AddGoodsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        typeList = typeService.selectAllTypes();
+        typeList = typeService.getAllTypes();
         typeData.addAll(typeList);
         goodsType.setItems(typeData);
         goodsType.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
@@ -64,7 +64,6 @@ public class AddGoodsController implements Initializable {
         String priceString = goodsPrice.getText().trim();
         String quantityString = goodsQuantity.getText().trim();
         String descriptionString = goodsDescription.getText().trim();
-
 
         Goods goods = new Goods();
         goods.setName(nameString);

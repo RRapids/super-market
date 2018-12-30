@@ -18,6 +18,7 @@ public interface GoodsDAO {
     List<Goods> selectGoods() throws SQLException;
 
     /**
+     *
      * 新增商品
      *
      * @param goods
@@ -67,7 +68,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    List<Goods> getGoodsByBarCode(String barCode) throws SQLException;
+    Goods getGoodsByBarCode(String barCode) throws SQLException;
 
 
 }

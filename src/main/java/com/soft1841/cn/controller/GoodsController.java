@@ -82,8 +82,7 @@ public class GoodsController implements Initializable {
         //3.将数据模型设置给下拉框
         typeComboBox.setItems(typeData);
         //4.下拉框选择事件监听，根据选择不同的类别，过滤出该类别的商品
-        typeComboBox.getSelectionModel().selectedItemProperty().
-                addListener((options, oldValue, newValue) -> {
+        typeComboBox.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             //移除掉之前的数据
             goodsPane.getChildren().removeAll(goodsData);
             goodsList = goodsService.getGoodsByTypeId(newValue.getId());
@@ -108,10 +107,10 @@ public class GoodsController implements Initializable {
             VBox leftBox = new VBox();
             leftBox.setSpacing(10);
             leftBox.setAlignment(Pos.TOP_CENTER);
-            //创建底部水平布局
-            HBox BottomBox = new HBox();
-            BottomBox.setSpacing(15);
-            BottomBox.setAlignment(Pos.BOTTOM_LEFT);
+            //创建右侧垂直布局
+            VBox rightBox = new VBox();
+            rightBox.setSpacing(15);
+            rightBox.setAlignment(Pos.BOTTOM_CENTER);
 
             //价格
             TextField priceLabel = new TextField("价格：" + goods.getPrice());
@@ -130,6 +129,9 @@ public class GoodsController implements Initializable {
             //描述
             TextField descriptionLabel = new TextField(goods.getDescription());
             descriptionLabel.setEditable(false);
+            //类别
+            TextField typeNameLabel = new TextField(goods.getTypename());
+            typeNameLabel.setEditable(false);
 
             //删除按钮
             Button delBtn = new Button("删除");
@@ -153,7 +155,7 @@ public class GoodsController implements Initializable {
 
             //编辑按钮
             Button alterBtn = new Button("编辑");
-                alterBtn.setOnAction(event -> {
+            alterBtn.setOnAction(event -> {
                 priceLabel.setEditable(true);
                 priceLabel.getStyleClass().add("blue-theme");
                 nameLabel.getStyleClass().add("blue-theme");
@@ -162,27 +164,26 @@ public class GoodsController implements Initializable {
 
             //确认按钮
             Button yesBtn = new Button("确认");
-             alterBtn.setOnAction(event -> {
+            alterBtn.setOnAction(event -> {
 
             });
 
 
             //按钮美化
-            delBtn.getStyleClass().addAll("radio-button2","btn-basic");
-            alterBtn.getStyleClass().addAll("radio-button2","btn-basic");
-            yesBtn.getStyleClass().addAll("radio-button2","btn-basic");
+            delBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
+            alterBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
+            yesBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
 
             //加入
-           BottomBox.getChildren().addAll(alterBtn,delBtn,yesBtn);
-            leftBox.getChildren().addAll( nameLabel, descriptionLabel,
-                    priceLabel, quantityLabel, barCodeLabel);
+            rightBox.getChildren().addAll(alterBtn,delBtn,yesBtn);
+            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
             //加入卡片
-            hBox.getChildren().addAll(leftBox, BottomBox);
+            hBox.getChildren().addAll(leftBox, rightBox);
             goodsPane.getChildren().add(hBox);
             //双击事件
             hBox.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2) {
-                        hBox.getChildren().clear();
+                    hBox.getChildren().clear();
                     ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
                     avatarImg.setFitWidth(150);
                     avatarImg.setFitHeight(150);
@@ -192,8 +193,8 @@ public class GoodsController implements Initializable {
                     hBox.setOnMouseClicked(event1 -> {
                         if (event1.getClickCount() == 2) {
                             hBox.getChildren().clear();
-                          hBox.getChildren().addAll(leftBox,BottomBox);                        }
-                   });
+                            hBox.getChildren().addAll(leftBox,rightBox);                        }
+                    });
                 }
             });
 
@@ -202,7 +203,7 @@ public class GoodsController implements Initializable {
     }
 
 
-    private void showGoodsData(List<Goods> goodsList){
+    private void showGoodsData(List<Goods> goodsList) {
         goodsData.addAll(goodsList);
         goodsPane.getChildren().add((Node) goodsData);
     }
