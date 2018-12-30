@@ -30,7 +30,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;;
 
@@ -129,13 +128,10 @@ public class GoodsController implements Initializable {
             quantityLabel.setEditable(false);
             //描述
             TextField descriptionLabel = new TextField(goods.getDescription());
-            quantityLabel.setEditable(false);
+            descriptionLabel.setEditable(false);
             //类别
             TextField typeNameLabel = new TextField(goods.getTypename());
             typeNameLabel.setEditable(false);
-           // tf.setBackground();//文本框背景设置为指定的颜色
-           // tf.setEditable(false);//文本框设置为不可编辑
-
 
             //删除按钮
             Button delBtn = new Button("删除");
@@ -160,7 +156,10 @@ public class GoodsController implements Initializable {
             //编辑按钮
             Button alterBtn = new Button("编辑");
             alterBtn.setOnAction(event -> {
-
+                priceLabel.setEditable(true);
+                priceLabel.getStyleClass().add("blue-theme");
+                nameLabel.getStyleClass().add("blue-theme");
+                nameLabel.setEditable(true);
             });
 
             //确认按钮

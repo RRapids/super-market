@@ -78,10 +78,8 @@ public class MainController implements Initializable{
             }
         }).start();
 
-
-
         try {
-            AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/default.fxml")).load();
+                AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/default.fxml")).load();
             mainContainer.getChildren().add(anchorPane);
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,13 +94,12 @@ public class MainController implements Initializable{
     }
 
 
-
     //封装一个切换视图的方法：用来根据fxml文件切换视图内容
     private void switchView(String fileName) throws Exception {
         //清空原有内容
         mainContainer.getChildren().clear();
-        BorderPane borderPane = new FXMLLoader(getClass().getResource("/fxml/" + fileName)).load();
-        mainContainer.getChildren().add(borderPane);
+        AnchorPane anchorPane = new FXMLLoader(getClass().getResource("/fxml/" + fileName)).load();
+        mainContainer.getChildren().add(anchorPane);
     }
 
     //显示默认主页数据

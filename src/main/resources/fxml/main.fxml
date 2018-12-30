@@ -8,7 +8,9 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="1091.0" prefWidth="2126.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.MainController">
+<BorderPane prefHeight="1091.0" prefWidth="2126.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.soft1841.cn.controller.MainController">
     <top>
         <AnchorPane prefHeight="44.0" prefWidth="1320.0" styleClass="blue-theme" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
            <children>
@@ -48,7 +50,7 @@
           <children>
               <Circle fill="#2e69a2" layoutX="336.0" layoutY="368.0"
                       radius="85.0" stroke="#030403" strokeType="INSIDE" />
-              <Label layoutX="264.0" layoutY="352.0" text="超市后台管理">
+              <Label layoutX="264.0" layoutY="352.0" text="超市后台管理" onMouseClicked="#listDefault">
                   <font>
                       <Font size="24.0" />
                   </font>
