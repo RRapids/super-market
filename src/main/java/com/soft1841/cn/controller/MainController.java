@@ -66,7 +66,6 @@ public class MainController implements Initializable{
     }
 
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //开启一个UI线程 ,将登录界面传过来的管理员信息显示在主界面的右上角
@@ -77,9 +76,9 @@ public class MainController implements Initializable{
                 adminAvatar.setImage(image);
                 //将头像显示为圆形
                 Circle circle = new Circle();
-                circle.setCenterX(20.0);
-                circle.setCenterY(20.0);
-                circle.setRadius(20.0);
+                circle.setCenterX(35.0);
+                circle.setCenterY(35.0);
+                circle.setRadius(35.0);
                 adminAvatar.setClip(circle);
                 //显示管理员姓名
                 adminName.setText(admin.getName());
