@@ -22,6 +22,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -31,9 +33,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;;
 
+import java.awt.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.List;
 
 /**
  * 商品
@@ -94,35 +98,43 @@ public class GoodsController implements Initializable {
         //通过循环遍历readerList集合，创建HBox来显示每个商品信息
         for (Goods goods : goodsList) {
             HBox hBox = new HBox();
-            hBox.setPrefSize(290, 280);
+            hBox.setPrefSize(320, 280);
             hBox.setSpacing(10);
             hBox.setPadding(new Insets(10, 10, 10, 10));
             hBox.getStyleClass().add("box");
+
             //创建左侧垂直布局
             VBox leftBox = new VBox();
             leftBox.setSpacing(10);
             leftBox.setAlignment(Pos.TOP_CENTER);
-            //价格
-            Label priceLabel = new Label("价格：" + goods.getPrice());
-            priceLabel.getStyleClass().add("role-name");
             //创建右侧垂直布局
             VBox rightBox = new VBox();
             rightBox.setSpacing(15);
-            rightBox.setAlignment(Pos.TOP_RIGHT);
+            rightBox.setAlignment(Pos.BOTTOM_CENTER);
+
+            //价格
+            TextField priceLabel = new TextField("价格：" + goods.getPrice());
+            priceLabel.getStyleClass().add("role-name");
+            priceLabel.setEditable(false);
             //商品名
-            Label nameLabel = new Label(goods.getName());
+            TextField nameLabel = new TextField(goods.getName());
             nameLabel.getStyleClass().add("font-title");
+            nameLabel.setEditable(false);
             //条码
-            Label barCodeLabel = new Label("条码：" + goods.getBarCode());
-            //数量
-            Label quantityLabel = new Label("库存：" + goods.getQuantity());
+            TextField barCodeLabel = new TextField("条码：" + goods.getBarCode());
+            barCodeLabel.setEditable(false);
+            //库存
+            TextField quantityLabel = new TextField("库存：" + goods.getQuantity());
+            quantityLabel.setEditable(false);
             //描述
-            Label descriptionLabel = new Label(goods.getDescription());
+            TextField descriptionLabel = new TextField(goods.getDescription());
+            descriptionLabel.setEditable(false);
             //类别
-            Label typeNameLabel = new Label(goods.getTypename());
-            //点击删除按钮做的事件
+            TextField typeNameLabel = new TextField(goods.getTypename());
+            typeNameLabel.setEditable(false);
+
+            //删除按钮
             Button delBtn = new Button("删除");
-            //点击删除按钮做的事件
             delBtn.setOnAction(event -> {
                 //弹出一个确认对话框
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -140,59 +152,32 @@ public class GoodsController implements Initializable {
 
                 }
             });
+
+            //编辑按钮
+            Button alterBtn = new Button("编辑");
+            alterBtn.setOnAction(event -> {
+                priceLabel.setEditable(true);
+                priceLabel.getStyleClass().add("blue-theme");
+                nameLabel.getStyleClass().add("blue-theme");
+                nameLabel.setEditable(true);
+            });
+
+            //确认按钮
+            Button yesBtn = new Button("确认");
+            alterBtn.setOnAction(event -> {
+
+            });
+
+
             //按钮美化
-            delBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
-            //添加修改按钮
-            Button priceBtn = new Button("价格修改");
-            priceBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
-            //事件
-            priceBtn.setOnAction(event -> {
-                TextInputDialog dialog = new TextInputDialog("请输入价格");
-                dialog.setTitle("商品修改");
-                dialog.setHeaderText("商品名" + goods.getName());
-                dialog.setContentText("输入新价格");
-                Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()) {
-                    String priceSting = result.get();
-                    goods.setPrice(priceSting);
-                    goodsService.updateGoods(goods);
+            delBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
+            alterBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
+            yesBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
 
-                }
-            });
-            Button quantityBtn = new Button("库存修改");
-            quantityBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
-            //事件
-            quantityBtn.setOnAction(event -> {
-                TextInputDialog dialog = new TextInputDialog("请输入库存");
-                dialog.setTitle("商品修改");
-                dialog.setHeaderText("商品名" + goods.getName());
-                dialog.setContentText("更改库存");
-                Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()) {
-                    String quantityString = result.get();
-                    goods.setQuantity(quantityString);
-                    goodsService.updateGoods(goods);
-                }
-            });
-            Button descriptionBtn = new Button("描述修改");
-            descriptionBtn.getStyleClass().addAll("btn-basic", "warning-theme", "btn-radius-large");
-            //事件
-            descriptionBtn.setOnAction(event -> {
-                TextInputDialog dialog = new TextInputDialog("请输入库存");
-                dialog.setTitle("商品修改");
-                dialog.setHeaderText("商品名" + goods.getName());
-                dialog.setContentText("修改描述");
-                Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()) {
-                    String descriptionString = result.get();
-                    goods.setDescription(descriptionString);
-                    goodsService.updateGoods(goods);
-                }
-            });
-
-            rightBox.getChildren().addAll(priceBtn, quantityBtn, descriptionBtn, delBtn);
+            //加入
+            rightBox.getChildren().addAll(alterBtn,delBtn,yesBtn);
             leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
-            //左边加入卡片
+            //加入卡片
             hBox.getChildren().addAll(leftBox, rightBox);
             goodsPane.getChildren().add(hBox);
             //双击事件
@@ -208,8 +193,6 @@ public class GoodsController implements Initializable {
                     hBox.setOnMouseClicked(event1 -> {
                         if (event1.getClickCount() == 2) {
                             hBox.getChildren().clear();
-//                            rightBox.getChildren().addAll(priceBtn, quantityBtn, descriptionBtn, delBtn);
-//                            leftBox.getChildren().addAll(typeNameLabel, nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
                             hBox.getChildren().addAll(leftBox,rightBox);                        }
                     });
                 }

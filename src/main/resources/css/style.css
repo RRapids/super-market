@@ -59,6 +59,10 @@
     -fx-background-color: #009688;
     -fx-text-fill: #fff;
 }
+.green1-theme{
+    -fx-background-color: rgb(97, 116, 158);
+    -fx-text-fill: #fff;
+}
 
 /*灰色主题*/
 .gray-theme {
@@ -81,6 +85,11 @@
 /*蓝色主题*/
 .blue-theme {
     -fx-background-color:rgb(46, 105, 162);
+    -fx-text-fill: #fff;
+}
+/*浅蓝色*/
+.bule-theme1{
+    -fx-background-color: rgb(75,177,255);
     -fx-text-fill: #fff;
 }
 /*内容盒子样式，设置一下圆角和内边距*/
@@ -118,7 +127,10 @@
 .font-white {
     -fx-text-fill: #fff;
 }
-
+/*红色字体*/
+.font-red{
+    -fx-text-fill: rgb(204, 0, 0);
+}
 /*灰色字体*/
 .font-gray {
     -fx-text-fill: rgb(110, 110, 110);
@@ -176,6 +188,9 @@
     -fx-background-color: rgb(40, 43, 51);
     -fx-text-fill: rgb(191, 192, 194);
 }
+.yes-Btn{
+    -fx-background-color: rgb(46, 105, 162);
+}
 
 /*左侧导航菜单按钮鼠标悬停效果*/
 .menu-btn:hover {
@@ -204,6 +219,7 @@
 }
 .new-theme{
     -fx-background-color: #6cc2f3;
+    -fx-text-fill: #fff;
 }
 .new1-theme{
     -fx-background-color: #a0bcae;

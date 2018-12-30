@@ -10,7 +10,7 @@ public class AdminServiceTest {
 
     @Test
     public void login(){
-        boolean flag = adminService.login("2649794","ac5849");
+        boolean flag = adminService.login("1","2");
         assertEquals(true,flag);
     }
 }
