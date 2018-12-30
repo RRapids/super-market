@@ -34,13 +34,12 @@ public class GoodsDAOImpl implements GoodsDAO {
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_goods")
                         .set("name", goods.getName())
-                        .set("type_id", goods.getTypeId())
-                        .set("barCode", goods.getBarCode())
                         .set("price", goods.getPrice())
                         .set("avatar", goods.getAvatar())
-                        .set("quantity", goods.getQuantity())
                         .set("description", goods.getDescription())
-                        .set("typename", goods.getTypename())
+                        .set("barCode", goods.getBarCode())
+                        .set("quantity", goods.getQuantity())
+                        .set("type_id", goods.getTypeId())
         );
     }
 
@@ -93,14 +92,19 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public List<Goods> getGoodsByBarCode(String barCode) throws SQLException {
-        List<Entity> entityList = Db.use().findLike("t_goods","barCode",barCode, Condition.LikeType.Contains);
-        List<Goods> goodsList = new ArrayList<>();
-        for (Entity entity:entityList) {
-            goodsList.add(convertGoods(entity));
-        }
-        return goodsList;
+    public Goods getGoodsByBarCode(String barCode) throws SQLException {
+        return null;
     }
+
+//    @Override
+//    public Goods getGoodsByBarCode(String barCode) throws SQLException {
+//        List<Entity> entityList = Db.use().findLike("t_goods","barCode",barCode, Condition.LikeType.Contains);
+//        List<Goods> goodsList = new ArrayList<>();
+//        for (Entity entity:entityList) {
+//            goodsList.add(convertGoods(entity));
+//        }
+//        return goodsList;
+//    }
 
     private Goods convertGoods(Entity entity) {
         Goods goods = new Goods();

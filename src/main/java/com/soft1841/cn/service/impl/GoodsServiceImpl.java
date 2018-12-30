@@ -1,4 +1,5 @@
 package com.soft1841.cn.service.impl;
+
 import com.soft1841.cn.dao.GoodsDAO;
 import com.soft1841.cn.entity.Goods;
 import com.soft1841.cn.service.GoodsService;
@@ -10,10 +11,12 @@ import java.util.List;
 
 /**
  * 商品服务接口
+ *
  * @author 腾飞
  */
 public class GoodsServiceImpl implements GoodsService {
     private GoodsDAO goodsDAO = DAOFactory.getGoodsDAOInstance();
+
     @Override
     public List<Goods> getAllGoods() {
         List<Goods> goodsList = new ArrayList<>();
@@ -24,6 +27,28 @@ public class GoodsServiceImpl implements GoodsService {
         }
         return goodsList;
     }
+
+
+    @Override
+    public boolean barCodeEnter(String barCode) {
+
+        Goods goods = null;
+
+        try {
+            goods = goodsDAO.getGoodsByBarCode(barCode);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            System.err.println("根据条码查询商品信息出现异常");
+        }
+        //根据条码查找成功
+        if (goods != null) {
+            return true;
+        }
+        return false;
+    }
+
+
 
     @Override
     public Long addGoods(Goods goods) {
@@ -43,7 +68,6 @@ public class GoodsServiceImpl implements GoodsService {
         } catch (SQLException e) {
             System.err.println("删除商品信息出现异常");
         }
-
     }
 
     @Override
@@ -92,13 +116,18 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> getGoodsByBarCode(String barCode) {
-        List<Goods> goodsList = new ArrayList<>();
-        try {
-            goodsList = goodsDAO.getGoodsByBarCode(barCode);
-        } catch (SQLException e) {
-            System.err.println("根据关键字查询商品信息出现异常");
-        }
-        return goodsList;
+        return null;
     }
+
+//    @Override
+//    public List<Goods> getGoodsByBarCode(String barCode) {
+//        List<Goods> goodsList = new ArrayList<>();
+//        try {
+//            goodsList = goodsDAO.getGoodsByBarCode(barCode);
+//        } catch (SQLException e) {
+//            System.err.println("根据关键字查询商品信息出现异常");
+//        }
+//        return goodsList;
+//    }
 
 }

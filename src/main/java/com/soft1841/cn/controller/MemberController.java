@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class MemberController implements Initializable {
     @FXML
@@ -34,6 +36,14 @@ public class MemberController implements Initializable {
     private List<Member> memberList = new ArrayList<>();
 
     private ObservableList<Member> memberData = FXCollections.observableArrayList();
+
+    private static final int MAX_THREADS = 4;
+    //线程池配置
+    private final Executor exec = Executors.newFixedThreadPool(MAX_THREADS, runnable -> {
+        Thread t = new Thread(runnable);
+        t.setDaemon(true);
+        return t;
+    });
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

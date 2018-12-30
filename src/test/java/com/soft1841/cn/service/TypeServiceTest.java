@@ -6,14 +6,13 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
 
 public class TypeServiceTest {
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
 
     @Test
     public void selectAllTypes(){
-        List<Type> typeList = typeService.selectAllTypes();
+        List<Type> typeList = typeService.getAllTypes();
         typeList.forEach(type -> System.out.println(type));
     }
 

@@ -66,7 +66,7 @@ public class TypeController implements Initializable {
         });
         //删除列加入表格
         typeTable.getColumns().add(delCol);
-        typeList = typeService.selectAllTypes();
+        typeList = typeService.getAllTypes();
         showTypeData(typeList);
     }
 

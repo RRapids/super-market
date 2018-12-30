@@ -17,6 +17,8 @@ public interface GoodsService {
      */
     List<Goods> getAllGoods();
 
+    boolean barCodeEnter(String barCode);
+
     /**
      * 新增商品
      *
