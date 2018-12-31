@@ -44,7 +44,7 @@ public interface GoodsDAO {
      * @param goods
      */
 
-    int updateGoods(Goods goods) throws SQLException;
+    int  updateGoods(Goods goods) throws SQLException;
 
     /**
      * 根据商品类别查询商品

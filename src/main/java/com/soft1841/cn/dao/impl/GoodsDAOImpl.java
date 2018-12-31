@@ -61,7 +61,6 @@ public class GoodsDAOImpl implements GoodsDAO {
     public int updateGoods(Goods goods) throws SQLException {
         return Db.use().update(
                 Entity.create().set("price", goods.getPrice())
-                        .set("avatar", goods.getAvatar())
                         .set("quantity", goods.getQuantity())
                         .set("description", goods.getDescription())
                         .set("barCode", goods.getBarCode()),

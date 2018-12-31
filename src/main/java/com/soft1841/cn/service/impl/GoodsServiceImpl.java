@@ -124,15 +124,6 @@ public class GoodsServiceImpl implements GoodsService {
         return 0;
     }
 
-//    @Override
-//    public List<Goods> getGoodsByBarCode(String barCode) {
-//        List<Goods> goodsList = new ArrayList<>();
-//        try {
-//            goodsList = goodsDAO.getGoodsByBarCode(barCode);
-//        } catch (SQLException e) {
-//            System.err.println("根据关键字查询商品信息出现异常");
-//        }
-//        return goodsList;
-//    }
+
 
 }

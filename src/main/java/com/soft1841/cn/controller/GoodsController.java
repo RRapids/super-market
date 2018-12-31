@@ -124,12 +124,15 @@ public class GoodsController implements Initializable {
             nameLabel.setEditable(false);
             //条码
             TextField barCodeLabel = new TextField("条码：" + goods.getBarCode());
+            barCodeLabel.getStyleClass().add("font-title");
             barCodeLabel.setEditable(false);
             //库存
             TextField quantityLabel = new TextField("库存：" + goods.getQuantity());
+            quantityLabel.getStyleClass().add("font-title");
             quantityLabel.setEditable(false);
             //描述
             TextField descriptionLabel = new TextField(goods.getDescription());
+            descriptionLabel.getStyleClass().add("font-title");
             descriptionLabel.setEditable(false);
 
             //删除按钮
@@ -143,13 +146,11 @@ public class GoodsController implements Initializable {
                 //确认
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
-
                     //得到id
                     long id = goods.getId();
                     goodsService.deleteGoodsByID(id);
                     //从流式面板删除
                     goodsPane.getChildren().remove(vBox);
-
                 }
             });
 
@@ -157,27 +158,61 @@ public class GoodsController implements Initializable {
             Button alterBtn = new Button("编辑");
             alterBtn.setStyle("-fx-pref-height:35;-fx-pref-width: 100 ");
             alterBtn.setOnAction(event -> {
-                priceLabel.setEditable(true);
-                priceLabel.getStyleClass().add("blue-theme");
-                nameLabel.getStyleClass().add("blue-theme");
                 nameLabel.setEditable(true);
+                nameLabel.getStyleClass().add("textField");
+                descriptionLabel.setEditable(true);
+                descriptionLabel.getStyleClass().add("textField");
+                priceLabel.setEditable(true);
+                priceLabel.getStyleClass().add("textField");
+                quantityLabel.setEditable(true);
+                quantityLabel.getStyleClass().add("textField");
+                barCodeLabel.setEditable(true);
+                barCodeLabel.getStyleClass().add("textField");
             });
+
 
             //确认按钮
             Button yesBtn = new Button("确认");
             yesBtn.setStyle("-fx-pref-height:35;-fx-pref-width: 100");
-            alterBtn.setOnAction(event -> {
+            yesBtn.setOnAction(event -> {
+                //价格
+                priceLabel.getStyleClass().addAll("role-name","text-field");
+                priceLabel.setEditable(false);
+                //商品名
+                nameLabel.getStyleClass().addAll("font-title","text-field");
+                nameLabel.setEditable(false);
+                //条码
+                barCodeLabel.getStyleClass().addAll("font-title","text-field");
+                barCodeLabel.setEditable(false);
+                //库存
+                quantityLabel.getStyleClass().addAll("font-title","text-field");
+                quantityLabel.setEditable(false);
+                //描述
+                descriptionLabel.getStyleClass().addAll("font-title","text-field");
+                descriptionLabel.setEditable(false);
+                //获取输入框中的信息
+                String name = nameLabel.getText().trim();
+                String description = descriptionLabel.getText().trim();
+                String price = priceLabel.getText().trim();
+                String quantity = quantityLabel.getText().trim();
+                String barCode = barCodeLabel.getText().trim();
+                goods.setName(name);
+                goods.setDescription(description);
+                goods.setPrice(price);
+                goods.setQuantity(quantity);
+                goods.setBarCode(barCode);
+                goodsService.updateGoods(goods);
 
             });
 
 
             //按钮美化
-            delBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
-            alterBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
-            yesBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
+            delBtn.getStyleClass().addAll("btn-basic", "btn-radius-large", "blue-theme");
+            alterBtn.getStyleClass().addAll("btn-basic", "btn-radius-large", "blue-theme");
+            yesBtn.getStyleClass().addAll("btn-basic", "btn-radius-large", "blue-theme");
 
             //加入
-            bottomBox.getChildren().addAll(alterBtn,delBtn,yesBtn);
+            bottomBox.getChildren().addAll(alterBtn, delBtn, yesBtn);
             topBox.getChildren().addAll(nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
             //加入卡片
             vBox.getChildren().addAll(topBox, bottomBox);
@@ -195,7 +230,8 @@ public class GoodsController implements Initializable {
                     vBox.setOnMouseClicked(event1 -> {
                         if (event1.getClickCount() == 2) {
                             vBox.getChildren().clear();
-                            vBox.getChildren().addAll(topBox,bottomBox);                        }
+                            vBox.getChildren().addAll(topBox, bottomBox);
+                        }
                     });
                 }
             });
@@ -207,7 +243,7 @@ public class GoodsController implements Initializable {
 
     private void showGoodsData(List<Goods> goodsList) {
         goodsData.addAll(goodsList);
-        goodsPane.getChildren().add((Node) goodsData);
+        goodsPane.getChildren().addAll((Node) goodsData);
     }
 
     //弹出新增界面方法
@@ -235,11 +271,13 @@ public class GoodsController implements Initializable {
         goodsPane.getChildren().removeAll(goodsData);
         String keywords = keywordsField.getText().trim();
         goodsList = goodsService.getGoodsLike(keywords);
-//        //通过条码查找（待修改）
+        //通过条码查找（待修改）
 //        String barCode = keywordsField.getText().trim();
 //        goodsList = goodsService.getGoodsByBarCode(barCode);
         showGoods(goodsList);
     }
 }
+
+
 
 
