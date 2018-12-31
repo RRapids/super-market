@@ -97,20 +97,22 @@ public class GoodsController implements Initializable {
         goodsPane.getChildren().clear();
         //通过循环遍历readerList集合，创建HBox来显示每个商品信息
         for (Goods goods : goodsList) {
-            HBox hBox = new HBox();
-            hBox.setPrefSize(320, 280);
-            hBox.setSpacing(10);
-            hBox.setPadding(new Insets(10, 10, 10, 10));
-            hBox.getStyleClass().add("box");
+            VBox vBox = new VBox();
+            vBox.setPrefSize(320, 300);
+            vBox.setSpacing(10);
+            vBox.setPadding(new Insets(10, 10, 10, 10));
+            vBox.getStyleClass().add("box");
 
-            //创建左侧垂直布局
-            VBox leftBox = new VBox();
-            leftBox.setSpacing(10);
-            leftBox.setAlignment(Pos.TOP_CENTER);
-            //创建右侧垂直布局
-            VBox rightBox = new VBox();
-            rightBox.setSpacing(15);
-            rightBox.setAlignment(Pos.BOTTOM_CENTER);
+            //创建上面垂直布局
+            VBox topBox = new VBox();
+            topBox.setStyle("-fx-pref-width: 320;-fx-pref-height: 230");
+            topBox.setSpacing(10);
+            topBox.setAlignment(Pos.TOP_CENTER);
+            //创建下面垂直布局
+            HBox bottomBox = new HBox();
+            bottomBox.setStyle("-fx-pref-width: 320;-fx-pref-height: 30");
+            bottomBox.setSpacing(10);
+            bottomBox.setAlignment(Pos.BOTTOM_LEFT);
 
             //价格
             TextField priceLabel = new TextField("价格：" + goods.getPrice());
@@ -132,6 +134,7 @@ public class GoodsController implements Initializable {
 
             //删除按钮
             Button delBtn = new Button("删除");
+            delBtn.setStyle("-fx-pref-height:35;-fx-pref-width: 100");
             delBtn.setOnAction(event -> {
                 //弹出一个确认对话框
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -145,13 +148,14 @@ public class GoodsController implements Initializable {
                     long id = goods.getId();
                     goodsService.deleteGoodsByID(id);
                     //从流式面板删除
-                    goodsPane.getChildren().remove(hBox);
+                    goodsPane.getChildren().remove(vBox);
 
                 }
             });
 
             //编辑按钮
             Button alterBtn = new Button("编辑");
+            alterBtn.setStyle("-fx-pref-height:35;-fx-pref-width: 100 ");
             alterBtn.setOnAction(event -> {
                 priceLabel.setEditable(true);
                 priceLabel.getStyleClass().add("blue-theme");
@@ -161,6 +165,7 @@ public class GoodsController implements Initializable {
 
             //确认按钮
             Button yesBtn = new Button("确认");
+            yesBtn.setStyle("-fx-pref-height:35;-fx-pref-width: 100");
             alterBtn.setOnAction(event -> {
 
             });
@@ -172,25 +177,25 @@ public class GoodsController implements Initializable {
             yesBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
 
             //加入
-            rightBox.getChildren().addAll(alterBtn,delBtn,yesBtn);
-            leftBox.getChildren().addAll(nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
+            bottomBox.getChildren().addAll(alterBtn,delBtn,yesBtn);
+            topBox.getChildren().addAll(nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
             //加入卡片
-            hBox.getChildren().addAll(leftBox, rightBox);
-            goodsPane.getChildren().add(hBox);
+            vBox.getChildren().addAll(topBox, bottomBox);
+            goodsPane.getChildren().add(vBox);
             //双击事件
-            hBox.setOnMouseClicked(event -> {
+            vBox.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2) {
-                    hBox.getChildren().clear();
+                    vBox.getChildren().clear();
                     ImageView avatarImg = new ImageView(new Image(goods.getAvatar()));
                     avatarImg.setFitWidth(150);
                     avatarImg.setFitHeight(150);
-                    hBox.getChildren().addAll(avatarImg);
+                    vBox.getChildren().addAll(avatarImg);
 
                     //再次双击返回
-                    hBox.setOnMouseClicked(event1 -> {
+                    vBox.setOnMouseClicked(event1 -> {
                         if (event1.getClickCount() == 2) {
-                            hBox.getChildren().clear();
-                            hBox.getChildren().addAll(leftBox,rightBox);                        }
+                            vBox.getChildren().clear();
+                            vBox.getChildren().addAll(topBox,bottomBox);                        }
                     });
                 }
             });
