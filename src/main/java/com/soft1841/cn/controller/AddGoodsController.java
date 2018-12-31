@@ -57,6 +57,7 @@ public class AddGoodsController implements Initializable {
                 }
         );
     }
+    //增加商品
     public void addGoods(){
         String nameString = goodsName.getText().trim();
         String avatarString = goodsAvatar.getText().trim();
@@ -66,6 +67,7 @@ public class AddGoodsController implements Initializable {
         String descriptionString = goodsDescription.getText().trim();
 
         Goods goods = new Goods();
+        goods.setTypeId(typeId);
         goods.setName(nameString);
         goods.setAvatar(avatarString);
         goods.setQuantity(quantityString);
@@ -77,7 +79,7 @@ public class AddGoodsController implements Initializable {
         this.getGoodsData().add(goods);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("提示信息");
-        alert.setHeaderText("新增图书成功!");
+        alert.setHeaderText("新增成功!");
         alert.showAndWait();
         Stage stage = (Stage) goodsName.getScene().getWindow();
         stage.close();

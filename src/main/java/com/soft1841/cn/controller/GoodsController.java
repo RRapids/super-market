@@ -7,7 +7,11 @@ import com.soft1841.cn.entity.Goods;
 import com.soft1841.cn.entity.Type;
 import com.soft1841.cn.service.GoodsService;
 import com.soft1841.cn.service.TypeService;
+import com.soft1841.cn.service.impl.TypeServiceImpl;
+import com.soft1841.cn.utils.DAOFactory;
 import com.soft1841.cn.utils.ServiceFactory;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -34,8 +38,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 /**
  * 商品
@@ -63,14 +65,6 @@ public class GoodsController implements Initializable {
     private List<Goods> goodsList = null;
     //类别集合，存放数据库类别表查询结果
     private List<Type> typeList = null;
-
-    private static final int MAX_THREADS = 4;
-    //线程池配置
-    private final Executor exec = Executors.newFixedThreadPool(MAX_THREADS, runnable -> {
-        Thread t = new Thread(runnable);
-        t.setDaemon(true);
-        return t;
-    });
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -133,7 +127,7 @@ public class GoodsController implements Initializable {
             TextField quantityLabel = new TextField("库存：" + goods.getQuantity());
             quantityLabel.setEditable(false);
             //描述
-            TextField descriptionLabel = new TextField("描述："+goods.getDescription());
+            TextField descriptionLabel = new TextField(goods.getDescription());
             descriptionLabel.setEditable(false);
 
             //删除按钮
@@ -173,12 +167,12 @@ public class GoodsController implements Initializable {
 
 
             //按钮美化
-            delBtn.getStyleClass().addAll("btn-basic", "btn-radius-large", "blue-theme");
-            alterBtn.getStyleClass().addAll("btn-basic", "btn-radius-large", "blue-theme");
-            yesBtn.getStyleClass().addAll("btn-basic", "btn-radius-large", "blue-theme");
+            delBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
+            alterBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
+            yesBtn.getStyleClass().addAll("btn-basic", "btn-radius-large","blue-theme");
 
             //加入
-            rightBox.getChildren().addAll(alterBtn, delBtn, yesBtn);
+            rightBox.getChildren().addAll(alterBtn,delBtn,yesBtn);
             leftBox.getChildren().addAll(nameLabel, descriptionLabel, priceLabel, quantityLabel, barCodeLabel);
             //加入卡片
             hBox.getChildren().addAll(leftBox, rightBox);
@@ -196,8 +190,7 @@ public class GoodsController implements Initializable {
                     hBox.setOnMouseClicked(event1 -> {
                         if (event1.getClickCount() == 2) {
                             hBox.getChildren().clear();
-                            hBox.getChildren().addAll(leftBox, rightBox);
-                        }
+                            hBox.getChildren().addAll(leftBox,rightBox);                        }
                     });
                 }
             });
@@ -205,6 +198,7 @@ public class GoodsController implements Initializable {
         }
 
     }
+
 
     private void showGoodsData(List<Goods> goodsList) {
         goodsData.addAll(goodsList);
@@ -236,9 +230,9 @@ public class GoodsController implements Initializable {
         goodsPane.getChildren().removeAll(goodsData);
         String keywords = keywordsField.getText().trim();
         goodsList = goodsService.getGoodsLike(keywords);
-        //通过条码查找（待修改）
-      //  String barCode = keywordsField.getText().trim();
-        // goodsList = goodsService.getGoodsByBarCode(barCode);
+//        //通过条码查找（待修改）
+//        String barCode = keywordsField.getText().trim();
+//        goodsList = goodsService.getGoodsByBarCode(barCode);
         showGoods(goodsList);
     }
 }
