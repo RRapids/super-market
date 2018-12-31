@@ -23,8 +23,7 @@ public class LoginController {
     private PasswordField passwordField;
     @FXML
     private ToggleGroup user;
-    @FXML
-    private javafx.scene.control.Button exitButton;
+
 
     private SellerService sellerService = ServiceFactory.getSellerServiceInstance();
     private AdminService adminService = ServiceFactory.getAdminServiceInstance();
@@ -82,19 +81,6 @@ public class LoginController {
         }
     }
 
-    @FXML
-    public void exitButton() throws Exception {
-        Stage loginStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 570, 395);
-        scene.getStylesheets().add("/css/style.css");
-        loginStage.setTitle("登录");
-        loginStage.setMaximized(true);
-        loginStage.setScene(scene);
-        loginStage.show();
-        Stage stage = (Stage) exitButton.getScene().getWindow();
-        stage.close();
-    }
+
 }
 
