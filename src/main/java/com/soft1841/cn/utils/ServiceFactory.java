@@ -31,4 +31,7 @@ public class ServiceFactory {
     public static DetailService getDetailServiceInstance() {
         return new DetailServiceImpl();
     }
+    public static AnalysisService getAnalysisServiceInstance(){
+        return new AnalysisServiceImpl();
+    }
 }

@@ -33,4 +33,6 @@ public interface TypeDAO {
      * @return
      */
     Type getTypeById(long id) throws SQLException;
+
+    int countTypes() throws SQLException;
 }

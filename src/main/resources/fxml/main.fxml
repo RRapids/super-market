@@ -78,6 +78,8 @@
                       styleClass="blue-theme" stylesheets="@../css/style.css" text="收银员信息" />
               <Circle fill="#2e69a2" layoutX="449.0" layoutY="645.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
               <Circle fill="#2e69a2" layoutX="264.0" layoutY="478.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+              <Button layoutX="200.0" layoutY="700.0" mnemonicParsing="false" onAction="#listGoodsAnalysis" prefHeight="64.0" prefWidth="130.0"
+                      styleClass="blue-theme" stylesheets="@../css/style.css" text="商品分析" />
           </children>
         </AnchorPane>
    </left>

@@ -119,6 +119,11 @@ public class GoodsServiceImpl implements GoodsService {
         return null;
     }
 
+    @Override
+    public int countByType(long typeId) {
+        return 0;
+    }
+
 //    @Override
 //    public List<Goods> getGoodsByBarCode(String barCode) {
 //        List<Goods> goodsList = new ArrayList<>();

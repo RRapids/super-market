@@ -96,6 +96,17 @@ public class GoodsDAOImpl implements GoodsDAO {
         return null;
     }
 
+    @Override
+    public int countByType(long typeId) throws SQLException {
+         return Db.use().queryNumber("SELECT COUNT(*) FROM t_goods WHERE type_id=?",typeId).intValue();
+    }
+
+    @Override
+    public int countGoods() throws SQLException {
+        return Db.use().queryNumber("SELECT COUNT(*) FROM t_goods").intValue();
+
+    }
+
 //    @Override
 //    public Goods getGoodsByBarCode(String barCode) throws SQLException {
 //        List<Entity> entityList = Db.use().findLike("t_goods","barCode",barCode, Condition.LikeType.Contains);

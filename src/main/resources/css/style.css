@@ -235,3 +235,6 @@
     -fx-border-radius: 20;
     -fx-background-radius: 20;
 }
+.hover-change:hover {
+    -fx-opacity: 0.5;
+}

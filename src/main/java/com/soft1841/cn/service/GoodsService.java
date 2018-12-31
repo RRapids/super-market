@@ -71,4 +71,7 @@ public interface GoodsService {
     List<Goods> getGoodsByBarCode(String barCode);
 
 
+    int countByType(long typeId);
+
+
 }

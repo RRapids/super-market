@@ -131,8 +131,15 @@
             </ImageView>
         </StackPane>
     </GridPane>
-    <StackPane AnchorPane.leftAnchor="7" AnchorPane.topAnchor="400"
-
+    <GridPane AnchorPane.leftAnchor="7" AnchorPane.topAnchor="400"
                AnchorPane.rightAnchor="454" prefHeight="499" prefWidth="750" styleClass="box">
-    </StackPane>
+        <StackPane GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="box,green-theme,hover-change" prefWidth="160"
+                   prefHeight="130">
+            <Label text="类别" fx:id="typeCount" styleClass="font-title"/>
+        </StackPane>
+        <StackPane GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="box,blue-theme,hover-change" prefWidth="160"
+                   prefHeight="130">
+            <Label text="商品" fx:id="goodsCount" styleClass="font-title"/>
+        </StackPane>
+    </GridPane>
 </AnchorPane>

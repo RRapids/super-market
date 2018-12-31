@@ -32,6 +32,7 @@ public class CashierController {
             alert.setTitle("提示");
             alert.setContentText("测试");
             alert.showAndWait();
+            System.out.println(barCode);
         }
     }
 

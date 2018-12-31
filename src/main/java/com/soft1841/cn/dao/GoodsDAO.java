@@ -55,7 +55,7 @@ public interface GoodsDAO {
     List<Goods> getGoodsByTypeId(long typeId) throws SQLException;
 
     /**
-     * 根据关键词模糊查询图书
+     * 根据关键词模糊查询
      * @param keywords
      * @return
      * @throws SQLException
@@ -63,12 +63,30 @@ public interface GoodsDAO {
     List<Goods> selectBooksLike(String keywords) throws SQLException;
 
     /**
-     * 根据barCode模糊查询图书
+     * 根据barCode模糊查询
      * @param barCode
      * @return
      * @throws SQLException
      */
     Goods getGoodsByBarCode(String barCode) throws SQLException;
+
+
+    /**
+     * 根据类别统计数量
+     *
+     * @param typeId
+     * @return
+     * @throws SQLException
+     */
+    int countByType(long typeId) throws SQLException;
+
+    /**
+     * 统计商品总数
+     *
+     * @return
+     * @throws SQLException
+     */
+    int countGoods() throws SQLException;
 
 
 }
