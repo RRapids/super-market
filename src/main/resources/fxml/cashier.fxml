@@ -7,6 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane prefHeight="900" prefWidth="1200" styleClass="blue-theme" xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.soft1841.cn.controller.CashierController">
@@ -87,13 +88,31 @@
                                            AnchorPane.leftAnchor="10.0"
                                            AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="5.0">
                                     <columns>
-                                        <TableColumn prefWidth="75.0" text="id"/>
-                                        <TableColumn prefWidth="75.0" text="名称"/>
-                                        <TableColumn prefWidth="75.0" text="价格"/>
-                                        <TableColumn prefWidth="75.0" text="条码"/>
-                                        <TableColumn prefWidth="75.0" text="数量"/>
-                                        <TableColumn prefWidth="75.0" text="类别"/>
-
+                                        <TableColumn  text="ID">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="id"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="310" text="名称">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="name"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn  prefWidth="150" text="价格">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="price"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn  prefWidth="220" text="条码">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="barCode"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn prefWidth="120" text="数量">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="quantity"/>
+                                            </cellValueFactory>
+                                        </TableColumn>
                                     </columns>
                                 </TableView>
                                 <HBox prefHeight="51.0" prefWidth="343.0" spacing="15.0" AnchorPane.leftAnchor="1500"

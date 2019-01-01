@@ -48,13 +48,7 @@ public class CashierController {
     public void barCodeEnter() throws Exception {
         String barCode = barCodeField.getText();
         goodsList = goodsService.getGoodsByBarCode(barCode);
-        goodsTable.getItems().addAll(goodsData);
         showGoodsData(goodsList);
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("提示");
-        alert.setContentText("测试");
-        alert.showAndWait();
 
     }
 
