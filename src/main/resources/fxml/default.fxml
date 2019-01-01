@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="983.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.DefaultController">
-    <HBox layoutX="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+    <HBox layoutX="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0"
+          AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
         <ImageView fx:id="smImg" fitHeight="350" fitWidth="760" />
     </HBox>
     <Label style="-fx-font-size: 30" styleClass="font-red" text="活动详情"

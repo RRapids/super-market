@@ -12,7 +12,8 @@
     <top>
         <AnchorPane prefHeight="44.0" prefWidth="1320.0" styleClass="blue-theme"
                     stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
-            <Label fx:id="timeLabel" styleClass="font-white" AnchorPane.rightAnchor="500" AnchorPane.topAnchor="30" />
+            <Label fx:id="timeLabel" styleClass="font-white"
+                   AnchorPane.rightAnchor="500" AnchorPane.topAnchor="30" />
             <ImageView fx:id="adminAvatar" fitHeight="70" fitWidth="70" AnchorPane.rightAnchor="110" AnchorPane.topAnchor="5">
             </ImageView>
             <Label fx:id="adminName" styleClass="font-white" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30" />
