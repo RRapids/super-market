@@ -121,7 +121,13 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public int countByType(long typeId) {
-        return 0;
+        int result = 0;
+        try {
+            result = goodsDAO.countByType(typeId);
+        } catch (SQLException e) {
+            System.err.println("根据类别统计商品信息出现异常");
+        }
+        return result;
     }
 
 
