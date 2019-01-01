@@ -1,7 +1,6 @@
 package com.soft1841.cn.dao;
 
 import cn.hutool.db.Entity;
-import com.soft1841.cn.entity.Detail;
 import com.soft1841.cn.entity.Ticket;
 
 import java.sql.SQLException;
@@ -12,7 +11,7 @@ public interface TicketDAO {
      * 查所有
      * @return
      */
-    List<Entity> getAllTicket() throws SQLException;
+    List<Ticket> getAllTicket() throws SQLException;
 
     /**
      * 根据id查询类别信息

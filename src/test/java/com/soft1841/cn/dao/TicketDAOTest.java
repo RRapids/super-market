@@ -23,7 +23,7 @@ public class TicketDAOTest {
 
     @Test
     public void getAllTicket() throws SQLException {
-        List<Entity> ticketList = ticketDAO.getAllTicket();
+        List<Ticket> ticketList = ticketDAO.getAllTicket();
         ticketList.forEach(ticket -> System.out.println(ticket));
 
     }
