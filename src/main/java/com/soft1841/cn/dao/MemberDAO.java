@@ -43,4 +43,6 @@ public interface MemberDAO {
      * 改手机
      */
     int updateMemberPhone(Member member)throws SQLException;
+
+    int countMembers() throws SQLException;
 }

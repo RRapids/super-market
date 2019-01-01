@@ -18,7 +18,7 @@ public class DefaultController implements Initializable {
     @FXML
     private ImageView smImg;
     @FXML
-    private Label typeCount, goodsCount;
+    private Label typeCount, goodsCount,memberCount,adminCount;
     private AnalysisService analysisService = ServiceFactory.getAnalysisServiceInstance();
 
     //轮播图资源数组
@@ -28,6 +28,8 @@ public class DefaultController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         typeCount.setText("类别"+analysisService.getTypesCount()+"种");
         goodsCount.setText("商品"+analysisService.getGoodsCount()+"个");
+        memberCount.setText("会员"+analysisService.getMembersCount()+"位");
+        adminCount.setText("管理员"+analysisService.getAdminsCount()+"位");
 
         //新建一个线程，用来轮播
         new Thread(new Runnable() {

@@ -39,4 +39,6 @@ public interface AdminDAO {
      * 根据姓名查
      */
     List<Admin> selectAdminByName(String keywords) throws SQLException;
+
+    int countAdmins() throws SQLException;
 }

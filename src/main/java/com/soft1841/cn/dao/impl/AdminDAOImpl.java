@@ -73,6 +73,11 @@ public class AdminDAOImpl implements AdminDAO {
         return adminList;
     }
 
+    @Override
+    public int countAdmins() throws SQLException {
+        return Db.use().queryNumber("SELECT COUNT(*) FROM t_admin").intValue();
+    }
+
     /**
      * 将Entity转换为Type类型
      *

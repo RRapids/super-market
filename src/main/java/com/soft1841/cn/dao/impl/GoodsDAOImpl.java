@@ -95,14 +95,9 @@ public class GoodsDAOImpl implements GoodsDAO {
         return null;
     }
 
-//    @Override
-    public int contByType(long typeId) throws SQLException {
-        return 0;
-    }
-
     @Override
     public int countByType(long typeId) throws SQLException {
-         return Db.use().queryNumber("SELECT COUNT(*) FROM t_goods WHERE type_id=?",typeId).intValue();
+         return Db.use().queryNumber("SELECT COUNT(*) FROM t_goods WHERE type_id = ? ",typeId).intValue();
     }
 
     @Override

@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class GoodsAnalysisController implements Initializable {
     @FXML
-    private StackPane pieCharPane,barCharPane;
+    private StackPane pieCharPane, barCharPane;
 
 
     private TypeService typeService = ServiceFactory.getTypeServiceInstance();
@@ -29,11 +29,12 @@ public class GoodsAnalysisController implements Initializable {
         initPieChart();
         initBarChart();
     }
-    private void initPieChart(){
+
+    private void initPieChart() {
         List<Type> typeList = typeService.getAllTypes();
-        for (Type type :typeList) {
+        for (Type type : typeList) {
             int count = goodsService.countByType(type.getId());
-            pieCharData.add(new PieChart.Data(type.getTypeName(),count));
+            pieCharData.add(new PieChart.Data(type.getTypeName(), count));
 
         }
         final PieChart chart = new PieChart(pieCharData);
@@ -41,23 +42,22 @@ public class GoodsAnalysisController implements Initializable {
         pieCharPane.getChildren().add(chart);
     }
 
-    private void initBarChart(){
+    private void initBarChart() {
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
-        final BarChart<String,Number> bc =
-                new BarChart<>(xAxis,yAxis);
+        final BarChart<String, Number> bc =
+                new BarChart<>(xAxis, yAxis);
         bc.setTitle("根据类别统计柱形图");
         xAxis.setLabel("商品类别");
         yAxis.setLabel("商品数量");
         XYChart.Series series = new XYChart.Series();
         series.setName("2018年统计数据");
         List<Type> typeList = typeService.getAllTypes();
-        for (Type type:typeList) {
+        for (Type type : typeList) {
             int count = goodsService.countByType(type.getId());
             series.getData().add(new XYChart.Data(type.getTypeName(), count));
-            }
-            bc.getData().addAll(series);
-        barCharPane.getChildren().add(bc);
         }
+        bc.getData().addAll(series);
+        barCharPane.getChildren().add(bc);
     }
-
+}

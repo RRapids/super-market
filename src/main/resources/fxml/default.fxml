@@ -139,7 +139,13 @@
                <Label fx:id="typeCount" styleClass="font-title" text="类别" />
            </StackPane>
            <StackPane prefHeight="200.0" prefWidth="200.0" styleClass="box,blue-theme,hover-change" GridPane.columnIndex="1" GridPane.rowIndex="0">
-               <Label fx:id="goodsCount" prefHeight="20.0" prefWidth="82.0" styleClass="font-title" text="商品" />
+               <Label fx:id="goodsCount"  styleClass="font-title" text="商品" />
+           </StackPane>
+           <StackPane prefHeight="200.0" prefWidth="200.0" styleClass="box,blue-theme,hover-change" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <Label fx:id="memberCount"  styleClass="font-title" text="会员" />
+           </StackPane>
+           <StackPane prefHeight="200.0" prefWidth="200.0" styleClass="box,blue-theme,hover-change" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <Label fx:id="adminCount"  styleClass="font-title" text="管理员" />
            </StackPane>
        </GridPane>
 </AnchorPane>

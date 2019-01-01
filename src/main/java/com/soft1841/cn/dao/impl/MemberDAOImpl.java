@@ -65,6 +65,11 @@ public class MemberDAOImpl implements MemberDAO {
                 Entity.create("t_member").set("memberID", member.getId())
         );    }
 
+    @Override
+    public int countMembers() throws SQLException {
+        return Db.use().queryNumber("SELECT COUNT(*) FROM t_member  ").intValue();
+    }
+
     /**
      * 将Entity转换为Type类型
      *

@@ -5,5 +5,7 @@ public interface AnalysisService {
 
     int getGoodsCount();
 
-    //int getAdminsCount();
+    int getAdminsCount();
+
+    int getMembersCount();
 }
