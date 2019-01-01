@@ -139,7 +139,8 @@ public class TypeController implements Initializable {
                 stackPane.setOpacity(1.0);
             });
         }
-
-
     }
+
+
+
 }

@@ -14,7 +14,7 @@ public interface TicketService {
      * 查所有
      * @return
      */
-    List<Entity> getAllTicket();
+    List<Ticket> getAllTicket();
 
     /**
      * 根据id查询类别信息

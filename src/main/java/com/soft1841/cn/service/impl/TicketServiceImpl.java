@@ -20,8 +20,8 @@ public class TicketServiceImpl implements TicketService {
     private TicketDAO ticketDAO = DAOFactory.getTicketDAOInstance();
 
     @Override
-    public List<Entity> getAllTicket() {
-        List<Entity> ticketList = new ArrayList<>();
+    public List<Ticket> getAllTicket() {
+        List<Ticket> ticketList = new ArrayList<>();
         try {
             ticketList = ticketDAO.getAllTicket();
         } catch (SQLException e) {

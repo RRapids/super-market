@@ -30,6 +30,13 @@
             <TextField prefHeight="45.0" prefWidth="276.0" text="请输入关键字" AnchorPane.leftAnchor="815" AnchorPane.topAnchor="15" />
             <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="38.0" prefWidth="97.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css" text="退出系统" AnchorPane.rightAnchor="350" AnchorPane.topAnchor="16" />
             <Button fx:id="exitButton" onAction="#exitButtonAction" prefHeight="38.0" prefWidth="97.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css" text="退出登录" AnchorPane.rightAnchor="200" AnchorPane.topAnchor="16" />
+            <Button  mnemonicParsing="false" onAction="#exportDetail" prefHeight="38.0"
+                     prefWidth="97.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css"
+                     text="导出明细" AnchorPane.rightAnchor="1100" AnchorPane.topAnchor="16" />
+            <Button  mnemonicParsing="false" onAction="#exportTicket" prefHeight="38.0"
+                     prefWidth="97.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css"
+                     text="导出小票" AnchorPane.rightAnchor="1200" AnchorPane.topAnchor="16" />
+
             <ImageView fitHeight="43.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="1044" AnchorPane.topAnchor="15">
                 <image>
                     <Image url="@../img/Magnifier.png" />

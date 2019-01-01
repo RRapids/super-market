@@ -40,6 +40,8 @@ public class CashierController {
 
     public void barCodeEnter() throws Exception {
         String barCode = barCodeField.getText().trim();
+        goodsService.getGoodsByBarCode(barCode);
+
         if (goodsService.barCodeEnter(barCode)){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("提示");

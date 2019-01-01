@@ -17,4 +17,6 @@
 
     <Button text="查询" AnchorPane.topAnchor="5" AnchorPane.leftAnchor="500"  styleClass="btn-radius-large,blue-theme" onAction="#searchByKeywords"/>
 
+    <Button text="导出商品数据"  AnchorPane.topAnchor="5" AnchorPane.leftAnchor="550"  styleClass="btn-radius-large,blue-theme" onAction="#exportGoods"/>
+
 </AnchorPane>

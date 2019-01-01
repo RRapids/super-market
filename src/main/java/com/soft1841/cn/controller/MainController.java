@@ -1,29 +1,33 @@
 package com.soft1841.cn.controller;
 
 import com.soft1841.cn.entity.Admin;
-import com.soft1841.cn.entity.Seller;
+import com.soft1841.cn.entity.Detail;
+import com.soft1841.cn.entity.Ticket;
+import com.soft1841.cn.service.DetailService;
+import com.soft1841.cn.service.TicketService;
+import com.soft1841.cn.utils.ExcelExportDetails;
+import com.soft1841.cn.utils.ExcelExportTicket;
+import com.soft1841.cn.utils.ServiceFactory;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -46,7 +50,16 @@ public class MainController implements Initializable{
     @FXML
     private Label timeLabel;
 
+    private List<Detail> detailList = null;
+
+    private List<Ticket> ticketList = null;
+
     private Admin admin;
+
+    private DetailService detailService = ServiceFactory.getDetailServiceInstance();
+
+    private TicketService ticketService = ServiceFactory.getTicketServiceInstance();
+
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
@@ -118,6 +131,11 @@ public class MainController implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        detailList = detailService.getAllDetails();
+
+        ticketList = ticketService.getAllTicket();
+
     }
 
 
@@ -164,4 +182,22 @@ public class MainController implements Initializable{
     public void listGoodsAnalysis()throws Exception{
         switchView("goods_analysis.fxml");
     }
+
+    //数据导出方法，采用hutool提供的工具类
+    public void exportDetail() {
+        ExcelExportDetails.export(detailList);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("提示信息");
+        alert.setHeaderText("明细数据已导出!请到D盘根目录查看!");
+        alert.showAndWait();
+    }
+
+    public void exportTicket() {
+        ExcelExportTicket.export(ticketList);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("提示信息");
+        alert.setHeaderText("小票数据已导出!请到D盘根目录查看!");
+        alert.showAndWait();
+    }
+
 }

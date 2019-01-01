@@ -1,17 +1,11 @@
 package com.soft1841.cn.controller;
 
-import com.soft1841.cn.dao.GoodsDAO;
-import com.soft1841.cn.dao.TypeDAO;
-import com.soft1841.cn.entity.Detail;
 import com.soft1841.cn.entity.Goods;
 import com.soft1841.cn.entity.Type;
 import com.soft1841.cn.service.GoodsService;
 import com.soft1841.cn.service.TypeService;
-import com.soft1841.cn.service.impl.TypeServiceImpl;
-import com.soft1841.cn.utils.DAOFactory;
+import com.soft1841.cn.utils.ExcelExportGoods;
 import com.soft1841.cn.utils.ServiceFactory;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -30,12 +24,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;;
 
-import java.awt.*;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 
@@ -279,6 +270,16 @@ public class GoodsController implements Initializable {
 //        goodsList = goodsService.getGoodsByBarCode(barCode);
         showGoods(goodsList);
     }
+
+    //数据导出方法，采用hutool提供的工具类
+    public void exportGoods() {
+        ExcelExportGoods.export(goodsList);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("提示信息");
+        alert.setHeaderText("商品数据已导出!请到D盘根目录查看!");
+        alert.showAndWait();
+    }
+
 }
 
 
