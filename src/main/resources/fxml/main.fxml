@@ -12,68 +12,65 @@
     <top>
         <AnchorPane prefHeight="44.0" prefWidth="1320.0" styleClass="blue-theme"
                     stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
-               <Label fx:id="timeLabel" styleClass="font-white" AnchorPane.rightAnchor="500" AnchorPane.topAnchor="30" />
-               <ImageView fx:id="adminAvatar" fitHeight="70" fitWidth="70" AnchorPane.rightAnchor="110" AnchorPane.topAnchor="5">
-               </ImageView>
-               <Label fx:id="adminName" styleClass="font-white" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30" />
-
-               <ImageView fitHeight="45.0" fitWidth="401.0" layoutX="76.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                   <image>
-                       <Image url="@../img/d.png" />
-                   </image>
-               </ImageView>
-               <ImageView fitHeight="67.0" fitWidth="110.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                   <image>
-                       <Image url="@../img/shoppingCar.png" />
-                   </image>
-               </ImageView>
-               <TextField prefHeight="45.0" prefWidth="276.0" text="请输入关键字" AnchorPane.leftAnchor="815" AnchorPane.topAnchor="15" />
-               <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="38.0" prefWidth="97.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css" text="退出系统" AnchorPane.rightAnchor="350" AnchorPane.topAnchor="16" />
-               <Button fx:id="exitButton" onAction="#exitButtonAction" prefHeight="38.0" prefWidth="97.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css" text="退出登录" AnchorPane.rightAnchor="200" AnchorPane.topAnchor="16" />
-               <ImageView fitHeight="43.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="1044" AnchorPane.topAnchor="15">
-                   <image>
-                       <Image url="@../img/Magnifier.png" />
-                   </image>
-               </ImageView>
-               <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="68.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css" text="查询" AnchorPane.rightAnchor="755" AnchorPane.topAnchor="20" />
+            <Label fx:id="timeLabel" styleClass="font-white" AnchorPane.rightAnchor="500" AnchorPane.topAnchor="30" />
+            <ImageView fx:id="adminAvatar" fitHeight="70" fitWidth="70" AnchorPane.rightAnchor="110" AnchorPane.topAnchor="5">
+            </ImageView>
+            <Label fx:id="adminName" styleClass="font-white" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30" />
+            <ImageView fitHeight="45.0" fitWidth="401.0" layoutX="76.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../img/d.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="110.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../img/shoppingCar.png" />
+                </image>
+            </ImageView>
+            <TextField prefHeight="45.0" prefWidth="276.0" text="请输入关键字" AnchorPane.leftAnchor="815" AnchorPane.topAnchor="15" />
+            <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="38.0" prefWidth="97.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css" text="退出系统" AnchorPane.rightAnchor="350" AnchorPane.topAnchor="16" />
+            <Button fx:id="exitButton" onAction="#exitButtonAction" prefHeight="38.0" prefWidth="97.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css" text="退出登录" AnchorPane.rightAnchor="200" AnchorPane.topAnchor="16" />
+            <ImageView fitHeight="43.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="1044" AnchorPane.topAnchor="15">
+                <image>
+                    <Image url="@../img/Magnifier.png" />
+                </image>
+            </ImageView>
+            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="68.0" styleClass="new-theme,btn-radius-large" stylesheets="@../css/style.css" text="查询" AnchorPane.rightAnchor="755" AnchorPane.topAnchor="20" />
         </AnchorPane>
     </top>
    <left>
        <AnchorPane prefHeight="990.0" prefWidth="600" BorderPane.alignment="CENTER">
-              <Circle fill="#2e69a2" layoutX="336.0" layoutY="368.0" radius="85.0" stroke="#030403" strokeType="INSIDE" />
-              <Label layoutX="264.0" layoutY="352.0" onMouseClicked="#listDefault" text="超市后台管理">
-                  <font>
-                      <Font size="24.0" />
-                  </font>
-              </Label>
-              <Circle fill="#2e69a2" layoutX="205.0" layoutY="124.0" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
-              <Circle fill="#2e69a2" layoutX="488.0" layoutY="158.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
-              <Circle fill="#2e69a2" layoutX="136.0" layoutY="478.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" />
-              <Circle fill="#2e69a2" layoutX="579.0" layoutY="497.0" radius="75.0" stroke="BLACK" strokeType="INSIDE" />
-              <Circle fill="#2e69a2" layoutX="135.0" layoutY="282.0" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
-              <Circle fill="#2e69a2" layoutX="247.0" layoutY="622.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-              <Button layoutX="163.0" layoutY="106.0" mnemonicParsing="false" onAction="#listMember" prefHeight="37.0" prefWidth="84.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="会员信息" />
-              <Button layoutX="436.0" layoutY="134.0" mnemonicParsing="false" onAction="#listType" prefHeight="49.0" prefWidth="105.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品类别" />
-              <Circle fill="#2e69a2" layoutX="488.0" layoutY="299.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-              <Button layoutX="86.0" layoutY="457.0" mnemonicParsing="false" onAction="#listAdmin" prefHeight="43.0" prefWidth="105.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="管理员信息" />
-              <Button layoutX="200.0" layoutY="596.0" mnemonicParsing="false" onAction="#listGoods" prefHeight="44.0" prefWidth="95.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品查询" />
-              <Button layoutX="517.0" layoutY="464.0" mnemonicParsing="false" onAction="#listSeller" prefHeight="64.0" prefWidth="130.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="收银员信息" />
-              <Circle fill="#2e69a2" layoutX="449.0" layoutY="645.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-              <Circle fill="#2e69a2" layoutX="264.0" layoutY="478.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
-              <Button layoutX="92.0" layoutY="267.0" mnemonicParsing="false" onAction="#listGoodsAnalysis" prefHeight="34.0" prefWidth="82.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品分析" />
+           <Circle fill="#2e69a2" layoutX="336.0" layoutY="368.0" radius="85.0" stroke="#030403" strokeType="INSIDE" />
+           <Label layoutX="264.0" layoutY="352.0" onMouseClicked="#listDefault" text="超市后台管理">
+               <font>
+                   <Font size="24.0" />
+               </font>
+           </Label>
+           <Circle fill="#2e69a2" layoutX="205.0" layoutY="124.0" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
+           <Circle fill="#2e69a2" layoutX="488.0" layoutY="158.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+           <Circle fill="#2e69a2" layoutX="136.0" layoutY="478.0" radius="63.0" stroke="BLACK" strokeType="INSIDE" />
+           <Circle fill="#2e69a2" layoutX="579.0" layoutY="497.0" radius="75.0" stroke="BLACK" strokeType="INSIDE" />
+           <Circle fill="#2e69a2" layoutX="135.0" layoutY="282.0" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
+           <Circle fill="#2e69a2" layoutX="247.0" layoutY="622.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+           <Button layoutX="163.0" layoutY="106.0" mnemonicParsing="false" onAction="#listMember" prefHeight="37.0" prefWidth="84.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="会员信息" />
+           <Button layoutX="436.0" layoutY="134.0" mnemonicParsing="false" onAction="#listType" prefHeight="49.0" prefWidth="105.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品类别" />
+           <Circle fill="#2e69a2" layoutX="488.0" layoutY="299.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+           <Button layoutX="86.0" layoutY="457.0" mnemonicParsing="false" onAction="#listAdmin" prefHeight="43.0" prefWidth="105.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="管理员信息" />
+           <Button layoutX="200.0" layoutY="596.0" mnemonicParsing="false" onAction="#listGoods" prefHeight="44.0" prefWidth="95.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品查询" />
+           <Button layoutX="517.0" layoutY="464.0" mnemonicParsing="false" onAction="#listSeller" prefHeight="64.0" prefWidth="130.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="收银员信息" />
+           <Circle fill="#2e69a2" layoutX="449.0" layoutY="645.0" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+           <Circle fill="#2e69a2" layoutX="264.0" layoutY="478.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+           <Button layoutX="92.0" layoutY="267.0" mnemonicParsing="false" onAction="#listGoodsAnalysis" prefHeight="34.0" prefWidth="82.0" styleClass="blue-theme" stylesheets="@../css/style.css" text="商品分析" />
         </AnchorPane>
    </left>
     <center>
         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="default-theme" vbarPolicy="AS_NEEDED">
            <content>
-                   <StackPane fx:id="mainContainer" layoutX="695.0" layoutY="32.0" minWidth="1041.0" prefHeight="988.0" prefWidth="1225.0" styleClass="default-theme" stylesheets="@../css/style.css">
-                      <children>
-                              <fx:include source="default.fxml" />
-                      </children>
-                       <padding>
-                           <Insets bottom="5" left="30" right="10" top="10" />
-                       </padding>
-                   </StackPane>
+               <StackPane fx:id="mainContainer" layoutX="695.0" layoutY="32.0" minWidth="1041.0" prefHeight="988.0" prefWidth="1225.0" styleClass="default-theme" stylesheets="@../css/style.css">
+                   <fx:include source="default.fxml" />
+                   <padding>
+                       <Insets bottom="5" left="30" right="10" top="10" />
+                   </padding>
+               </StackPane>
            </content>
         </ScrollPane>
     </center>
