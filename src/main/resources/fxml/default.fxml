@@ -135,10 +135,10 @@
        </GridPane>
        <Label style="-fx-font-size: 30" styleClass="font-red" text="数据统计" AnchorPane.leftAnchor="810" AnchorPane.topAnchor="530" />
        <GridPane layoutX="804.0" layoutY="596.0" prefHeight="213.0" prefWidth="425.0" styleClass="box" AnchorPane.leftAnchor="804.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="596.0">
-           <StackPane prefHeight="213.0" prefWidth="220.0" styleClass="box,green-theme,hover-change" GridPane.columnIndex="0" GridPane.rowIndex="0">
+           <StackPane prefHeight="200.0" prefWidth="200.0" styleClass="box,green-theme,hover-change" GridPane.columnIndex="0" GridPane.rowIndex="0">
                <Label fx:id="typeCount" styleClass="font-title" text="类别" />
            </StackPane>
-           <StackPane prefHeight="213.0" prefWidth="222.0" styleClass="box,blue-theme,hover-change" GridPane.columnIndex="1" GridPane.rowIndex="0">
+           <StackPane prefHeight="200.0" prefWidth="200.0" styleClass="box,blue-theme,hover-change" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <Label fx:id="goodsCount" prefHeight="20.0" prefWidth="82.0" styleClass="font-title" text="商品" />
            </StackPane>
        </GridPane>

@@ -1,6 +1,7 @@
 package com.soft1841.cn.controller;
 
 import com.soft1841.cn.entity.Admin;
+import com.soft1841.cn.entity.Seller;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

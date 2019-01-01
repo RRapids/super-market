@@ -6,11 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import javafx.scene.image.ImageView?>
 <BorderPane prefHeight="900" prefWidth="1200" styleClass="blue-theme" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.soft1841.cn.controller.CashierController">
    <top>
       <HBox prefWidth="200.0" spacing="15" styleClass="blue-theme" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
          <children>
+             <ImageView fx:id="sellerAvatar" fitHeight="70" fitWidth="70" AnchorPane.rightAnchor="110" AnchorPane.topAnchor="5">
+             </ImageView>
+             <Label fx:id="sellerName" styleClass="font-white" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="30" />
+
              <Button mnemonicParsing="false" prefWidth="97.0" stylesheets="@../css/style.css" text="前台销售">
                <styleClass>
                   <String fx:value="btn-basic" />

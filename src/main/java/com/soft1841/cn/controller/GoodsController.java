@@ -115,7 +115,7 @@ public class GoodsController implements Initializable {
             bottomBox.setAlignment(Pos.BOTTOM_LEFT);
 
             //价格
-            TextField priceLabel = new TextField("价格：" + goods.getPrice());
+            TextField priceLabel = new TextField(goods.getPrice());
             priceLabel.getStyleClass().add("role-name");
             priceLabel.setEditable(false);
             //商品名
@@ -123,11 +123,11 @@ public class GoodsController implements Initializable {
             nameLabel.getStyleClass().add("font-title");
             nameLabel.setEditable(false);
             //条码
-            TextField barCodeLabel = new TextField("条码：" + goods.getBarCode());
+            TextField barCodeLabel = new TextField(goods.getBarCode());
             barCodeLabel.getStyleClass().add("font-title");
             barCodeLabel.setEditable(false);
             //库存
-            TextField quantityLabel = new TextField("库存：" + goods.getQuantity());
+            TextField quantityLabel = new TextField( goods.getQuantity());
             quantityLabel.getStyleClass().add("font-title");
             quantityLabel.setEditable(false);
             //描述
@@ -158,8 +158,6 @@ public class GoodsController implements Initializable {
             Button alterBtn = new Button("编辑");
             alterBtn.setStyle("-fx-pref-height:35;-fx-pref-width: 100 ");
             alterBtn.setOnAction(event -> {
-                nameLabel.setEditable(true);
-                nameLabel.getStyleClass().add("textField");
                 descriptionLabel.setEditable(true);
                 descriptionLabel.getStyleClass().add("textField");
                 priceLabel.setEditable(true);
@@ -175,6 +173,19 @@ public class GoodsController implements Initializable {
             Button yesBtn = new Button("确认");
             yesBtn.setStyle("-fx-pref-height:35;-fx-pref-width: 100");
             yesBtn.setOnAction(event -> {
+                vBox.getChildren().clear();
+                //获取输入框中的信息
+                String price = priceLabel.getText().trim();
+                String quantity = quantityLabel.getText().trim();
+                String description = descriptionLabel.getText().trim();
+                String barCode = barCodeLabel.getText().trim();
+                goods.setDescription(description);
+                goods.setPrice(price);
+                goods.setQuantity(quantity);
+                goods.setBarCode(barCode);
+                goodsService.updateGoods(goods);
+
+                vBox.getChildren().addAll(topBox,bottomBox);
                 //价格
                 priceLabel.getStyleClass().addAll("role-name","text-field");
                 priceLabel.setEditable(false);
@@ -190,18 +201,10 @@ public class GoodsController implements Initializable {
                 //描述
                 descriptionLabel.getStyleClass().addAll("font-title","text-field");
                 descriptionLabel.setEditable(false);
-                //获取输入框中的信息
-                String name = nameLabel.getText().trim();
-                String description = descriptionLabel.getText().trim();
-                String price = priceLabel.getText().trim();
-                String quantity = quantityLabel.getText().trim();
-                String barCode = barCodeLabel.getText().trim();
-                goods.setName(name);
-                goods.setDescription(description);
-                goods.setPrice(price);
-                goods.setQuantity(quantity);
-                goods.setBarCode(barCode);
-                goodsService.updateGoods(goods);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("提示信息");
+                alert.setHeaderText("修改成功!");
+                alert.showAndWait();
 
             });
 
