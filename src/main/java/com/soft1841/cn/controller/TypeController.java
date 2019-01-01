@@ -2,6 +2,7 @@ package com.soft1841.cn.controller;
 
 import com.soft1841.cn.entity.Type;
 import com.soft1841.cn.service.TypeService;
+import com.soft1841.cn.utils.ColorUtil;
 import com.soft1841.cn.utils.ComponentUtil;
 import com.soft1841.cn.utils.ServiceFactory;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -10,6 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.StackPane;
 
 import java.net.URL;
 import java.util.List;
@@ -19,6 +22,9 @@ import java.util.ResourceBundle;
 public class TypeController implements Initializable {
     @FXML
     private TableView typeTable;
+
+    @FXML
+    private FlowPane typePane;
 
     private ObservableList<Type> typeData = FXCollections.observableArrayList();
 
@@ -60,6 +66,7 @@ public class TypeController implements Initializable {
                         typeData.remove(type);
                         //调用typeService的删除类别方法
                         typeService.deleteTypeById(type.getId());
+                        showTypePane();
                     }
                 });
             }
@@ -68,12 +75,10 @@ public class TypeController implements Initializable {
         typeTable.getColumns().add(delCol);
         typeList = typeService.getAllTypes();
         showTypeData(typeList);
+        showTypePane();
     }
 
-    private void showTypeData(List<Type> typeList) {
-        typeData.addAll(typeList);
-        typeTable.setItems(typeData);
-    }
+
 
     public void addType() {
         //创建一个输入对话框
@@ -94,7 +99,47 @@ public class TypeController implements Initializable {
             type.setId(id);
             //加入ObservableList，刷新模型视图，不用重新查询数据库也可以立刻看到结果
             typeData.add(type);
+            showTypePane();
 
         }
+    }
+    private void showTypeData(List<Type> typeList) {
+        typeData.addAll(typeList);
+        typeTable.setItems(typeData);
+    }
+
+    private void showTypePane(){
+        typePane.getChildren().clear();
+        typeList = typeService.getAllTypes();
+        //遍历类别集合数据
+        for (Type type : typeList) {
+            //给每个类别创建一个面板
+            StackPane stackPane = new StackPane();
+            //添加外部box样式（边框、圆矩形）
+            stackPane.getStyleClass().add("box");
+            //设置合适大小
+            stackPane.setPrefSize(120, 120);
+            //通过工具类获取一个随机色值
+            String colorString = ColorUtil.getColor();
+            //给面板设置背景色
+            stackPane.setStyle("-fx-background-color: " + colorString);
+            //创建一个文本标签，内容为该类别的名称
+            Label typeNameLabel = new Label(type.getTypeName());
+            //给标签添加外部title样式
+            typeNameLabel.getStyleClass().add("title");
+            //标签加入面板
+            stackPane.getChildren().add(typeNameLabel);
+            //面板加入布局文件中的流式布局
+            typePane.getChildren().add(stackPane);
+            //鼠标进入和离开，透明度变化效果
+            stackPane.setOnMouseEntered(event -> {
+                stackPane.setOpacity(0.5);
+            });
+            stackPane.setOnMouseExited(event -> {
+                stackPane.setOpacity(1.0);
+            });
+        }
+
+
     }
 }
