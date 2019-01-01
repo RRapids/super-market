@@ -28,28 +28,6 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsList;
     }
 
-
-    @Override
-    public boolean barCodeEnter(String barCode) {
-
-        Goods goods = null;
-
-        try {
-            goods = goodsDAO.getGoodsByBarCode(barCode);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
-            System.err.println("根据条码查询商品信息出现异常");
-        }
-        //根据条码查找成功
-        if (goods != null) {
-            return true;
-        }
-        return false;
-    }
-
-
-
     @Override
     public Long addGoods(Goods goods) {
         long result = 0;
@@ -116,7 +94,13 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> getGoodsByBarCode(String barCode) {
-        return null;
+        List<Goods> goodsList = new ArrayList<>();
+        try {
+            goodsList = goodsDAO.getGoodsByBarCode(barCode);
+        } catch (SQLException e) {
+            System.err.println("通过条码查找商品出现异常");
+        }
+        return goodsList;
     }
 
     @Override
@@ -129,7 +113,4 @@ public class GoodsServiceImpl implements GoodsService {
         }
         return result;
     }
-
-
-
 }

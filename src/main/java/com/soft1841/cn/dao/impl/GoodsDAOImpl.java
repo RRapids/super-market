@@ -91,8 +91,13 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public Goods getGoodsByBarCode(String barCode) throws SQLException {
-        return null;
+    public List<Goods> getGoodsByBarCode(String barCode) throws SQLException {
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_goods WHERE barCode = ?",barCode);
+        List<Goods> goodsList = new ArrayList<>();
+        for (Entity entity : entityList) {
+            goodsList.add(convertGoods(entity));
+        }
+        return goodsList;
     }
 
     @Override
@@ -106,15 +111,6 @@ public class GoodsDAOImpl implements GoodsDAO {
 
     }
 
-//    @Override
-//    public Goods getGoodsByBarCode(String barCode) throws SQLException {
-//        List<Entity> entityList = Db.use().findLike("t_goods","barCode",barCode, Condition.LikeType.Contains);
-//        List<Goods> goodsList = new ArrayList<>();
-//        for (Entity entity:entityList) {
-//            goodsList.add(convertGoods(entity));
-//        }
-//        return goodsList;
-//    }
 
     private Goods convertGoods(Entity entity) {
         Goods goods = new Goods();

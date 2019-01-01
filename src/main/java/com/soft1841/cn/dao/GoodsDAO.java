@@ -68,7 +68,7 @@ public interface GoodsDAO {
      * @return
      * @throws SQLException
      */
-    Goods getGoodsByBarCode(String barCode) throws SQLException;
+    List<Goods> getGoodsByBarCode(String barCode) throws SQLException;
 
 
     /**

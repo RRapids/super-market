@@ -17,8 +17,6 @@ public interface GoodsService {
      */
     List<Goods> getAllGoods();
 
-    boolean barCodeEnter(String barCode);
-
     /**
      * 新增商品
      *
@@ -72,6 +70,5 @@ public interface GoodsService {
 
 
     int countByType(long typeId);
-
 
 }

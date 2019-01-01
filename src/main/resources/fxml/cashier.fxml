@@ -83,16 +83,17 @@
                     <content>
                         <AnchorPane prefHeight="654" prefWidth="1210">
                             <children>
-                                <TableView  fx:id="goodsTable" prefHeight="500.0" prefWidth="865.0" AnchorPane.leftAnchor="10.0"
+                                <TableView fx:id="goodsTable" prefHeight="500.0" prefWidth="865.0"
+                                           AnchorPane.leftAnchor="10.0"
                                            AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="5.0">
                                     <columns>
                                         <TableColumn prefWidth="75.0" text="id"/>
-                                        <TableColumn prefWidth="75.0" text="商品条码"/>
-                                        <TableColumn prefWidth="75.0" text="商品名称"/>
-                                        <TableColumn prefWidth="75.0" text="规格"/>
-                                        <TableColumn prefWidth="75.0" text="单价"/>
+                                        <TableColumn prefWidth="75.0" text="名称"/>
+                                        <TableColumn prefWidth="75.0" text="价格"/>
+                                        <TableColumn prefWidth="75.0" text="条码"/>
                                         <TableColumn prefWidth="75.0" text="数量"/>
-                                        <TableColumn prefWidth="75.0" text="日期"/>
+                                        <TableColumn prefWidth="75.0" text="类别"/>
+
                                     </columns>
                                 </TableView>
                                 <HBox prefHeight="51.0" prefWidth="343.0" spacing="15.0" AnchorPane.leftAnchor="1500"
