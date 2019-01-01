@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--<?import javafx.scene.text.*?>-->
-<!--<?import javafx.scene.control.*?>-->
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
-<AnchorPane prefHeight="983.0" prefWidth="1227.0"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.DefaultController">
-    <HBox layoutX="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+
+<AnchorPane prefHeight="983.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.DefaultController">
+    <HBox layoutX="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0"
+          AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
         <ImageView fx:id="smImg" fitHeight="350" fitWidth="760" />
     </HBox>
-    <VBox prefHeight="460" prefWidth="415" styleClass="box,default-theme" AnchorPane.leftAnchor="810" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+    <Label style="-fx-font-size: 30" styleClass="font-red" text="活动详情"
+              AnchorPane.leftAnchor="810" AnchorPane.topAnchor="10" />
+    <VBox prefHeight="460" prefWidth="415" styleClass="box,default-theme" AnchorPane.leftAnchor="810" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="50">
         <AnchorPane prefHeight="468.0" prefWidth="407.0">
             <Label layoutY="4.0" prefHeight="28.0" prefWidth="155.0" text="新年促销方案" textFill="#0d22a8">
                 <font>
@@ -36,9 +31,6 @@
                 </font>
             </Label>
             <Label layoutY="122.0" prefHeight="28.0" prefWidth="394.0" text="在本超市购月饼或滋补品满200元,即送精美礼品一份。">
-                <font>
-                    <Font size="16.0" />
-                </font>
             </Label>
             <Label layoutY="150.0" prefHeight="28.0" prefWidth="394.0" text="礼品建议为红酒、打火机等时尚物品。">
                 <font>
@@ -80,15 +72,8 @@
                     <Font size="21.0" />
                 </font>
             </Label>
-            <Label layoutY="178.0" prefHeight="28.0" prefWidth="155.0" text="双十一促销方案" textFill="#0d22a8">
-                <font>
-                    <Font size="21.0" />
-                </font>
-            </Label>
+            <Label layoutY="178.0" prefHeight="28.0" prefWidth="155.0" text="双十一促销方案" textFill="#0d22a8"></Label>
             <Label layoutY="272.0" prefHeight="28.0" prefWidth="155.0" text="双十二促销方案" textFill="#0d22a8">
-                <font>
-                    <Font size="21.0" />
-                </font>
             </Label>
             <Label layoutY="365.0" prefHeight="28.0" prefWidth="155.0" text="元宵节促销方案" textFill="#0d22a8">
                 <font>
@@ -96,50 +81,65 @@
                 </font>
             </Label>
         </AnchorPane>
-    </VBox>
-    <Label AnchorPane.leftAnchor="810" AnchorPane.topAnchor="495" text="明星员工" style="-fx-font-size: 20" styleClass="font-red"/>
-    <GridPane AnchorPane.leftAnchor="810" AnchorPane.topAnchor="525"
-              prefHeight="408" prefWidth="380" vgap="10" hgap="10">
-        <StackPane GridPane.columnIndex="0" GridPane.rowIndex="0"
-                   prefWidth="180" prefHeight="195" styleClass="box">
-            <ImageView fitHeight="193" fitWidth="178">
-                <Image url="/img/j.jpg"/>
-            </ImageView>
-        </StackPane>
-        <StackPane GridPane.columnIndex="0" GridPane.rowIndex="0"
-                   prefWidth="180" prefHeight="195" styleClass="box">
-            <ImageView fitHeight="193" fitWidth="178">
-                <Image url="/img/k.jpg"/>
-            </ImageView>
-        </StackPane>
-        <StackPane GridPane.columnIndex="0" GridPane.rowIndex="1"
-                   prefWidth="180" prefHeight="195" styleClass="box">
-            <ImageView fitHeight="193" fitWidth="178">
-                <Image url="/img/l.jpg"/>
-            </ImageView>
-        </StackPane>
-        <StackPane GridPane.columnIndex="1" GridPane.rowIndex="0"
-                   prefWidth="180" prefHeight="195" styleClass="box">
-            <ImageView fitHeight="193" fitWidth="178">
-                <Image url="/img/n.jpg"/>
-            </ImageView>
-        </StackPane>
-        <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1"
-                   prefWidth="180" prefHeight="195" styleClass="box">
-            <ImageView fitHeight="193" fitWidth="178">
-                <Image url="/img/j.jpg"/>
-            </ImageView>
-        </StackPane>
-    </GridPane>
-    <GridPane AnchorPane.leftAnchor="7" AnchorPane.topAnchor="400"
-               AnchorPane.rightAnchor="454" prefHeight="499" prefWidth="750" styleClass="box">
-        <StackPane GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="box,green-theme,hover-change" prefWidth="160"
-                   prefHeight="130">
-            <Label text="类别" fx:id="typeCount" styleClass="font-title"/>
-        </StackPane>
-        <StackPane GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="box,blue-theme,hover-change" prefWidth="160"
-                   prefHeight="130">
-            <Label text="商品" fx:id="goodsCount" styleClass="font-title"/>
-        </StackPane>
-    </GridPane>
+       </VBox>
+       <Label style="-fx-font-size: 30" styleClass="font-red" text="明星员工" AnchorPane.leftAnchor="25" AnchorPane.topAnchor="390" />
+       <GridPane hgap="10" prefHeight="408" prefWidth="380" vgap="10" AnchorPane.leftAnchor="30" AnchorPane.topAnchor="440">
+           <StackPane prefHeight="195" prefWidth="180" styleClass="box"
+                         GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <ImageView fitHeight="193" fitWidth="178">
+                   <image>
+                       <Image url="/img/k.jpg" />
+                   </image>
+               </ImageView>
+              </StackPane>
+              <StackPane prefHeight="195" prefWidth="180" styleClass="box"
+                         GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <ImageView fitHeight="193" fitWidth="178">
+                      <image>
+                          <Image url="/img/l.jpg" />
+                      </image>
+                  </ImageView>
+              </StackPane>
+              <StackPane prefHeight="195" prefWidth="180" styleClass="box"
+                         GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <ImageView fitHeight="193" fitWidth="178">
+                      <image>
+                          <Image url="/img/n.jpg" />
+                      </image>
+                  </ImageView>
+              </StackPane>
+              <StackPane prefHeight="195" prefWidth="180" styleClass="box"
+                         GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ImageView fitHeight="193" fitWidth="178">
+                      <image>
+                          <Image url="/img/j.jpg" />
+                      </image>
+                  </ImageView>
+              </StackPane>
+           <StackPane prefHeight="195" prefWidth="180" styleClass="box"
+                      GridPane.columnIndex="2" GridPane.rowIndex="0">
+               <ImageView fitHeight="193" fitWidth="178">
+                   <image>
+                       <Image url="/img/m.jpg" />
+                   </image>
+               </ImageView>
+           </StackPane>
+           <StackPane prefHeight="195" prefWidth="180" styleClass="box"
+                      GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <ImageView fitHeight="193" fitWidth="178">
+                   <image>
+                       <Image url="/img/q.jpg" />
+                   </image>
+               </ImageView>
+           </StackPane>
+       </GridPane>
+       <Label style="-fx-font-size: 30" styleClass="font-red" text="数据统计" AnchorPane.leftAnchor="810" AnchorPane.topAnchor="530" />
+       <GridPane layoutX="804.0" layoutY="596.0" prefHeight="213.0" prefWidth="425.0" styleClass="box" AnchorPane.leftAnchor="804.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="596.0">
+           <StackPane prefHeight="213.0" prefWidth="220.0" styleClass="box,green-theme,hover-change" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <Label fx:id="typeCount" styleClass="font-title" text="类别" />
+           </StackPane>
+           <StackPane prefHeight="213.0" prefWidth="222.0" styleClass="box,blue-theme,hover-change" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <Label fx:id="goodsCount" prefHeight="20.0" prefWidth="82.0" styleClass="font-title" text="商品" />
+           </StackPane>
+       </GridPane>
 </AnchorPane>

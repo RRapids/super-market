@@ -16,7 +16,7 @@ public class AdminDAOTest {
 
     @Test
     public void getAdminByNumber() throws SQLException {
-        Admin admin = adminDAO.getAdminByNumber("2649794");
+        Admin admin = adminDAO.getAdminByNumber("2345898");
         System.out.println(admin);
     }
 }
