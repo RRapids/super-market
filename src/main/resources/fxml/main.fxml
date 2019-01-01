@@ -10,7 +10,8 @@
 
 <BorderPane prefHeight="1091.0" prefWidth="2126.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.soft1841.cn.controller.MainController">
     <top>
-        <AnchorPane prefHeight="44.0" prefWidth="1320.0" styleClass="blue-theme" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="44.0" prefWidth="1320.0" styleClass="blue-theme"
+                    stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
                <Label fx:id="timeLabel" styleClass="font-white" AnchorPane.rightAnchor="500" AnchorPane.topAnchor="30" />
                <ImageView fx:id="adminAvatar" fitHeight="70" fitWidth="70" AnchorPane.rightAnchor="110" AnchorPane.topAnchor="5">
                </ImageView>

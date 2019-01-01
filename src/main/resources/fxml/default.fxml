@@ -10,7 +10,8 @@
        <HBox layoutX="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
               <ImageView fx:id="smImg" fitHeight="350" fitWidth="760" />
        </HBox>
-       <Label style="-fx-font-size: 30" styleClass="font-red" text="活动详情" AnchorPane.leftAnchor="810" AnchorPane.topAnchor="10" />
+       <Label style="-fx-font-size: 30" styleClass="font-red" text="活动详情"
+              AnchorPane.leftAnchor="810" AnchorPane.topAnchor="10" />
        <VBox prefHeight="460" prefWidth="415" styleClass="box,default-theme" AnchorPane.leftAnchor="810" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="50">
           <children>
               <AnchorPane prefHeight="468.0" prefWidth="407.0">
